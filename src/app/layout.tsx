@@ -6,6 +6,9 @@ import { Anton, Bricolage_Grotesque } from "next/font/google";
 export const metadata: Metadata = {
   title: "Portfolio | Timothé",
   description: "Développeur Front-end - Portfolio",
+  verification: {
+    google: "lPh2JnaUbeZFSaBVArPkhEGZ7blb-ZGXigjZeUx0TI0",
+  },
 };
 
 const anton = Anton({
