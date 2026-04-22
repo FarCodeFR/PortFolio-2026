@@ -1,0 +1,219 @@
+//
+// Centrage des slides
+//
+
+.weather_switcher_inner {
+  width: 100%;
+  margin: 1% auto;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  gap: 10%;
+  max-width: 1350px;
+}
+
+//
+// Slide 1
+//
+
+// COL 1
+.first_slide_col_one {
+  width: 40%;
+
+  picture {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: end;
+    align-items: end;
+  }
+
+  img {
+    margin-top: 1em;
+    height: auto;
+    max-height: 65dvh;
+    width: 100%;
+    min-width: 200px;
+    max-width: 300px;
+    object-fit: contain;
+  }
+}
+
+// COL 2
+.first_slide_col_two {
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  & h1 {
+    @include h3;
+    margin-bottom: 20px;
+  }
+
+  & p {
+    @include bodyS;
+    color: $c-fg-secondary;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+}
+
+// Style des logos / boutons météo
+.weather_selector {
+  display: flex;
+  gap: 15px;
+
+  button {
+    margin-top: 2em;
+    background: none;
+    border: solid 1px grey;
+    border-radius: 12px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 60px;
+      height: auto;
+      opacity: 0.1;
+    }
+
+    &:hover,
+    &.active_weather {
+      background: rgba(255, 255, 255, 0.1);
+      border: solid 1px #faa916;
+      transform: translateY(-3px);
+
+      img {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Third slide
+
+.third_slide_project {
+  width: 100vw;
+
+  & h1 {
+    @include h3;
+  }
+
+  & picture {
+    display: flex;
+    width: 25%;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// Responsive
+
+@media (min-width: 1900px) {
+  .intro_project,
+  .first_slide_project,
+  .second_slide_project {
+    margin: 1.5% auto;
+  }
+}
+
+@media (max-width: 1899px) {
+  .intro_col_two picture > img,
+  .first_slide_col_one img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 1027px) {
+  .weather_switcher_inner {
+    max-width: 90%;
+    flex-direction: column;
+  }
+
+  .first_slide_col_one,
+  .first_slide_col_two {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather_switcher_inner {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  .first_slide_col_one,
+  .first_slide_col_two {
+    width: 100%;
+    text-align: center;
+  }
+
+  .first_slide_col_one {
+    picture {
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      img {
+        border-radius: 13%;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .second_slide_project h1,
+  .first_slide_col_two h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .weather_selector {
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    button {
+      margin-top: 1em;
+      width: 60px;
+      height: 60px;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  // Sections de prévisions (Images)
+  .third_slide_project {
+    width: 100%;
+    padding: 70px 20px 40px;
+
+    h1 {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    picture {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}

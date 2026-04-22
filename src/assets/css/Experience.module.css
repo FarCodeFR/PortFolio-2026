@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/* =========================
+   PRIMITIVES — SIZE SCALE
+   (Figma: Primitives / Size)
+========================= */
+/* =========================
+   PRIMITIVES — SPACING
+   (Figma: Spacing 4/8/12/16/20/24/28/32)
+========================= */
+/* aliases pratiques */
+/* =========================
+   PRIMITIVES — RADIUS
+   (Figma: Corner radius S/M/L => 4/8/16)
+========================= */
+/* =========================
+   PRIMITIVES — COLOR / GREY
+   (Figma: Color / Grey)
+========================= */
+/* =========================
+   PRIMITIVES — COLOR / BRAND
+   (Figma: Color / Brand)
+========================= */
+/* =========================
+   TYPO — FONT + TEXT STYLES
+   (Figma: Text styles)
+========================= */
+/* =========================
+   TYPO — SIZES
+========================= */
+/* =========================
+   TYPO — LINE HEIGHT (Figma)
+   100% => 1
+   110% => 1.1
+========================= */
+/* =========================
+   TYPO — LETTER SPACING
+========================= */
+/* =========================
+   SEMANTIC TOKENS (comme ta section Color)
+========================= */
+/* Brand states */
+/* Background */
+/* Foreground */
+/* Stroke */
+.experience_about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  width: 100%;
+}
+.experience_about div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.experience_about ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+.experience_about ul li > p:first-child {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+@media (max-width: 480px) {
+  .experience_about ul li > p:first-child {
+    font-size: 14px;
+  }
+}
+.experience_about ul li > p:first-child {
+  text-transform: uppercase;
+}
+.experience_about ul li > p:nth-child(2) {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+@media (max-width: 480px) {
+  .experience_about ul li > p:nth-child(2) {
+    font-size: 14px;
+  }
+}
+.experience_about ul li > p:nth-child(2) {
+  color: #a8a9ab;
+}
+.experience_about ul li > p:last-child {
+  padding: 4px 0 0 0;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #67696b;
+}
+
+.label_experience {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+@media (max-width: 480px) {
+  .experience_about {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 2em;
+  }
+  .experience_about div {
+    gap: 0;
+  }
+  .experience_about ul {
+    margin-top: 0.8em;
+  }
+}/*# sourceMappingURL=Experience.module.css.map */

@@ -1,0 +1,54 @@
+.hobby_about {
+  position: relative;
+  height: 30vh;
+  & h2 {
+    @include h2;
+  }
+  & ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 0;
+    max-width: 70%;
+  }
+  & ul > li {
+    @include bodyS;
+    text-transform: uppercase;
+    background-color: $c-bg-secondary;
+    border-radius: $radius-m;
+    padding: 1rem;
+  }
+  & img {
+    position: absolute;
+    right: -2.5em;
+    top: 80%;
+    width: 10vw;
+    height: auto;
+    // height: 30vh;
+    color: white;
+  }
+  & ul > li:hover {
+    background-color: $c-brand-rest;
+    color: $c-bg-primary;
+  }
+}
+
+//
+// Responsive
+//
+
+@media (max-width: 480px) {
+  .hobby_about {
+    height: auto;
+
+    & ul {
+      max-width: 100%;
+      gap: 10px;
+    }
+
+    & img {
+      display: none;
+    }
+  }
+}

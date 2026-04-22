@@ -1,0 +1,27 @@
+.containerEnemy {
+  width: 400px;
+  height: 400px;
+  background: $c-fg-primary;
+  border-radius: 10px;
+  padding: 10px;
+  & img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+  }
+}
+
+//
+// Responsive
+//
+
+@media (max-width: 480px) {
+  .containerEnemy {
+    width: 250px;
+    height: 250px;
+    padding: 0px !important;
+    scroll-snap-align: start;
+    background: transparent;
+    flex-shrink: 0;
+  }
+}

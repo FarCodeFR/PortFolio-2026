@@ -1,0 +1,42 @@
+@use "tokens" as *;
+@use "types" as *;
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+}
+
+@mixin buttonClosed {
+  text-align: start;
+  cursor: pointer;
+  border: none;
+  width: 6%;
+  height: 20px;
+  background: none;
+  color: $c-fg-primary;
+  @include navMaj;
+  &:hover {
+    transition: ease-in 0.2s;
+    color: $c-fg-primary-hover;
+  }
+  @media (max-width: 480px) {
+    width: 20%;
+  }
+}
+
+@mixin link {
+  text-decoration: none;
+  @include bodyM;
+  color: $c-fg-primary;
+  transition: ease-in 0.1s;
+  &:hover {
+    color: $c-brand-rest;
+  }
+}

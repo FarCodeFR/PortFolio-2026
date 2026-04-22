@@ -1,0 +1,87 @@
+@use "tokens" as *;
+
+@mixin navMaj {
+  font-family: $ff-body;
+  font-weight: 600;
+  font-size: $fs-nav;
+  line-height: $lh-100;
+  letter-spacing: $ls-0;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@mixin bodyS {
+  font-family: $ff-body;
+  font-weight: 600;
+  font-size: $fs-body-s;
+  line-height: $lh-100;
+  letter-spacing: $ls-0;
+}
+
+@mixin bodyM {
+  font-family: $ff-body;
+  font-weight: 500;
+  font-size: $fs-body-m;
+  line-height: $lh-110;
+  letter-spacing: $ls-0;
+
+  @media (max-width: 480px) {
+    font-size: $fs-body-m-mobile;
+  }
+}
+
+@mixin bodyL {
+  font-family: $ff-body;
+  font-weight: 600;
+  font-size: $fs-body-l;
+  line-height: $lh-100;
+  letter-spacing: $ls-0;
+}
+
+@mixin bodyXL {
+  font-family: $ff-body;
+  font-weight: 600;
+  font-size: $fs-body-xl;
+  line-height: $lh-100;
+  letter-spacing: $ls-0;
+}
+
+@mixin h2 {
+  font-family: $ff-title;
+  font-weight: 600;
+  font-size: $fs-h2;
+  line-height: $lh-110;
+  letter-spacing: $ls-h2;
+  text-transform: uppercase;
+
+  @media (max-width: 480px) {
+    font-size: $fs-h2-mobile;
+    letter-spacing: 2px;
+  }
+}
+
+@mixin h3 {
+  font-family: $ff-title;
+  font-weight: 600;
+  font-size: $fs-h3;
+  line-height: $lh-100;
+  letter-spacing: $ls-0;
+  text-transform: uppercase;
+  @media (max-width: 480px) {
+    font-size: $fs-h1-mobile;
+    line-height: 1.1;
+  }
+}
+
+@mixin txtCards {
+  font-family: $ff-title;
+  font-weight: 600;
+  font-size: $fs-cards;
+  line-height: $lh-32;
+  letter-spacing: $ls-0;
+  text-transform: uppercase;
+
+  @media (max-width: 480px) {
+    font-size: $fs-cards-mobile;
+  }
+}

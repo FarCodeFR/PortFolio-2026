@@ -1,0 +1,115 @@
+//
+// Container
+//
+.container_blure {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  background: #d6d6d609;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.visible {
+  width: 100%;
+  opacity: 1;
+  pointer-events: auto;
+  transition: ease-in 300ms;
+}
+
+//
+// About
+//
+.container_about {
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: start;
+  z-index: 101;
+  background: $c-bg-primary;
+  gap: 100px;
+  width: 70%;
+  height: 100%;
+  margin-left: auto;
+  padding: 16px 68px;
+  & button {
+    @include buttonClosed;
+    padding-top: 1em;
+  }
+}
+
+//
+// Heros
+//
+.heros_about {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0px;
+  color: white;
+  & h1 {
+    @include h3;
+    width: 45%;
+    color: $c-fg-primary;
+  }
+  & article {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 100%;
+    gap: 10px;
+    padding: 10px 0px;
+  }
+  & .bio_title {
+    @include bodyS;
+    color: $c-fg-secondary;
+  }
+  & .bio_description {
+    @include bodyL;
+    width: 100%;
+  }
+}
+//
+// Logo
+//
+.logo_about {
+  width: 100%;
+}
+
+.logo_track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+}
+
+//
+// Responsive
+//
+
+@media (max-width: 480px) {
+  .container_about {
+    width: 100%;
+    padding: 20px 24px;
+    gap: 50px;
+  }
+
+  .heros_about {
+    flex-direction: column;
+    gap: 30px;
+
+    & h1 {
+      width: 100%;
+    }
+
+    & article {
+      width: 100%;
+    }
+  }
+}

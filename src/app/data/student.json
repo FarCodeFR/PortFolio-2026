@@ -1,0 +1,40 @@
+[
+  {
+    "School": [
+      {
+        "id": 1,
+        "name": "ECV NANTES",
+        "post": "Lead développeur Front-end",
+        "date": "2025-2027"
+      },
+      {
+        "id": 2,
+        "name": "Wild Code School",
+        "post": "Developpeur Full Stack",
+        "date": "2024-2025"
+      }
+    ]
+  },
+  {
+    "Company": [
+      {
+        "id": 3,
+        "name": "Todo-Digital",
+        "post": "Développeur Wordpress",
+        "date": "2025-2027"
+      },
+      {
+        "id": 4,
+        "name": "Extincteur Nantais",
+        "post": "Technicien atelier",
+        "date": "2023-2024"
+      },
+      {
+        "id": 5,
+        "name": "Seris",
+        "post": "Agent de sécurité incendie",
+        "date": "2018-2023"
+      }
+    ]
+  }
+]

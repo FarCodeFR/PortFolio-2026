@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Portfolio personnel haute performance reconstruit avec Next.js 15 pour une expérience utilisateur fluide et un référencement optimisé.
 
-## Getting Started
+🚀 Technique d'empilement
+Cadre :Next.js 15(Routeur d'application)
 
-First, run the development server:
+Langue :Manuscrit
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Animations :GSAP+ScrollTrigger +@gsap/react
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Styles :Modules Sass (SCSS)avec injection globale de mixins/tokens
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Déploiement :Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✨ Nouvelles Fonctionnalités & Optimisations
+Architecture Next.js : Utilisation des Composants Serveur pour la performance et des Composants Client pour les interactions GSAP.
 
-## Learn More
+SEO & Metadata : Gestion dynamique des balises méta via l'API Metadata de Next.js, génération automatique de sitemap.xmlet robots.txt.
 
-To learn more about Next.js, take a look at the following resources:
+Système de Design (Sass) : Configuration avancée via next.config.tspour utiliser des tokens sémantiques et des mixins sans importations manuelles.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Gestion de Projet : Système de navigation fluide entre les projets avec transitions GSAP power3.inOut.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Responsive Design : Mixins dédiés pour une adaptation précise sur mobile.
 
-## Deploy on Vercel
+📂 Projets présentés
+Application météo — Interface météo immersive (React Native / Expo).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Mazinger — Shoot'em up arcade développé avec p5.js et Node.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Casse Croute — Application culinaire interactive (en cours).

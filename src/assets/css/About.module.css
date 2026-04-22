@@ -1,0 +1,187 @@
+@charset "UTF-8";
+/* =========================
+   PRIMITIVES — SIZE SCALE
+   (Figma: Primitives / Size)
+========================= */
+/* =========================
+   PRIMITIVES — SPACING
+   (Figma: Spacing 4/8/12/16/20/24/28/32)
+========================= */
+/* aliases pratiques */
+/* =========================
+   PRIMITIVES — RADIUS
+   (Figma: Corner radius S/M/L => 4/8/16)
+========================= */
+/* =========================
+   PRIMITIVES — COLOR / GREY
+   (Figma: Color / Grey)
+========================= */
+/* =========================
+   PRIMITIVES — COLOR / BRAND
+   (Figma: Color / Brand)
+========================= */
+/* =========================
+   TYPO — FONT + TEXT STYLES
+   (Figma: Text styles)
+========================= */
+/* =========================
+   TYPO — SIZES
+========================= */
+/* =========================
+   TYPO — LINE HEIGHT (Figma)
+   100% => 1
+   110% => 1.1
+========================= */
+/* =========================
+   TYPO — LETTER SPACING
+========================= */
+/* =========================
+   SEMANTIC TOKENS (comme ta section Color)
+========================= */
+/* Brand states */
+/* Background */
+/* Foreground */
+/* Stroke */
+.container_blure {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(214, 214, 214, 0.0352941176);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.visible {
+  width: 100%;
+  opacity: 1;
+  pointer-events: auto;
+  transition: ease-in 300ms;
+}
+
+.container_about {
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: start;
+  z-index: 101;
+  background: #26282c;
+  gap: 100px;
+  width: 70%;
+  height: 100%;
+  margin-left: auto;
+  padding: 16px 68px;
+}
+.container_about button {
+  text-align: start;
+  cursor: pointer;
+  border: none;
+  width: 6%;
+  height: 20px;
+  background: none;
+  color: #ffffff;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.container_about button:hover {
+  transition: ease-in 0.2s;
+  color: #faa916;
+}
+@media (max-width: 480px) {
+  .container_about button {
+    width: 20%;
+  }
+}
+.container_about button {
+  padding-top: 1em;
+}
+
+.heros_about {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0px;
+  color: white;
+}
+.heros_about h1 {
+  font-family: "Anton", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 80px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+@media (max-width: 480px) {
+  .heros_about h1 {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+}
+.heros_about h1 {
+  width: 45%;
+  color: #ffffff;
+}
+.heros_about article {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-width: 100%;
+  gap: 10px;
+  padding: 10px 0px;
+}
+.heros_about .bio_title {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #a8a9ab;
+}
+.heros_about .bio_description {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0;
+  width: 100%;
+}
+
+.logo_about {
+  width: 100%;
+}
+
+.logo_track {
+  display: flex;
+  gap: 40px;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+@media (max-width: 480px) {
+  .container_about {
+    width: 100%;
+    padding: 20px 24px;
+    gap: 50px;
+  }
+  .heros_about {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .heros_about h1 {
+    width: 100%;
+  }
+  .heros_about article {
+    width: 100%;
+  }
+}/*# sourceMappingURL=About.module.css.map */

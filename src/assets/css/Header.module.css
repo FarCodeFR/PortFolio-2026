@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/* =========================
+   PRIMITIVES — SIZE SCALE
+   (Figma: Primitives / Size)
+========================= */
+/* =========================
+   PRIMITIVES — SPACING
+   (Figma: Spacing 4/8/12/16/20/24/28/32)
+========================= */
+/* aliases pratiques */
+/* =========================
+   PRIMITIVES — RADIUS
+   (Figma: Corner radius S/M/L => 4/8/16)
+========================= */
+/* =========================
+   PRIMITIVES — COLOR / GREY
+   (Figma: Color / Grey)
+========================= */
+/* =========================
+   PRIMITIVES — COLOR / BRAND
+   (Figma: Color / Brand)
+========================= */
+/* =========================
+   TYPO — FONT + TEXT STYLES
+   (Figma: Text styles)
+========================= */
+/* =========================
+   TYPO — SIZES
+========================= */
+/* =========================
+   TYPO — LINE HEIGHT (Figma)
+   100% => 1
+   110% => 1.1
+========================= */
+/* =========================
+   TYPO — LETTER SPACING
+========================= */
+/* =========================
+   SEMANTIC TOKENS (comme ta section Color)
+========================= */
+/* Brand states */
+/* Background */
+/* Foreground */
+/* Stroke */
+.header {
+  position: sticky;
+  z-index: 9;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px;
+  align-items: start;
+}
+
+.nav {
+  display: flex;
+  align-items: flex-start;
+  gap: 35px;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.name p {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.name p:last-child {
+  color: #a8a9ab;
+}
+
+.links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.zone {
+  display: flex;
+  gap: 5px;
+}
+.zone p:last-of-type {
+  color: #a8a9ab;
+}
+
+.nav > ul,
+.zone > p {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav > ul {
+  cursor: pointer;
+}
+.nav > ul :hover {
+  color: #faa916;
+  transition: ease-in 0.2s;
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 1em 0;
+  }
+  .nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .links {
+    gap: 15px;
+  }
+  .name {
+    gap: 2px;
+  }
+  .zone {
+    display: none;
+  }
+}/*# sourceMappingURL=Header.module.css.map */

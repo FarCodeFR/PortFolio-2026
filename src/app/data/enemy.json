@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "enemyOne",
+    "image": "/images/projects/mazinger/mobs/enemyOne.png"
+  },
+  {
+    "id": 2,
+    "name": "enemyTwo",
+    "image": "/images/projects/mazinger/mobs/enemyTwo.png"
+  },
+  {
+    "id": 3,
+    "name": "enemyThree",
+    "image": "/images/projects/mazinger/mobs/enemyThree.png"
+  },
+  {
+    "id": 4,
+    "name": "enemyFour",
+    "image": "/images/projects/mazinger/mobs/enemyFour.png"
+  },
+  {
+    "id": 5,
+    "name": "enemyFive",
+    "image": "/images/projects/mazinger/mobs/enemyFive.png"
+  },
+  {
+    "id": 6,
+    "name": "enemySix",
+    "image": "/images/projects/mazinger/mobs/enemySix.png"
+  },
+  {
+    "id": 7,
+    "name": "enemySeven",
+    "image": "/images/projects/mazinger/mobs/enemySeven.png"
+  }
+]

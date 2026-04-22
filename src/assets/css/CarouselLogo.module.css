@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* =========================
+   PRIMITIVES — SIZE SCALE
+   (Figma: Primitives / Size)
+========================= */
+/* =========================
+   PRIMITIVES — SPACING
+   (Figma: Spacing 4/8/12/16/20/24/28/32)
+========================= */
+/* aliases pratiques */
+/* =========================
+   PRIMITIVES — RADIUS
+   (Figma: Corner radius S/M/L => 4/8/16)
+========================= */
+/* =========================
+   PRIMITIVES — COLOR / GREY
+   (Figma: Color / Grey)
+========================= */
+/* =========================
+   PRIMITIVES — COLOR / BRAND
+   (Figma: Color / Brand)
+========================= */
+/* =========================
+   TYPO — FONT + TEXT STYLES
+   (Figma: Text styles)
+========================= */
+/* =========================
+   TYPO — SIZES
+========================= */
+/* =========================
+   TYPO — LINE HEIGHT (Figma)
+   100% => 1
+   110% => 1.1
+========================= */
+/* =========================
+   TYPO — LETTER SPACING
+========================= */
+/* =========================
+   SEMANTIC TOKENS (comme ta section Color)
+========================= */
+/* Brand states */
+/* Background */
+/* Foreground */
+/* Stroke */
+.containerLogo {
+  width: 75px;
+  height: 75px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+}
+.containerLogo img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 480px) {
+  .containerLogo {
+    width: 60px;
+    height: 60px;
+  }
+}/*# sourceMappingURL=CarouselLogo.module.css.map */

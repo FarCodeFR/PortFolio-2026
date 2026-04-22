@@ -1,0 +1,86 @@
+@use "tokens" as *;
+@use "types" as *;
+@use "mixins" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: $c-bg-primary;
+  color: $c-fg-primary;
+  overflow: hidden;
+}
+
+.page {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 90px 1fr 110px;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.main {
+  padding: 0 22px;
+  width: 100%;
+}
+
+// Titre
+h2 {
+  @include h2;
+}
+h3 {
+  @include h3;
+}
+
+// Liste
+ul,
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+// Selection avec la sourie
+::selection {
+  background: #000;
+  color: $c-fg-primary-hover;
+}
+
+//
+// Responsive
+//
+@media (max-width: 480px) {
+  .page {
+    grid-template-rows: 70px 1fr 80px;
+    padding: 0 16px;
+  }
+  .main {
+    padding: 0;
+  }
+  // Scroll indicator
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}

@@ -1,0 +1,89 @@
+[
+  {
+    "WeatherApp": [
+      {
+        "id": 1,
+        "tag": "année",
+        "post": "2026"
+      },
+      {
+        "id": 2,
+        "tag": "à propos",
+        "post": "Application météo mobile développée entièrement seul avec React Native et Expo — première expérience mobile pour moi.\n\nIntégration de l'API Free Weather API pour afficher les données en temps réel : températures, prévisions horaires et hebdomadaires.\n\nDifficulté principale : apprendre React Native from scratch, gérer les différences avec React web et builder l'app sur mon téléphone via Xcode."
+      },
+      {
+        "id": 3,
+        "tag": "rôle",
+        "post": "développeur"
+      },
+      {
+        "id": 4,
+        "tag": "stack",
+        "post": "react-native / expo"
+      },
+      {
+        "id": 5,
+        "tag": "site",
+        "post": "https://github.com/FarCodeFR/WeatherApp"
+      }
+    ]
+  },
+  {
+    "Mazinger": [
+      {
+        "id": 1,
+        "tag": "année",
+        "post": "2026"
+      },
+      {
+        "id": 2,
+        "tag": "à propos",
+        "post": "Shoot 'em up arcade développé en binôme avec p5.js et Node.js/Express.\n\nMa contribution : développement des blueprints ennemis et boss, système de HUD (score, vies), changement de zones, gestion des musiques et options (mode invincible, son on/off).\n\nDifficulté principale : première utilisation de p5.js — apprendre à créer un jeu complet en HTML / JavaScript / CSS vanilla sans framework."
+      },
+      {
+        "id": 3,
+        "tag": "rôle",
+        "post": "développeur"
+      },
+      {
+        "id": 4,
+        "tag": "stack",
+        "post": "HTML / JavaScript / p5.js (Node.js + Express pour le serveur)"
+      },
+      {
+        "id": 5,
+        "tag": "site",
+        "post": "https://mazinger-type-bz0l.onrender.com/"
+      }
+    ]
+  },
+  {
+    "CasseCroute": [
+      {
+        "id": 1,
+        "tag": "année",
+        "post": "2025"
+      },
+      {
+        "id": 2,
+        "tag": "à propos",
+        "post": "Projet Full Stack réalisé en équipe de 4 pour la certification Développeur Web et Web Mobile. \n\nCasse-croûte est une application de partage de recettes intégrant un dashboard administrateur et un espace utilisateur sécurisé. \n\nLes utilisateurs peuvent gérer leurs favoris ainsi que leurs propres recettes (création, modification, suppression)."
+      },
+      {
+        "id": 3,
+        "tag": "rôle",
+        "post": "développeur"
+      },
+      {
+        "id": 4,
+        "tag": "stack",
+        "post": "React / TypeScript / Css / MySQL - (Node.js + Express pour le serveur)"
+      },
+      {
+        "id": 5,
+        "tag": "site",
+        "post": "https://github.com/FarCodeFR/Casse-Croute"
+      }
+    ]
+  }
+]

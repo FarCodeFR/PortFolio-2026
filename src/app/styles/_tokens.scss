@@ -1,0 +1,165 @@
+/* =========================
+   PRIMITIVES — SIZE SCALE
+   (Figma: Primitives / Size)
+========================= */
+$size-4: 4px;
+$size-8: 8px;
+$size-12: 12px;
+$size-16: 16px;
+$size-20: 20px;
+$size-24: 24px;
+$size-28: 28px;
+$size-32: 32px;
+
+$size-80: 80px;
+$size-100: 100px;
+$size-104: 104px;
+
+/* =========================
+   PRIMITIVES — SPACING
+   (Figma: Spacing 4/8/12/16/20/24/28/32)
+========================= */
+$space-4: $size-4;
+$space-8: $size-8;
+$space-12: $size-12;
+$space-16: $size-16;
+$space-20: $size-20;
+$space-24: $size-24;
+$space-28: $size-28;
+$space-32: $size-32;
+
+/* aliases pratiques */
+$space-xs: $space-4;
+$space-s: $space-8;
+$space-m: $space-16;
+$space-l: $space-24;
+$space-xl: $space-32;
+
+/* =========================
+   PRIMITIVES — RADIUS
+   (Figma: Corner radius S/M/L => 4/8/16)
+========================= */
+$radius-s: 4px;
+$radius-m: 8px;
+$radius-l: 16px;
+
+/* =========================
+   PRIMITIVES — COLOR / GREY
+   (Figma: Color / Grey)
+========================= */
+$grey-black: #26282c;
+$grey-5: #313337;
+$grey-10: #3c3e41;
+$grey-15: #47484c;
+$grey-20: #515356;
+$grey-25: #5c5e61;
+$grey-30: #67696b;
+$grey-35: #727376;
+$grey-40: #7d7e80;
+$grey-45: #88898b;
+$grey-50: #929395;
+$grey-55: #9d9ea0;
+$grey-60: #a8a9ab;
+$grey-65: #b3b4b5;
+$grey-70: #bebec0;
+$grey-75: #c9c9ca;
+$grey-80: #d4d4d5;
+$grey-85: #dededf;
+$grey-90: #e9e9ea;
+$grey-95: #f4f4f4;
+$grey-white: #ffffff;
+
+/* =========================
+   PRIMITIVES — COLOR / BRAND
+   (Figma: Color / Brand)
+========================= */
+$brand-10: #3b352a;
+$brand-20: #504228;
+$brand-30: #664f25;
+$brand-40: #7b5c23;
+$brand-50: #906921;
+$brand-60: #a5751f;
+$brand-70: #ba821d;
+$brand-80: #d08f1a;
+$brand-90: #e59c18;
+$brand-100: #faa916;
+$brand-110: #fab22d;
+$brand-120: #fbba45;
+$brand-130: #fcc35c;
+$brand-140: #fccb73;
+$brand-150: #fdd48a;
+$brand-160: #fddda2;
+$brand-170: #fde5b9;
+$brand-180: #ffeed0;
+$brand-190: #fef6e8;
+
+/* =========================
+   TYPO — FONT + TEXT STYLES
+   (Figma: Text styles)
+========================= */
+
+$ff-title: var(--font-anton), system-ui, sans-serif; // H2 / H3 / Txt-Cards
+$ff-body: var(--font-bricolage), system-ui, sans-serif; // Nav + Body
+
+/* =========================
+   TYPO — SIZES
+========================= */
+$fs-nav: 16px;
+
+$fs-body-s: 12px;
+$fs-body-m: 16px;
+$fs-body-l: 20px;
+$fs-body-xl: 24px;
+
+$fs-h1: 103px;
+$fs-h2: 90px;
+$fs-h3: 80px;
+
+$fs-cards: 32px;
+
+$fs-h1-mobile: 48px;
+$fs-h2-mobile: 40px;
+$fs-h3-mobile: 32px;
+
+$fs-cards-mobile: 24px;
+
+$fs-body-m-mobile: 14px;
+
+/* =========================
+   TYPO — LINE HEIGHT (Figma)
+   100% => 1
+   110% => 1.1
+========================= */
+$lh-100: 1;
+$lh-110: 1.3;
+$lh-32: 32px;
+/* =========================
+   TYPO — LETTER SPACING
+========================= */
+$ls-0: 0;
+$ls-h2: 4px;
+/* =========================
+   SEMANTIC TOKENS (comme ta section Color)
+========================= */
+
+/* Brand states */
+$c-brand-rest: $brand-100;
+$c-brand-hover: $grey-white;
+$c-brand-pressed: $grey-white;
+$c-brand-selected: $grey-white;
+
+/* Background */
+$c-bg-primary: $grey-black;
+$c-bg-secondary: $grey-20;
+
+/* Foreground */
+$c-fg-primary: $grey-white;
+$c-fg-primary-hover: $brand-100;
+$c-fg-primary-pressed: $grey-white;
+$c-fg-primary-selected: $grey-5;
+
+$c-fg-secondary: $grey-60;
+$c-fg-secondary-hover: $grey-white;
+
+/* Stroke */
+$c-stroke: $grey-white;

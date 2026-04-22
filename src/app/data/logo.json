@@ -1,0 +1,14 @@
+[
+  { "id": 1, "name": "figma", "image": "/images/logo/figma.png" },
+  { "id": 2, "name": "express", "image": "/images/logo/express.png" },
+  { "id": 3, "name": "mysql", "image": "/images/logo/mysql.png" },
+  { "id": 4, "name": "css", "image": "/images/logo/css3.png" },
+  { "id": 5, "name": "html", "image": "/images/logo/html5.png" },
+  { "id": 6, "name": "node", "image": "/images/logo/nodejs.png" },
+  { "id": 7, "name": "github", "image": "/images/logo/github.png" },
+  { "id": 8, "name": "gitlab", "image": "/images/logo/gitlab.png" },
+  { "id": 9, "name": "wordpress", "image": "/images/logo/wordpress.png" },
+  { "id": 10, "name": "expo", "image": "/images/logo/expo.png" },
+  { "id": 11, "name": "sass", "image": "/images/logo/sass.png" },
+  { "id": 12, "name": "react", "image": "/images/logo/react.png" }
+]

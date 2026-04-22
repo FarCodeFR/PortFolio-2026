@@ -1,0 +1,105 @@
+.container_modal_project_detail {
+  position: fixed;
+  top: 62px;
+  right: 0;
+  width: 100%;
+  height: calc(100dvh - 62px);
+  transform: translateX(100%);
+  z-index: 7;
+  background: $c-bg-primary;
+}
+
+.container_next_project {
+  display: flex;
+  justify-content: start;
+  margin: 0 auto;
+  max-width: 1350px;
+  width: 100%;
+}
+
+@media (max-width: 1027px) {
+  .container_next_project {
+    max-width: 90%;
+    min-width: auto;
+  }
+}
+
+.container_project_detail {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  overflow-y: scroll;
+
+  & .btn_next_project {
+    position: fixed;
+    bottom: 20%;
+    @include buttonClosed;
+  }
+
+  .btn_next_project {
+    @include h3;
+    width: 500px;
+    padding: 0;
+
+    & img {
+      padding-bottom: 5px;
+      rotate: 90deg;
+      width: auto !important;
+      height: auto !important;
+      scale: 0.5;
+      transition: ease-in 0.2s;
+    }
+  }
+
+  .btn_next_project:hover > img {
+    rotate: 0deg;
+    scale: 1;
+  }
+}
+
+//
+// Responsive
+//
+
+@media (max-width: 480px) {
+  .container_modal_project_detail {
+    // Sécurité pour le home indicator iPhone (env safe-area)
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .container_project_detail {
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+    // Laisse de la place pour la barre en bas du navigateur
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .container_next_project {
+    order: 10;
+    padding: 40px 0;
+    // Espace supplémentaire pour ne pas être caché par la barre Safari
+    padding-bottom: calc(40px + env(safe-area-inset-bottom));
+    justify-content: start;
+  }
+
+  .btn_next_project:hover {
+    margin: 0 !important;
+  }
+
+  .container_project_detail .btn_next_project {
+    position: static;
+    margin: 0% 5% !important;
+    width: auto;
+    height: auto;
+    max-width: 280px;
+    font-size: 40px;
+
+    & img {
+      display: none;
+    }
+  }
+}

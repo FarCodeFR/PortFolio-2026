@@ -1,0 +1,271 @@
+.intro_col_two {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+
+  & picture {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+  }
+
+  & picture > img {
+    border-radius: 13%;
+    min-width: 300px;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.wrapper_project_detail {
+  display: flex;
+  flex-direction: row;
+  width: 500vw;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  height: 100dvh;
+}
+
+.first_slide_project {
+  width: 100vw;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  h1 {
+    @include h3;
+    text-align: start;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  picture {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    img {
+      width: 25%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 0 auto;
+
+      @media (max-width: 1024px) {
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.third_slide_project {
+  width: 100vw;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .second_style_inner {
+    width: 100%;
+    margin: 1% auto;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: start;
+    gap: 2%;
+    max-width: 1350px;
+  }
+
+  h1 {
+    @include h3;
+    text-align: center;
+    width: 100%;
+    margin: 2% auto;
+  }
+
+  picture {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 900px;
+
+    img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      @media (max-width: 1024px) {
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.four_slide_project {
+  width: 100vw;
+  height: 100dvh;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  & div {
+    gap: 5% !important;
+  }
+
+  & h1 {
+    @include h3;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  & picture {
+    width: 35%;
+    margin: 0 auto;
+
+    & img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+// Cards enemy
+
+.enemy_track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+}
+
+//
+// Responsive
+//
+
+@media (max-width: 480px) {
+  .intro_col_one,
+  .intro_col_two {
+    width: 100%;
+  }
+
+  .intro_col_one h1 {
+    height: auto;
+    margin-bottom: 20px;
+    font-size: 48px !important;
+  }
+
+  // Section Joueur
+  .first_slide_project {
+    .second_style_inner {
+      align-items: center;
+      text-align: center;
+      gap: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    picture img {
+      width: 60%;
+    }
+  }
+
+  .second_style_inner {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  // Enemy
+  .second_slide_project {
+    text-align: center;
+    justify-content: center;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .second_style_inner {
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .enemy_track {
+    display: flex;
+    gap: 15px;
+
+    // Activation du scroll manuel
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    // On retire la transformation GSAP potentielle pour éviter les conflits
+    transform: none !important;
+    width: auto;
+    padding: 20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // Grid des zones
+  .third_slide_project {
+    picture {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 2em;
+    }
+
+    h1 {
+      margin: 0;
+      padding-top: 0;
+    }
+  }
+
+  .containerEnemy {
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    width: 200px;
+    height: 200px;
+  }
+
+  // Section HUD
+  .four_slide_project {
+    width: 100%;
+    height: auto;
+
+    div {
+      padding-top: 1.5em;
+      gap: 0 !important;
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    picture {
+      width: 100% !important;
+
+      & img {
+        padding: 2em;
+      }
+    }
+  }
+}

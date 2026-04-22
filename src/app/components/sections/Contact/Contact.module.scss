@@ -1,0 +1,70 @@
+.container_contact {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  z-index: 101;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bg_shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-image: url("/images/decos/contact_x.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  // Animation effect
+  backface-visibility: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  width: 1440px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $c-fg-primary;
+}
+.content > button {
+  position: absolute;
+  top: 2em;
+  left: 0;
+  @include buttonClosed;
+}
+
+//
+// Responsive
+//
+
+@media (max-width: 480px) {
+  .content {
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .content > button {
+    top: 1.5em;
+    left: 20px;
+    position: absolute;
+  }
+
+  // Ajuste l'échelle de l'animation de fond pour s'assurer qu'elle couvre bien tout l'écran mobile
+  .bg_shape {
+    transform-origin: center;
+  }
+}
