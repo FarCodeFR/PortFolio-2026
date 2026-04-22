@@ -125,13 +125,15 @@
   justify-content: start;
   flex-direction: column;
   align-items: start;
-  gap: 10%;
+  gap: 5%;
   max-width: 1350px;
 }
 
 .second_slide_project {
   & h1 {
     @include h3;
+    margin: 2% 0;
+    text-align: start;
   }
 
   & picture {
