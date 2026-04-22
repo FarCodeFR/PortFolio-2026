@@ -1,4 +1,4 @@
-# Portfolio — Timothé Renard
+# Portfolio — 
 
 Portfolio personnel développé avec React, TypeScript et Vite.
 
