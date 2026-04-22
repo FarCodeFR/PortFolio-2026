@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import "./styles/globals.scss";
 import { Anton, Bricolage_Grotesque } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Portfolio | Timothé",
@@ -26,7 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${anton.variable} ${bricolage.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
