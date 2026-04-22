@@ -1,30 +1,34 @@
-Portfolio personnel haute performance reconstruit avec Next.js 15 pour une expérience utilisateur fluide et un référencement optimisé.
+# Portfolio — Timothé Renard
 
-🚀 Technique d'empilement
-Cadre :Next.js 15(Routeur d'application)
+Portfolio personnel développé avec React, TypeScript et Vite.
 
-Langue :Manuscrit
+## Stack technique
 
-Animations :GSAP+ScrollTrigger +@gsap/react
+- **Next.js** + **TypeScript**
+- **Vite** — bundler
+- **GSAP** + **ScrollTrigger** + **Lenis** — animations et scroll
+- **SCSS Modules** — styles
 
-Styles :Modules Sass (SCSS)avec injection globale de mixins/tokens
+## Fonctionnalités
 
-Déploiement :Vercel
+- Grille de projets avec animations hover (GSAP)
+- Panneau projet avec scroll horizontal (ScrollTrigger + Lenis)
+- Navigation entre projets avec transition animée
+- Panel About avec carousel de logos et SplitText
+- Panel Contact
+- Toggle ONE / FULL pour switcher entre home et projet
+- Responsive
 
-✨ Nouvelles Fonctionnalités & Optimisations
-Architecture Next.js : Utilisation des Composants Serveur pour la performance et des Composants Client pour les interactions GSAP.
+## Projets présentés
 
-SEO & Metadata : Gestion dynamique des balises méta via l'API Metadata de Next.js, génération automatique de sitemap.xmlet robots.txt.
+- **Weather App** — Application météo mobile (React Native / Expo)
+- **Mazinger** — Shoot 'em up arcade (p5.js / Node.js)
+- **Casse Croute** — (en cours)
 
-Système de Design (Sass) : Configuration avancée via next.config.tspour utiliser des tokens sémantiques et des mixins sans importations manuelles.
+## Installation
 
-Gestion de Projet : Système de navigation fluide entre les projets avec transitions GSAP power3.inOut.
+```bash
+npm install
+npm run dev
+```
 
-Responsive Design : Mixins dédiés pour une adaptation précise sur mobile.
-
-📂 Projets présentés
-Application météo — Interface météo immersive (React Native / Expo).
-
-Mazinger — Shoot'em up arcade développé avec p5.js et Node.js.
-
-Casse Croute — Application culinaire interactive (en cours).
