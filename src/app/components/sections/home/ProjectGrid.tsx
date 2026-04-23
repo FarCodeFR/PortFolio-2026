@@ -117,11 +117,12 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
               src={
                 isActive === el.id && el.hoverImage ? el.hoverImage : el.image
               }
-              alt="img"
+              alt={el.title}
               loading="eager"
               width={1200}
               height={600}
               priority
+              quality={75}
             />
             {el.imageMobile && el.imageMobile.length > 0 && (
               <ul className={styles.mobileImages}>
@@ -132,7 +133,6 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
                       alt={`${el.title} mobile ${index + 1}`}
                       width={200}
                       height={400}
-                      priority
                     />
                   </li>
                 ))}
