@@ -121,6 +121,7 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
               loading="eager"
               width={1200}
               height={600}
+              priority
             />
             {el.imageMobile && el.imageMobile.length > 0 && (
               <ul className={styles.mobileImages}>
@@ -131,6 +132,7 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
                       alt={`${el.title} mobile ${index + 1}`}
                       width={200}
                       height={400}
+                      priority
                     />
                   </li>
                 ))}
