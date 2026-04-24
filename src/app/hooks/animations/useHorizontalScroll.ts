@@ -5,8 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { weatherAppProps } from "@/app/types/types/global.t";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
-
 export default function useHorizontalScroll({
   slideCount,
   projectDetailContentRef,
@@ -14,6 +12,10 @@ export default function useHorizontalScroll({
 }: weatherAppProps) {
   const wrapperProjectRef = useRef<HTMLDivElement>(null);
   const projectDetailScopeRef = useRef<HTMLDivElement>(null);
+
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(useGSAP, ScrollTrigger);
+  }
 
   useGSAP(
     () => {
@@ -32,7 +34,9 @@ export default function useHorizontalScroll({
 
       // Connecte Lenis à ScrollTrigger
       lenis.on("scroll", ScrollTrigger.update);
-      gsap.ticker.add((time) => lenis.raf(time * 1000));
+      // gsap.ticker.add((time) => lenis.raf(time * 1000));
+      const lenisRaf = (time: number) => lenis.raf(time * 1000);
+      gsap.ticker.add(lenisRaf);
       gsap.ticker.lagSmoothing(0);
 
       if (!isMobile) {
@@ -61,7 +65,7 @@ export default function useHorizontalScroll({
 
       return () => {
         lenis.destroy();
-        gsap.ticker.remove((time) => lenis.raf(time * 1000));
+        gsap.ticker.remove(lenisRaf);
       };
     },
     { dependencies: [isOpen] },

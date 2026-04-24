@@ -10,16 +10,12 @@ import Cassecroute from "./Casse_croute/CasseCroute";
 import { weatherAppProps } from "@/app/types/types/global.t";
 import WeatherApp from "./WeatherApp/WeatherApp";
 import Image from "next/image";
-import { useKeyHandler } from "@/app/hooks/animations/useKeyHandler";
 
 interface ProjectDetailProps {
   selectedProject: number | null;
   setSelectedProject: (n: number) => void;
 }
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 function ProjectDetail({
   selectedProject,

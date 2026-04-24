@@ -144,6 +144,7 @@ function About({ open, setOpen }: AboutProps) {
     {
       scope: containerRef,
       dependencies: [open],
+      revertOnUpdate: true,
     },
   );
 
