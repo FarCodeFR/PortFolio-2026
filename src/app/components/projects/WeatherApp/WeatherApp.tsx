@@ -1,7 +1,7 @@
 import styles from "./WeatherApp.module.scss";
 import stylesShared from "../AllProjectDetail.module.scss";
 import useHorizontalScroll from "@/app/hooks/animations/useHorizontalScroll";
-import { weatherAppProps } from "@/app/types/types/global.t";
+import { WeatherAppProps } from "@/app/types/types/global.t";
 import { WeatherSwitcher } from "./WeatherAppSwitcher";
 import dataProjectDetail from "@/app/data/project_info.json";
 import Image from "next/image";
@@ -10,7 +10,7 @@ function WeatherApp({
   projectDetailContentRef,
   isOpen,
   slideCount,
-}: weatherAppProps) {
+}: WeatherAppProps) {
   const dataWeatherApp = dataProjectDetail[0].WeatherApp;
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,

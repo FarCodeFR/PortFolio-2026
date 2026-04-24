@@ -3,11 +3,10 @@
 import gsap from "gsap";
 import { useRef } from "react";
 import styles from "./ProjectDetail.module.scss";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Mazinger from "./Mazinger/Mazinger";
 import { useGSAP } from "@gsap/react";
 import Cassecroute from "./Casse_croute/CasseCroute";
-import { weatherAppProps } from "@/app/types/types/global.t";
+import { WeatherAppProps } from "@/app/types/types/global.t";
 import WeatherApp from "./WeatherApp/WeatherApp";
 import Image from "next/image";
 
@@ -15,7 +14,6 @@ interface ProjectDetailProps {
   selectedProject: number | null;
   setSelectedProject: (n: number) => void;
 }
-
 
 function ProjectDetail({
   selectedProject,
@@ -27,7 +25,7 @@ function ProjectDetail({
   const isFirstOpenRef = useRef(true);
 
   // Components
-  const projectComponents: Record<number, React.FC<weatherAppProps>> = {
+  const projectComponents: Record<number, React.FC<WeatherAppProps>> = {
     1: WeatherApp,
     2: Mazinger,
     3: Cassecroute,

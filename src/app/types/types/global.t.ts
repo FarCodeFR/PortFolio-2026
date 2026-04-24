@@ -5,13 +5,13 @@ export type PropsShell = {
   setSelectedProject: (n: number) => void;
 };
 
-export type projectDetailProps = {
+export type ProjectDetailProps = {
   onCloseDetail: () => void;
   selectedProject: number | null;
   setSelectedProject: (n: number) => void;
 };
 
-export type weatherAppProps = {
+export type WeatherAppProps = {
   projectDetailContentRef: React.RefObject<HTMLDivElement | null>;
   isOpen: boolean;
   slideCount: number;

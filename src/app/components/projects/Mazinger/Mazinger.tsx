@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import useHorizontalScroll from "@/app/hooks/animations/useHorizontalScroll";
-import { weatherAppProps } from "@/app/types/types/global.t";
+import { WeatherAppProps } from "@/app/types/types/global.t";
 import dataProjectDetail from "@/app/data/project_info.json";
 import CarouselEnemy from "../../ui/carousel/CarouselEnemy";
 import Image from "next/image";
@@ -13,7 +13,7 @@ function Mazinger({
   projectDetailContentRef,
   isOpen,
   slideCount,
-}: weatherAppProps) {
+}: WeatherAppProps) {
   const dataMazinger = dataProjectDetail[1].Mazinger;
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,

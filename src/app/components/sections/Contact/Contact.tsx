@@ -63,7 +63,7 @@ function Contact({ setOpenContact, openContact }: ContactProps) {
           .to(
             content,
             {
-              opacity: 1,
+              autoAlpha: 1,
               y: 0,
               duration: 0.5,
               ease: "power2.out",
@@ -77,7 +77,7 @@ function Contact({ setOpenContact, openContact }: ContactProps) {
           },
         });
         tl.to(content, {
-          opacity: 0,
+          autoAlpha: 0,
           y: 20,
           duration: 0.25,
           ease: "power2.in",
