@@ -3,13 +3,13 @@ import Lenis from "lenis";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { weatherAppProps } from "@/app/types/types/global.t";
+import { WeatherAppProps } from "@/app/types/types/global.t";
 
 export default function useHorizontalScroll({
   slideCount,
   projectDetailContentRef,
   isOpen,
-}: weatherAppProps) {
+}: WeatherAppProps) {
   const wrapperProjectRef = useRef<HTMLDivElement>(null);
   const projectDetailScopeRef = useRef<HTMLDivElement>(null);
 
