@@ -4,6 +4,12 @@ import { OpenType } from "@/app/types/types/header.t";
 
 function Header({ setOpen, setOpenContact }: OpenType) {
   const [time, setTime] = useState(new Date());
+  const [mounted, setMounted] = useState(false);
+
+  // Fix désynchronisation d'hydratation
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Heure actuel
   useEffect(() => {
@@ -36,8 +42,14 @@ function Header({ setOpen, setOpenContact }: OpenType) {
       </nav>
       <div className={styles.zone}>
         <p>
-          {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+          {mounted
+            ? time.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              })
+            : ""}
         </p>
+
         <p>NANTES, FR</p>
       </div>
     </header>

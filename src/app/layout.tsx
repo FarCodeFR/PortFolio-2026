@@ -4,23 +4,26 @@ import "./styles/globals.scss";
 import { Anton, Bricolage_Grotesque } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "Timothé – Portfolio Développeur Front-end",
+  title: "Timothé Renard – Développeur Front-end React / TypeScript",
   description:
-    "Portfolio de Timothé, développeur Front-end. Découvrez mes projets et réalisations web.",
+    "Développeur front-end orienté React et TypeScript, en recherche d'alternance. Découvrez mes projets :  Weather App, Mazinger, Casse-croûte",
   keywords: [
-    "Timothé",
-    "Timothe",
+    "Timothé Renard",
     "portfolio",
     "développeur front-end",
+    "React",
+    "TypeScript",
+    "alternance",
     "développeur web",
   ],
-  authors: [{ name: "Timothé" }],
+  authors: [{ name: "Timothé Renard" }],
   verification: {
     google: "lPh2JnaUbeZFSaBVArPkhEGZ7blb-ZGXigjZeUx0TI0",
   },
   openGraph: {
-    title: "Timothé – Portfolio Développeur Front-end",
-    description: "Portfolio de Timothé, développeur Front-end.",
+    title: "Timothé Renard – Développeur Front-end React / TypeScript",
+    description:
+      "Développeur front-end orienté React et TypeScript, en recherche d'alternance. Découvrez mes projets : Weather App, Mazinger, Casse-croûte",
     url: "https://timothe.vercel.app",
     type: "website",
   },

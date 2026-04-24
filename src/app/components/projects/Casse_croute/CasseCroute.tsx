@@ -40,9 +40,9 @@ function Cassecroute({
             </div>
             <div className={styles.intro_col_two}>
               <picture>
-                <img
-                  src="/images/projects/mazinger/accueil.webp"
-                  alt="Accueil du jeux mazinger"
+                <Image
+                  src="/images/projects/casse_croute/desktop-home.png"
+                  alt="Accueil version ordinateur de casse croute"
                   width={350}
                   height={350}
                 />
@@ -52,8 +52,7 @@ function Cassecroute({
         </section>
         <section className={styles.first_slide_project}>
           <div className={styles.second_style_inner}>
-            <h1>Maquette et Prototype</h1>
-            <picture></picture>
+            <h2>À venir...</h2>
           </div>
         </section>
       </div>
