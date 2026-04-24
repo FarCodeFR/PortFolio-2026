@@ -1,4 +1,4 @@
-import { projectDetailProps } from "@/app/types/types/global.t";
+import { ProjectDetailProps } from "@/app/types/types/global.t";
 import styles from "./Footer.module.scss";
 import ViewToggle from "../ui/toggles/ViewToggle";
 
@@ -6,7 +6,7 @@ function Footer({
   onCloseDetail,
   selectedProject,
   setSelectedProject,
-}: projectDetailProps) {
+}: ProjectDetailProps) {
   return (
     <footer className={styles.footer}>
       <ViewToggle

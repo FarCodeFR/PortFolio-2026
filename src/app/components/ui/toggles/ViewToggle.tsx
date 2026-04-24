@@ -2,13 +2,13 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./ViewToggle.module.scss";
 import { gsap } from "gsap";
-import { projectDetailProps } from "@/app/types/types/global.t";
+import { ProjectDetailProps } from "@/app/types/types/global.t";
 
 function ViewToggle({
   onCloseDetail,
   selectedProject,
   setSelectedProject,
-}: projectDetailProps) {
+}: ProjectDetailProps) {
   const [isSwitch, setIsSwitch] = useState("full");
   const thumbRef = useRef<HTMLSpanElement>(null);
 
