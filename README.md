@@ -5,7 +5,6 @@ Portfolio personnel développé avec React, TypeScript et Vite.
 ## Stack technique
 
 - **Next.js** + **TypeScript**
-- **Vite** — bundler
 - **GSAP** + **ScrollTrigger** + **Lenis** — animations et scroll
 - **SCSS Modules** — styles
 
