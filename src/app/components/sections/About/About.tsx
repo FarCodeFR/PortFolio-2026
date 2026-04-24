@@ -88,7 +88,7 @@ function About({ open, setOpen }: AboutProps) {
             splitTitle.chars,
             {
               y: "random(-50, 50)",
-              opacity: 0,
+              autoAlpha: 0,
               stagger: 0.02,
               duration: 0.6,
             },
@@ -98,7 +98,7 @@ function About({ open, setOpen }: AboutProps) {
             splitBio.lines,
             {
               y: 30,
-              opacity: 0,
+              autoAlpha: 0,
               stagger: 0.05,
             },
             "-=0.45",
@@ -107,7 +107,7 @@ function About({ open, setOpen }: AboutProps) {
             logo,
             {
               y: 40,
-              opacity: 0,
+              autoAlpha: 0,
               duration: 0.8,
               stagger: 0.08,
 

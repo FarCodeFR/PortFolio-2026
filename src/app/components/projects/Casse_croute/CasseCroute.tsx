@@ -1,4 +1,4 @@
-import { weatherAppProps } from "@/app/types/types/global.t";
+import { WeatherAppProps } from "@/app/types/types/global.t";
 import styles from "./Casse_croute.module.scss";
 import useHorizontalScroll from "@/app/hooks/animations/useHorizontalScroll";
 import dataProjectDetail from "@/app/data/project_info.json";
@@ -8,7 +8,7 @@ function Cassecroute({
   projectDetailContentRef,
   isOpen,
   slideCount,
-}: weatherAppProps) {
+}: WeatherAppProps) {
   const dataCasseCroute = dataProjectDetail[2].CasseCroute;
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,

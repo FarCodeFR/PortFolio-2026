@@ -46,7 +46,7 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
       gsap.to(projectRef.current, {
         x: "-100%",
         scale: 0.5,
-        opacity: 0,
+        autoAlpha: 0,
         duration: 1,
         ease: "power3.inOut",
       });
@@ -55,7 +55,7 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
       gsap.to(projectRef.current, {
         x: "0%",
         scale: 1,
-        opacity: 1,
+        autoAlpha: 1,
         duration: 1,
         ease: "power3.out",
       });

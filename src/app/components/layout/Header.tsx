@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Header.module.scss";
 import { OpenType } from "@/app/types/types/header.t";
+import { useHeaderIntroAnimation } from "@/app/hooks/animations/useHeaderAnimation";
 
 function Header({ setOpen, setOpenContact }: OpenType) {
   const [time, setTime] = useState(new Date());
@@ -20,24 +21,39 @@ function Header({ setOpen, setOpenContact }: OpenType) {
   }, []);
 
   // About
-  const handleClickAbout = () => {
+  const handleOpenAbout = () => {
     setOpen((active) => !active);
   };
   // Contact
-  const handleClickContact = () => {
+  const handleOpenContact = () => {
     setOpenContact((active) => !active);
   };
 
+  // Animations nom + status
+  const nameRef = useRef<HTMLParagraphElement>(null);
+  const statusRef = useRef<HTMLParagraphElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useHeaderIntroAnimation({ nameRef, statusRef, headerRef });
+
   return (
-    <header className={styles.header}>
+    <header ref={headerRef} className={styles.header}>
       <nav className={styles.nav} aria-label="Navigation principale">
         <div className={styles.name}>
-          <p>Timothe Renard</p>
-          <p>Disponible</p>
+          <p ref={nameRef}>Timothe Renard</p>
+          <p ref={statusRef}>Disponible</p>
         </div>
         <ul className={styles.links}>
-          <li onClick={handleClickContact}>Contact</li>
-          <li onClick={handleClickAbout}>À propos</li>
+          <li>
+            <button type="button" onClick={handleOpenContact}>
+              Contact
+            </button>
+          </li>
+          <li>
+            <button type="button" onClick={handleOpenAbout}>
+              À propos
+            </button>
+          </li>
         </ul>
       </nav>
       <div className={styles.zone}>
