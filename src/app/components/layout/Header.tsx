@@ -29,12 +29,14 @@ function Header({ setOpen, setOpenContact }: OpenType) {
     setOpenContact((active) => !active);
   };
 
-  // Animations nom + status
+  // Animations enter nav
   const nameRef = useRef<HTMLParagraphElement>(null);
   const statusRef = useRef<HTMLParagraphElement>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const linkRef = useRef<HTMLUListElement>(null);
+  const timeRef = useRef<HTMLDivElement>(null);
 
-  useHeaderIntroAnimation({ nameRef, statusRef, headerRef });
+  useHeaderIntroAnimation({ nameRef, statusRef, headerRef, linkRef, timeRef });
 
   return (
     <header ref={headerRef} className={styles.header}>
@@ -43,7 +45,7 @@ function Header({ setOpen, setOpenContact }: OpenType) {
           <p ref={nameRef}>Timothe Renard</p>
           <p ref={statusRef}>Disponible</p>
         </div>
-        <ul className={styles.links}>
+        <ul ref={linkRef} className={styles.links}>
           <li>
             <button type="button" onClick={handleOpenContact}>
               Contact
@@ -56,7 +58,7 @@ function Header({ setOpen, setOpenContact }: OpenType) {
           </li>
         </ul>
       </nav>
-      <div className={styles.zone}>
+      <div ref={timeRef} className={styles.zone}>
         <p>
           {mounted
             ? time.toLocaleTimeString([], {
