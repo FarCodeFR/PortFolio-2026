@@ -3,33 +3,7 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
-
-const projects = [
-  {
-    id: 1,
-    title: "Weather App",
-    image: "/images/projects/weather/weather.webp",
-    hoverImage: "/images/projects/weather/hover_weather.webp",
-    imageMobile: [
-      "/images/projects/weather/mobile/neige.svg",
-      "/images/projects/weather/mobile/orage.svg",
-      "/images/projects/weather/mobile/pluie.svg",
-      "/images/projects/weather/mobile/soleil.svg",
-    ],
-  },
-  {
-    id: 2,
-    title: "Mazinger",
-    image: "/images/projects/mazinger/mazinger.png",
-    hoverImage: "/images/projects/mazinger/hover_mazinger.webp",
-  },
-  {
-    id: 3,
-    title: "Casse croute",
-    image: "/images/projects/casse_croute/casse_croute.webp",
-    hoverImage: "/images/projects/casse_croute/hover_casse_croute.webp",
-  },
-];
+import dataProjects from "@/app/data/project_info.json";
 
 interface ProjectProps {
   setSelectedProject: (n: number) => void;
@@ -38,12 +12,14 @@ interface ProjectProps {
 
 function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
   const [isActive, setIsActive] = useState<number | null>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
+  const containerProjectRef = useRef<HTMLDivElement>(null);
+  const projectsListRef = useRef<HTMLUListElement>(null);
+  const projects = dataProjects[0].Home_projects ?? [];
 
   useGSAP(() => {
     if (selectedProject !== null) {
       // Lance l'animation
-      gsap.to(projectRef.current, {
+      gsap.to(containerProjectRef.current, {
         x: "-100%",
         scale: 0.5,
         autoAlpha: 0,
@@ -52,7 +28,7 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
       });
     } else {
       // Animation de retour
-      gsap.to(projectRef.current, {
+      gsap.to(containerProjectRef.current, {
         x: "0%",
         scale: 1,
         autoAlpha: 1,
@@ -94,11 +70,31 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
     setIsActive(null);
   };
 
+  // Animation projects
+
+  useGSAP(() => {
+    if (!projectsListRef.current) return;
+
+    gsap.set(projectsListRef.current, {
+      scaleX: 0,
+      x: 500,
+      y: 0,
+      opacity: 0.5,
+    });
+    gsap.to(projectsListRef.current, {
+      scaleX: 1,
+      x: 0,
+      y: 0,
+      opacity: 1,
+      ease: "elastic.inOut",
+    });
+  }, []);
+
   return (
-    <section ref={projectRef} className={styles.projectGrid}>
+    <section ref={containerProjectRef} className={styles.projectGrid}>
       <h1 className={styles.t_home}>Projects</h1>
-      <ul className={styles.listProject}>
-        {projects.map((el) => (
+      <ul ref={projectsListRef} className={styles.listProject}>
+        {projects?.map((el) => (
           <li
             key={el.id}
             onMouseEnter={(e) => handleEnter(el.id, e.currentTarget)}

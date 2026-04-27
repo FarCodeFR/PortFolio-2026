@@ -9,7 +9,7 @@ function Cassecroute({
   isOpen,
   slideCount,
 }: WeatherAppProps) {
-  const dataCasseCroute = dataProjectDetail[2].CasseCroute;
+  const dataCasseCroute = dataProjectDetail[3].CasseCroute;
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,
     isOpen,

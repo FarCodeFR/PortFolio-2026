@@ -15,7 +15,7 @@ body {
   margin: 0;
   background: $c-bg-primary;
   color: $c-fg-primary;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .page {
@@ -24,7 +24,7 @@ body {
   grid-template-rows: 90px 1fr 110px;
   max-width: 1440px;
   margin: 0 auto;
-  overflow: hidden;
+  // overflow: hidden;
 }
 .main {
   padding: 0 22px;

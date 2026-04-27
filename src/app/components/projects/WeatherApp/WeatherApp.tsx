@@ -11,7 +11,7 @@ function WeatherApp({
   isOpen,
   slideCount,
 }: WeatherAppProps) {
-  const dataWeatherApp = dataProjectDetail[0].WeatherApp;
+  const dataWeatherApp = dataProjectDetail[1].WeatherApp;
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,
     isOpen,
