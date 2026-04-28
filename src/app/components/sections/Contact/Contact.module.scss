@@ -6,11 +6,13 @@
   opacity: 0;
   pointer-events: none;
   overflow: hidden;
+  visibility: hidden;
 }
 
 .visible {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
 }
 
 .bg_shape {

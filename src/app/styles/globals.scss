@@ -58,6 +58,14 @@ p {
   color: $c-fg-primary-hover;
 }
 
+// Focus visible
+
+:focus-visible {
+  outline: 2px solid crimson;
+  border-radius: 3px;
+  width: auto;
+}
+
 //
 // Responsive
 //

@@ -3,6 +3,7 @@ export type PropsShell = {
   selectedProject: number | null;
   onCloseDetail: () => void;
   setSelectedProject: (n: number) => void;
+  setIntroDone: (value: boolean) => void;
 };
 
 export type ProjectDetailProps = {

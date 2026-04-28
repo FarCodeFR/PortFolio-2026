@@ -8,14 +8,94 @@ import dataProjects from "@/app/data/project_info.json";
 interface ProjectProps {
   setSelectedProject: (n: number) => void;
   selectedProject: number | null;
+  introDone: boolean;
 }
 
-function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
+function ProjectGrid({
+  setSelectedProject,
+  selectedProject,
+  introDone,
+}: ProjectProps) {
   const [isActive, setIsActive] = useState<number | null>(null);
   const containerProjectRef = useRef<HTMLDivElement>(null);
   const projectsListRef = useRef<HTMLUListElement>(null);
   const projects = dataProjects[0].Home_projects ?? [];
 
+  // Play animation
+  const [isReady, setIsReady] = useState(false);
+
+  // Animation d'apparition des cartes projets
+  useGSAP(
+    () => {
+      const cards = gsap.utils.toArray<HTMLLIElement>(
+        `.${styles.projectCards}`,
+      );
+
+      if (!cards.length) return;
+
+      setIsReady(false);
+
+      // Position initial
+      gsap.set(cards, {
+        x: 0,
+        y: 0,
+        rotation: 0,
+        scale: 0.1,
+        autoAlpha: 1,
+        filter: "blur(20px)",
+        pointerEvents: "none",
+        borderRadius: "999px",
+        boxShadow:
+          "0 -24px 60px rgba(255,255,255,0.28), 0 28px 80px rgba(0,0,0,0.22)",
+      });
+
+      // Fin de l'intro continue l'animation
+      if (!introDone) return;
+
+      const tl_projects_ball = gsap.timeline({
+        defaults: { ease: "power3.inOut" },
+        onComplete: () => setIsReady(true),
+      });
+      (tl_projects_ball.to(cards, {
+        scale: 0.22,
+        filter: "blur(18px)",
+        boxShadow:
+          "0 -34px 90px rgba(255,255,255,0.38), 0 38px 110px rgba(0,0,0,0.2)",
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "sine.inOut",
+      }),
+        tl_projects_ball.to(
+          cards,
+          {
+            scale: 0.18,
+            filter: "blur(22px)",
+            boxShadow:
+              "0 -20px 65px rgba(255,255,255,0.28), 0 28px 85px rgba(0,0,0,0.18)",
+            duration: 0.4,
+            stagger: 0.08,
+            ease: "sine.inOut",
+          },
+          "-=0.35",
+        ));
+      tl_projects_ball.to(cards, {
+        scale: 1,
+        filter: "blur(0px)",
+        borderRadius: "0px",
+        boxShadow: "0 8px 20px rgba(0,0,0,0.10), 0 0 0 rgba(255,255,255,0)",
+        pointerEvents: "auto",
+        duration: 1.4,
+        stagger: 0.12,
+      });
+    },
+    {
+      scope: containerProjectRef,
+      dependencies: [introDone],
+      revertOnUpdate: true,
+    },
+  );
+
+  // Gere le hover et le clic des cartes
   useGSAP(() => {
     if (selectedProject !== null) {
       // Lance l'animation
@@ -61,34 +141,16 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
   };
 
   const handleEnter = (id: number, el: HTMLLIElement) => {
+    if (!isReady) return;
     setIsActive(id);
     animateTitle(el, "enter");
   };
 
   const handleLeave = (el: HTMLLIElement) => {
+    if (!isReady) return;
     animateTitle(el, "leave");
     setIsActive(null);
   };
-
-  // Animation projects
-
-  useGSAP(() => {
-    if (!projectsListRef.current) return;
-
-    gsap.set(projectsListRef.current, {
-      scaleX: 0,
-      x: 500,
-      y: 0,
-      opacity: 0.5,
-    });
-    gsap.to(projectsListRef.current, {
-      scaleX: 1,
-      x: 0,
-      y: 0,
-      opacity: 1,
-      ease: "elastic.inOut",
-    });
-  }, []);
 
   return (
     <section ref={containerProjectRef} className={styles.projectGrid}>

@@ -7,6 +7,7 @@ export function useHeaderIntroAnimation({
   headerRef,
   timeRef,
   linkRef,
+  setIntroDone,
 }: UseHeaderAnimationParams) {
   useGSAP(
     () => {
@@ -62,23 +63,21 @@ export function useHeaderIntroAnimation({
           },
           "-=0.2",
         )
-        .to(
-          statusRef.current,
-          {
-            color: "#6ee7b7",
-            duration: 0.6,
-            ease: "sine.in",
-          },
-          "+=0.3",
-        )
         .to(statusRef.current, {
-          color: "#a8a9ab",
-          repeat: -1,
-          yoyo: true,
-          duration: 2,
-          ease: "sine.inOut",
+          color: "#6ee7b7",
+          duration: 0.6,
+          ease: "sine.in",
+          onComplete: () => {
+            setIntroDone(true);
+            gsap.to(statusRef.current, {
+              color: "#a8a9ab",
+              repeat: -1,
+              yoyo: true,
+              duration: 2,
+              ease: "sine.inOut",
+            });
+          },
         });
-
       return () => {
         hd_split.revert();
       };
