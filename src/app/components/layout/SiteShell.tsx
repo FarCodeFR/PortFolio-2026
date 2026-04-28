@@ -13,13 +13,18 @@ export default function SiteShell({
   selectedProject,
   setSelectedProject,
   onCloseDetail,
+  setIntroDone,
 }: PropsShell) {
   const [open, setOpen] = useState<boolean>(false);
   const [openContact, setOpenContact] = useState<boolean>(false);
 
   return (
     <div className="page">
-      <Header setOpen={setOpen} setOpenContact={setOpenContact} />
+      <Header
+        setOpen={setOpen}
+        setOpenContact={setOpenContact}
+        setIntroDone={setIntroDone}
+      />
 
       {children}
 
@@ -30,7 +35,6 @@ export default function SiteShell({
         selectedProject={selectedProject}
         setSelectedProject={setSelectedProject}
       />
-
       <Footer
         onCloseDetail={onCloseDetail}
         selectedProject={selectedProject}

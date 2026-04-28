@@ -3,7 +3,7 @@ import styles from "./Header.module.scss";
 import { OpenType } from "@/app/types/types/header.t";
 import { useHeaderIntroAnimation } from "@/app/hooks/animations/useHeaderAnimation";
 
-function Header({ setOpen, setOpenContact }: OpenType) {
+function Header({ setOpen, setOpenContact, setIntroDone }: OpenType) {
   const [time, setTime] = useState(new Date());
   const [mounted, setMounted] = useState(false);
 
@@ -29,14 +29,21 @@ function Header({ setOpen, setOpenContact }: OpenType) {
     setOpenContact((active) => !active);
   };
 
-  // Animations enter nav
+  // Animations arriver nav
   const nameRef = useRef<HTMLParagraphElement>(null);
   const statusRef = useRef<HTMLParagraphElement>(null);
   const headerRef = useRef<HTMLElement>(null);
   const linkRef = useRef<HTMLUListElement>(null);
   const timeRef = useRef<HTMLDivElement>(null);
 
-  useHeaderIntroAnimation({ nameRef, statusRef, headerRef, linkRef, timeRef });
+  useHeaderIntroAnimation({
+    nameRef,
+    statusRef,
+    headerRef,
+    linkRef,
+    timeRef,
+    setIntroDone,
+  });
 
   return (
     <header ref={headerRef} className={styles.header}>

@@ -17,6 +17,7 @@
 .visible {
   width: 100%;
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transition: ease-in 300ms;
 }

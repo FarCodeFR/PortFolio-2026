@@ -149,7 +149,7 @@ function About({ open, setOpen }: AboutProps) {
   );
 
   const handleOverlayClick = (e: React.MouseEvent) => {
-    // Si on clique exactement sur l'overlay (et pas ses enfants)
+    // Si on clique exactement sur l'overlay (et pas sur ses enfants)
     if (e.target === e.currentTarget) {
       setOpen(false);
     }

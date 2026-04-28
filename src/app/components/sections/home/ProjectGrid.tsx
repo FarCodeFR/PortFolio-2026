@@ -3,47 +3,103 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
-
-const projects = [
-  {
-    id: 1,
-    title: "Weather App",
-    image: "/images/projects/weather/weather.webp",
-    hoverImage: "/images/projects/weather/hover_weather.webp",
-    imageMobile: [
-      "/images/projects/weather/mobile/neige.svg",
-      "/images/projects/weather/mobile/orage.svg",
-      "/images/projects/weather/mobile/pluie.svg",
-      "/images/projects/weather/mobile/soleil.svg",
-    ],
-  },
-  {
-    id: 2,
-    title: "Mazinger",
-    image: "/images/projects/mazinger/mazinger.png",
-    hoverImage: "/images/projects/mazinger/hover_mazinger.webp",
-  },
-  {
-    id: 3,
-    title: "Casse croute",
-    image: "/images/projects/casse_croute/casse_croute.webp",
-    hoverImage: "/images/projects/casse_croute/hover_casse_croute.webp",
-  },
-];
+import dataProjects from "@/app/data/project_info.json";
 
 interface ProjectProps {
   setSelectedProject: (n: number) => void;
   selectedProject: number | null;
+  introDone: boolean;
 }
 
-function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
+function ProjectGrid({
+  setSelectedProject,
+  selectedProject,
+  introDone,
+}: ProjectProps) {
   const [isActive, setIsActive] = useState<number | null>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
+  const containerProjectRef = useRef<HTMLDivElement>(null);
+  const projectsListRef = useRef<HTMLUListElement>(null);
+  const projects = dataProjects[0].Home_projects ?? [];
 
+  // Play animation
+  const [isReady, setIsReady] = useState(false);
+
+  // Animation d'apparition des cartes projets
+  useGSAP(
+    () => {
+      const cards = gsap.utils.toArray<HTMLLIElement>(
+        `.${styles.projectCards}`,
+      );
+
+      if (!cards.length) return;
+
+      setIsReady(false);
+
+      // Position initial
+      gsap.set(cards, {
+        x: 0,
+        y: 0,
+        rotation: 0,
+        scale: 0.1,
+        autoAlpha: 1,
+        filter: "blur(20px)",
+        pointerEvents: "none",
+        borderRadius: "999px",
+        boxShadow:
+          "0 -24px 60px rgba(255,255,255,0.28), 0 28px 80px rgba(0,0,0,0.22)",
+      });
+
+      // Fin de l'intro continue l'animation
+      if (!introDone) return;
+
+      const tl_projects_ball = gsap.timeline({
+        defaults: { ease: "power3.inOut" },
+        onComplete: () => setIsReady(true),
+      });
+      (tl_projects_ball.to(cards, {
+        scale: 0.22,
+        filter: "blur(18px)",
+        boxShadow:
+          "0 -34px 90px rgba(255,255,255,0.38), 0 38px 110px rgba(0,0,0,0.2)",
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "sine.inOut",
+      }),
+        tl_projects_ball.to(
+          cards,
+          {
+            scale: 0.18,
+            filter: "blur(22px)",
+            boxShadow:
+              "0 -20px 65px rgba(255,255,255,0.28), 0 28px 85px rgba(0,0,0,0.18)",
+            duration: 0.4,
+            stagger: 0.08,
+            ease: "sine.inOut",
+          },
+          "-=0.35",
+        ));
+      tl_projects_ball.to(cards, {
+        scale: 1,
+        filter: "blur(0px)",
+        borderRadius: "0px",
+        boxShadow: "0 8px 20px rgba(0,0,0,0.10), 0 0 0 rgba(255,255,255,0)",
+        pointerEvents: "auto",
+        duration: 1.4,
+        stagger: 0.12,
+      });
+    },
+    {
+      scope: containerProjectRef,
+      dependencies: [introDone],
+      revertOnUpdate: true,
+    },
+  );
+
+  // Gere le hover et le clic des cartes
   useGSAP(() => {
     if (selectedProject !== null) {
       // Lance l'animation
-      gsap.to(projectRef.current, {
+      gsap.to(containerProjectRef.current, {
         x: "-100%",
         scale: 0.5,
         autoAlpha: 0,
@@ -52,7 +108,7 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
       });
     } else {
       // Animation de retour
-      gsap.to(projectRef.current, {
+      gsap.to(containerProjectRef.current, {
         x: "0%",
         scale: 1,
         autoAlpha: 1,
@@ -85,20 +141,22 @@ function ProjectGrid({ setSelectedProject, selectedProject }: ProjectProps) {
   };
 
   const handleEnter = (id: number, el: HTMLLIElement) => {
+    if (!isReady) return;
     setIsActive(id);
     animateTitle(el, "enter");
   };
 
   const handleLeave = (el: HTMLLIElement) => {
+    if (!isReady) return;
     animateTitle(el, "leave");
     setIsActive(null);
   };
 
   return (
-    <section ref={projectRef} className={styles.projectGrid}>
+    <section ref={containerProjectRef} className={styles.projectGrid}>
       <h1 className={styles.t_home}>Projects</h1>
-      <ul className={styles.listProject}>
-        {projects.map((el) => (
+      <ul ref={projectsListRef} className={styles.listProject}>
+        {projects?.map((el) => (
           <li
             key={el.id}
             onMouseEnter={(e) => handleEnter(el.id, e.currentTarget)}

@@ -1,5 +1,33 @@
 [
   {
+    "Home_projects": [
+      {
+        "id": 1,
+        "title": "Weather App",
+        "image": "/images/projects/weather/weather.webp",
+        "hoverImage": "/images/projects/weather/hover_weather.webp",
+        "imageMobile": [
+          "/images/projects/weather/mobile/neige.svg",
+          "/images/projects/weather/mobile/orage.svg",
+          "/images/projects/weather/mobile/pluie.svg",
+          "/images/projects/weather/mobile/soleil.svg"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Mazinger",
+        "image": "/images/projects/mazinger/mazinger.png",
+        "hoverImage": "/images/projects/mazinger/hover_mazinger.webp"
+      },
+      {
+        "id": 3,
+        "title": "Casse croute",
+        "image": "/images/projects/casse_croute/casse_croute.webp",
+        "hoverImage": "/images/projects/casse_croute/hover_casse_croute.webp"
+      }
+    ]
+  },
+  {
     "WeatherApp": [
       {
         "id": 1,

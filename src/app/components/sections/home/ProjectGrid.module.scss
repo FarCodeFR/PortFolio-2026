@@ -24,6 +24,13 @@
   list-style: none;
 }
 
+// Animation Fumée
+.projectCards {
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+  visibility: hidden;
+}
+
 // Items
 .projectCards {
   position: relative;

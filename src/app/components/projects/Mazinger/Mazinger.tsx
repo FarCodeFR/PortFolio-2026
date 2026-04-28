@@ -14,7 +14,7 @@ function Mazinger({
   isOpen,
   slideCount,
 }: WeatherAppProps) {
-  const dataMazinger = dataProjectDetail[1].Mazinger;
+  const dataMazinger = dataProjectDetail[2].Mazinger;
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,
     isOpen,
