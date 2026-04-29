@@ -33,9 +33,10 @@ function ProjectGrid({
 
       if (!cards.length) return;
 
+      // Désactive temporairement les interactions
       setIsReady(false);
 
-      // Position initial
+      // Etat initial
       gsap.set(cards, {
         x: 0,
         y: 0,
@@ -50,42 +51,25 @@ function ProjectGrid({
       });
 
       // Fin de l'intro continue l'animation
-      if (!introDone) return;
+      if (!introDone) {
+        gsap.set(cards, { pointerEvents: "none" });
+        return;
+      }
 
+      // Timeline de transformation
       const tl_projects_ball = gsap.timeline({
         defaults: { ease: "power3.inOut" },
         onComplete: () => setIsReady(true),
       });
-      (tl_projects_ball.to(cards, {
-        scale: 0.22,
-        filter: "blur(18px)",
-        boxShadow:
-          "0 -34px 90px rgba(255,255,255,0.38), 0 38px 110px rgba(0,0,0,0.2)",
-        duration: 0.5,
-        stagger: 0.1,
-        ease: "sine.inOut",
-      }),
-        tl_projects_ball.to(
-          cards,
-          {
-            scale: 0.18,
-            filter: "blur(22px)",
-            boxShadow:
-              "0 -20px 65px rgba(255,255,255,0.28), 0 28px 85px rgba(0,0,0,0.18)",
-            duration: 0.4,
-            stagger: 0.08,
-            ease: "sine.inOut",
-          },
-          "-=0.35",
-        ));
+
       tl_projects_ball.to(cards, {
         scale: 1,
         filter: "blur(0px)",
         borderRadius: "0px",
         boxShadow: "0 8px 20px rgba(0,0,0,0.10), 0 0 0 rgba(255,255,255,0)",
         pointerEvents: "auto",
-        duration: 1.4,
-        stagger: 0.12,
+        duration: 1,
+        stagger: 0.2,
       });
     },
     {
