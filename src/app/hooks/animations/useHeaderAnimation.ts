@@ -67,17 +67,23 @@ export function useHeaderIntroAnimation({
           color: "#6ee7b7",
           duration: 0.6,
           ease: "sine.in",
-          onComplete: () => {
+        })
+        // Lance la function du projectGrid en avance
+        .call(
+          () => {
             setIntroDone(true);
-            gsap.to(statusRef.current, {
-              color: "#a8a9ab",
-              repeat: -1,
-              yoyo: true,
-              duration: 2,
-              ease: "sine.inOut",
-            });
           },
+          [],
+          "-=0.8",
+        )
+        .to(statusRef.current, {
+          color: "#a8a9ab",
+          repeat: -1,
+          yoyo: true,
+          duration: 2,
+          ease: "sine.inOut",
         });
+      // Nettoie SplitText dans le DOM
       return () => {
         hd_split.revert();
       };
