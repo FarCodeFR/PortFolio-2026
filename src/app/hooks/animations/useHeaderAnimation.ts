@@ -29,8 +29,8 @@ export function useHeaderIntroAnimation({
         .from(hd_split.chars, {
           autoAlpha: 0,
           y: 8,
-          stagger: 0.05,
-          duration: 0.5,
+          stagger: 0.03,
+          duration: 0.2,
           ease: "power2.out",
         })
         .from(
@@ -38,7 +38,7 @@ export function useHeaderIntroAnimation({
           {
             autoAlpha: 0,
             y: 2,
-            duration: 0.4,
+            duration: 0.3,
             ease: "power2.out",
           },
           "+=0.2",
@@ -58,14 +58,15 @@ export function useHeaderIntroAnimation({
           timeRef.current,
           {
             autoAlpha: 0,
-            duration: 0.4,
+            y: -4,
+            duration: 0.3,
             ease: "power2.out",
           },
           "-=0.2",
         )
         .to(statusRef.current, {
           color: "#6ee7b7",
-          duration: 0.6,
+          duration: 0.3,
           ease: "sine.in",
         })
         // Lance la function du projectGrid en avance

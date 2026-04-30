@@ -1,5 +1,5 @@
 import styles from "./ProjectGrid.module.scss";
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
@@ -46,8 +46,6 @@ function ProjectGrid({
         filter: "blur(20px)",
         pointerEvents: "none",
         borderRadius: "999px",
-        boxShadow:
-          "0 -24px 60px rgba(255,255,255,0.28), 0 28px 80px rgba(0,0,0,0.22)",
       });
 
       // Fin de l'intro continue l'animation
@@ -66,7 +64,6 @@ function ProjectGrid({
         scale: 1,
         filter: "blur(0px)",
         borderRadius: "0px",
-        boxShadow: "0 8px 20px rgba(0,0,0,0.10), 0 0 0 rgba(255,255,255,0)",
         pointerEvents: "auto",
         duration: 1,
         stagger: 0.2,
