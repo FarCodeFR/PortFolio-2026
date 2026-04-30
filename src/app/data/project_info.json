@@ -42,7 +42,7 @@
       {
         "id": 3,
         "tag": "rôle",
-        "post": "développeur"
+        "post": "Développeur"
       },
       {
         "id": 4,
@@ -71,7 +71,7 @@
       {
         "id": 3,
         "tag": "rôle",
-        "post": "développeur"
+        "post": "Développeur"
       },
       {
         "id": 4,
@@ -95,12 +95,12 @@
       {
         "id": 2,
         "tag": "à propos",
-        "post": "Projet Full Stack réalisé en équipe de 4 pour la certification Développeur Web et Web Mobile. \n\nCasse-croûte est une application de partage de recettes intégrant un dashboard administrateur et un espace utilisateur sécurisé. \n\nLes utilisateurs peuvent gérer leurs favoris ainsi que leurs propres recettes (création, modification, suppression)."
+        "post": "Projet Full Stack réalisé en équipe de 4 pour la certification Développeur Web et Web Mobile. \n\nCasse-croûte est une application de partage de recettes intégrant un dashboard administrateur et un espace utilisateur sécurisé. \n\nLes utilisateurs peuvent ajouter des recettes à leurs favoris ainsi que de créer leurs propres recettes."
       },
       {
         "id": 3,
         "tag": "rôle",
-        "post": "développeur"
+        "post": "Développeur"
       },
       {
         "id": 4,
