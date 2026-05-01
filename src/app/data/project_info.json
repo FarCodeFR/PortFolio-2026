@@ -37,17 +37,23 @@
       {
         "id": 2,
         "tag": "à propos",
-        "post": "Application météo mobile développée entièrement seul avec React Native et Expo — première expérience mobile pour moi.\n\nIntégration de l'API Free Weather API pour afficher les données en temps réel : températures, prévisions horaires et hebdomadaires.\n\nDifficulté principale : apprendre React Native from scratch, gérer les différences avec React web et builder l'app sur mon téléphone via Xcode."
+        "post": "Application météo mobile développée entièrement seul avec React Native et Expo première expérience mobile pour moi.\n\nIntégration de l'API Free Weather API pour afficher les données en temps réel : températures, prévisions horaires et hebdomadaires. \n\nDifficulté principale : apprendre React Native from scratch, gérer les différences avec React web et builder l'app sur mon téléphone via Xcode."
       },
       {
         "id": 3,
         "tag": "rôle",
-        "post": "Développeur"
+        "post": "Conception et développement"
       },
       {
         "id": 4,
         "tag": "stack",
-        "post": "react-native / expo"
+        "post": [
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "Free Weather API",
+          "Xcode"
+        ]
       },
       {
         "id": 5,
@@ -71,17 +77,17 @@
       {
         "id": 3,
         "tag": "rôle",
-        "post": "Développeur"
+        "post": "Développement des blueprints ennemis et boss, création du système de HUD (score, vies), gestion des changements de zones, des musiques et des options de jeu."
       },
       {
         "id": 4,
         "tag": "stack",
-        "post": "HTML / JavaScript / p5.js (Node.js + Express pour le serveur)"
+        "post": ["HTML", "CSS", "JavaScript", "p5.js", "Node.js", "Express"]
       },
       {
         "id": 5,
         "tag": "site",
-        "post": "https://mazinger-type-bz0l.onrender.com/"
+        "post": "https://github.com/FarCodeFR/Mazinger-Type"
       }
     ]
   },
@@ -95,17 +101,17 @@
       {
         "id": 2,
         "tag": "à propos",
-        "post": "Projet Full Stack réalisé en équipe de 4 pour la certification Développeur Web et Web Mobile. \n\nCasse-croûte est une application de partage de recettes intégrant un dashboard administrateur et un espace utilisateur sécurisé. \n\nLes utilisateurs peuvent ajouter des recettes à leurs favoris ainsi que de créer leurs propres recettes."
+        "post": "Application full stack de partage de recettes réalisée en équipe de 4, dans le cadre de la certification Développeur Web et Web Mobile. \n\n Les utilisateurs peuvent créer un compte, gérer leurs recettes et favoris.\n\n Un dashboard administrateur permet la modération complète du contenu."
       },
       {
         "id": 3,
         "tag": "rôle",
-        "post": "Développeur"
+        "post": "Création du design, développement des dashboards admin et utilisateur, mise en place de la gestion de l’état global des utilisateurs avec Context API, ainsi que l’authentification sécurisée avec JWT et hachage des mots de passe via Argon2id."
       },
       {
         "id": 4,
         "tag": "stack",
-        "post": "React / TypeScript / Css / MySQL - (Node.js + Express pour le serveur)"
+        "post": ["React", "TypeScript", "Node.js", "Express", "MySQL"]
       },
       {
         "id": 5,

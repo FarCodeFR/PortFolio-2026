@@ -23,6 +23,7 @@ function ProjectDetail({
   const projectDetailContentRef = useRef<HTMLDivElement>(null);
   const projectContentTransitionRef = useRef<HTMLDivElement>(null);
   const isFirstOpenRef = useRef(true);
+  const projectInfoRef = useRef<HTMLDivElement>(null);
 
   // Components
   const projectComponents: Record<number, React.FC<WeatherAppProps>> = {
@@ -45,17 +46,44 @@ function ProjectDetail({
       if (selectedProject !== null && isFirstOpenRef.current) {
         // Premiere ouverture > slide à droite
         isFirstOpenRef.current = false;
-        gsap.fromTo(
-          projectDetailRef.current,
-          {
-            x: "100%",
-          },
-          {
-            x: "0%",
-            duration: 1,
-            ease: "power3.inOut",
-          },
+
+        // Information des projects slide 1
+        // sélectionne tous les éléments enfant de projectInfoRef, sous forme de tableau exploitable par GSAP
+        const infoItems = gsap.utils.toArray<HTMLElement>(
+          ".project-info-item",
+          projectInfoRef.current,
         );
+        // Timeline des information des projects
+        const tl_info_project = gsap.timeline({
+          defaults: { ease: "power3.inOut" },
+        });
+
+        tl_info_project
+          .fromTo(
+            projectDetailRef.current,
+            {
+              x: "100%",
+            },
+            {
+              x: "0%",
+              duration: 1,
+              ease: "power3.inOut",
+            },
+          )
+          .fromTo(
+            infoItems,
+            {
+              y: 60,
+              autoAlpha: 0,
+            },
+            {
+              y: 0,
+              autoAlpha: 1,
+              duration: 0.6,
+              stagger: 0.08,
+            },
+            "-=0.35",
+          );
       } else // Slide Gauche
       {
         if (selectedProject === null) {
@@ -112,6 +140,7 @@ function ProjectDetail({
           {Component && (
             <Component
               projectDetailContentRef={projectDetailContentRef}
+              projectInfoRef={projectInfoRef}
               isOpen={selectedProject !== null}
               slideCount={
                 selectedProject ? projectSlideCounts[selectedProject] : 4

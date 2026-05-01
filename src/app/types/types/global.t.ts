@@ -16,4 +16,5 @@ export type WeatherAppProps = {
   projectDetailContentRef: React.RefObject<HTMLDivElement | null>;
   isOpen: boolean;
   slideCount: number;
+  projectInfoRef: React.RefObject<HTMLDivElement | null>;
 };
