@@ -33,9 +33,17 @@ function WeatherApp({
                   <li key={`dataWeatherapp-${el.id}`}>
                     <p>{el.tag}</p>
                     {el.tag === "site" ? (
-                      <a target="_blank" href={el.post}>
+                      <a target="_blank" href={el.post as string}>
                         {el.post}
                       </a>
+                    ) : el.tag === "stack" && Array.isArray(el.post) ? (
+                      <div className={stylesShared.stack}>
+                        {el.post.map((tech) => (
+                          <span key={tech} className={stylesShared.badge}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     ) : (
                       <p>{el.post}</p>
                     )}
