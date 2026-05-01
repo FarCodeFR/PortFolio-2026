@@ -48,6 +48,7 @@ function ProjectDetail({
         isFirstOpenRef.current = false;
 
         // Information des projects slide 1
+        // sélectionne tous les éléments enfant de projectInfoRef, sous forme de tableau exploitable par GSAP
         const infoItems = gsap.utils.toArray<HTMLElement>(
           ".project-info-item",
           projectInfoRef.current,
