@@ -10,12 +10,14 @@ function WeatherApp({
   projectDetailContentRef,
   isOpen,
   slideCount,
+  projectInfoRef,
 }: WeatherAppProps) {
   const dataWeatherApp = dataProjectDetail[1].WeatherApp;
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,
     isOpen,
     slideCount,
+    projectInfoRef,
   });
 
   return (
@@ -26,26 +28,33 @@ function WeatherApp({
       >
         <section className={stylesShared.intro_project}>
           <div className={stylesShared.intro_inner}>
-            <div className={stylesShared.intro_col_one}>
-              <h1>Weather App</h1>
+            <div ref={projectInfoRef} className={stylesShared.intro_col_one}>
+              <h1 className="project-info-item">Weather App</h1>
               <ul>
                 {dataWeatherApp?.map((el) => (
                   <li key={`dataWeatherapp-${el.id}`}>
-                    <p>{el.tag}</p>
+                    <p className="project-info-item">{el.tag}</p>
                     {el.tag === "site" ? (
-                      <a target="_blank" href={el.post as string}>
+                      <a
+                        target="_blank"
+                        href={el.post as string}
+                        className="project-info-item"
+                      >
                         {el.post}
                       </a>
                     ) : el.tag === "stack" && Array.isArray(el.post) ? (
                       <div className={stylesShared.stack}>
                         {el.post.map((tech) => (
-                          <span key={tech} className={stylesShared.badge}>
+                          <span
+                            key={tech}
+                            className={`${stylesShared.badge} project-info-item`}
+                          >
                             {tech}
                           </span>
                         ))}
                       </div>
                     ) : (
-                      <p>{el.post}</p>
+                      <p className="project-info-item">{el.post}</p>
                     )}
                   </li>
                 ))}

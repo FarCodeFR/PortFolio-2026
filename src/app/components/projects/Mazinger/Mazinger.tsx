@@ -13,12 +13,14 @@ function Mazinger({
   projectDetailContentRef,
   isOpen,
   slideCount,
+  projectInfoRef,
 }: WeatherAppProps) {
   const dataMazinger = dataProjectDetail[2].Mazinger;
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,
     isOpen,
     slideCount,
+    projectInfoRef,
   });
   const carouselTrackRef = useRef<HTMLDivElement>(null);
 
@@ -42,26 +44,33 @@ function Mazinger({
       >
         <section className={stylesShared.intro_project}>
           <div className={stylesShared.intro_inner}>
-            <div className={stylesShared.intro_col_one}>
+            <div ref={projectInfoRef} className={stylesShared.intro_col_one}>
               <h1>Mazinger</h1>
               <ul>
                 {dataMazinger?.map((el) => (
                   <li key={`dataMazinger-${el.id}`}>
-                    <p>{el.tag}</p>
+                    <p className="project-info-item">{el.tag}</p>
                     {el.tag === "site" ? (
-                      <a target="_blank" href={el.post as string}>
+                      <a
+                        target="_blank"
+                        href={el.post as string}
+                        className="project-info-item"
+                      >
                         {el.post}
                       </a>
                     ) : el.tag === "stack" && Array.isArray(el.post) ? (
                       <div className={stylesShared.stack}>
                         {el.post.map((tech) => (
-                          <span key={tech} className={stylesShared.badge}>
+                          <span
+                            key={tech}
+                            className={`${stylesShared.badge} project-info-item`}
+                          >
                             {tech}
                           </span>
                         ))}
                       </div>
                     ) : (
-                      <p>{el.post}</p>
+                      <p className="project-info-item">{el.post}</p>
                     )}
                   </li>
                 ))}

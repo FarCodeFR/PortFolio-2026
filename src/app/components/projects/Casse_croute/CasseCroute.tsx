@@ -9,12 +9,14 @@ function Cassecroute({
   projectDetailContentRef,
   isOpen,
   slideCount,
+  projectInfoRef,
 }: WeatherAppProps) {
   const dataCasseCroute = dataProjectDetail[3].CasseCroute;
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,
     isOpen,
     slideCount,
+    projectInfoRef,
   });
 
   return (
@@ -22,26 +24,33 @@ function Cassecroute({
       <div ref={wrapperProjectRef} className={styles.wrapper_project_detail}>
         <section className={styles.intro_project}>
           <div className={styles.intro_inner}>
-            <div className={styles.intro_col_one}>
+            <div ref={projectInfoRef} className={styles.intro_col_one}>
               <h1>Casse croûte</h1>
               <ul>
                 {dataCasseCroute?.map((el) => (
                   <li key={`dataCasseCroute-${el.id}`}>
-                    <p>{el.tag}</p>
+                    <p className="project-info-item">{el.tag}</p>
                     {el.tag === "site" ? (
-                      <a target="_blank" href={el.post as string}>
+                      <a
+                        target="_blank"
+                        href={el.post as string}
+                        className="project-info-item"
+                      >
                         {el.post}
                       </a>
                     ) : el.tag === "stack" && Array.isArray(el.post) ? (
                       <div className={stylesShared.stack}>
                         {el.post.map((tech) => (
-                          <span key={tech} className={stylesShared.badge}>
+                          <span
+                            key={tech}
+                            className={`${stylesShared.badge} project-info-item`}
+                          >
                             {tech}
                           </span>
                         ))}
                       </div>
                     ) : (
-                      <p>{el.post}</p>
+                      <p className="project-info-item">{el.post}</p>
                     )}
                   </li>
                 ))}
