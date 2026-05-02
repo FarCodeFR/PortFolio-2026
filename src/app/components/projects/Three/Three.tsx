@@ -1,18 +1,17 @@
-import styles from "./WeatherApp.module.scss";
-import stylesShared from "../AllProjectDetail.module.scss";
-import useHorizontalScroll from "@/app/hooks/animations/useHorizontalScroll";
 import { HomeProjectProps } from "@/app/types/types/global.t";
-import { WeatherSwitcher } from "./WeatherAppSwitcher";
+import useHorizontalScroll from "@/app/hooks/animations/useHorizontalScroll";
 import dataProjectDetail from "@/app/data/project_info.json";
+import stylesShared from "../AllProjectDetail.module.scss";
+import styles from "./Three.module.scss";
 import Image from "next/image";
 
-function WeatherApp({
+function Three({
   projectDetailContentRef,
   isOpen,
   slideCount,
   projectInfoRef,
 }: HomeProjectProps) {
-  const dataWeatherApp = dataProjectDetail[1].WeatherApp;
+  const dataProjectThree = dataProjectDetail[4]["Three.js"];
   const { wrapperProjectRef, projectDetailScopeRef } = useHorizontalScroll({
     projectDetailContentRef,
     isOpen,
@@ -29,10 +28,10 @@ function WeatherApp({
         <section className={stylesShared.intro_project}>
           <div className={stylesShared.intro_inner}>
             <div ref={projectInfoRef} className={stylesShared.intro_col_one}>
-              <h1 className="project-info-item">Weather App</h1>
+              <h1>Three.js</h1>
               <ul>
-                {dataWeatherApp?.map((el) => (
-                  <li key={`dataWeatherapp-${el.id}`}>
+                {dataProjectThree?.map((el) => (
+                  <li key={`dataProjectThree-${el.id}`}>
                     <p className="project-info-item">{el.tag}</p>
                     {el.tag === "site" ? (
                       <a
@@ -60,10 +59,10 @@ function WeatherApp({
                 ))}
               </ul>
             </div>
-            <div className={stylesShared.intro_col_two}>
+            <div className={styles.intro_col_two}>
               <picture>
                 <Image
-                  src="/images/projects/weather/intro_weather.webp"
+                  src="/images/projects/three/threeProject.png"
                   alt="Application météo"
                   width={400}
                   height={800}
@@ -72,42 +71,9 @@ function WeatherApp({
             </div>
           </div>
         </section>
-        <section className={stylesShared.first_slide_project}>
-          <WeatherSwitcher />
-        </section>
-        <section className={stylesShared.second_slide_project}>
-          <div className={stylesShared.second_style_inner}>
-            <h1>
-              Prévisions <br /> horaires
-            </h1>
-            <picture>
-              <Image
-                src="/images/projects/weather/prevision.webp"
-                alt="prevision"
-                width={400}
-                height={250}
-              />
-            </picture>
-          </div>
-        </section>
-        <section className={styles.third_slide_project}>
-          <div className={stylesShared.second_style_inner}>
-            <h1>
-              Prévisions <br /> hébdomadaires
-            </h1>
-            <picture>
-              <Image
-                src="/images/projects/weather/hebdo.webp"
-                alt="hebdomadaire"
-                width={400}
-                height={800}
-              />
-            </picture>
-          </div>
-        </section>
       </div>
     </div>
   );
 }
 
-export default WeatherApp;
+export default Three;
