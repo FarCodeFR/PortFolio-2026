@@ -24,6 +24,12 @@
         "title": "Casse croute",
         "image": "/images/projects/casse_croute/casse_croute.webp",
         "hoverImage": "/images/projects/casse_croute/hover_casse_croute.webp"
+      },
+      {
+        "id": 4,
+        "title": "Three.js",
+        "image": "/images/projects/three/threeProject.png",
+        "hoverImage": "/images/projects/three/three_bg.webp"
       }
     ]
   },
@@ -117,6 +123,35 @@
         "id": 5,
         "tag": "site",
         "post": "https://github.com/FarCodeFR/Casse-Croute"
+      }
+    ]
+  },
+  {
+    "Three.js": [
+      {
+        "id": 1,
+        "tag": "année",
+        "post": "2026"
+      },
+      {
+        "id": 2,
+        "tag": "à propos",
+        "post": "Projet en cours de développement.\n\nJ'apprends Three.js en suivant les cours de Bruno Simon sur threejs-journey.com. \n\nLe projet arrivera prochainement..."
+      },
+      {
+        "id": 3,
+        "tag": "rôle",
+        "post": "Apprentissage seul"
+      },
+      {
+        "id": 4,
+        "tag": "stack",
+        "post": ["Three.js", "WebGL", "GLSL", "JavaScript", "React Three Fiber"]
+      },
+      {
+        "id": 5,
+        "tag": "site",
+        "post": "https://threejs-journey.com"
       }
     ]
   }

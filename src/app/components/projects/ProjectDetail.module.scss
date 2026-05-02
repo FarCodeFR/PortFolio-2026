@@ -39,7 +39,9 @@
 
   .btn_next_project {
     @include h3;
-    width: 500px;
+    width: auto;
+    height: auto;
+    bottom: 5%;
     padding: 0;
 
     & img {

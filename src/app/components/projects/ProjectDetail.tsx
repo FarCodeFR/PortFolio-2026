@@ -6,9 +6,10 @@ import styles from "./ProjectDetail.module.scss";
 import Mazinger from "./Mazinger/Mazinger";
 import { useGSAP } from "@gsap/react";
 import Cassecroute from "./Casse_croute/CasseCroute";
-import { WeatherAppProps } from "@/app/types/types/global.t";
+import { HomeProjectProps } from "@/app/types/types/global.t";
 import WeatherApp from "./WeatherApp/WeatherApp";
 import Image from "next/image";
+import Three from "./Three/Three";
 
 interface ProjectDetailProps {
   selectedProject: number | null;
@@ -26,10 +27,11 @@ function ProjectDetail({
   const projectInfoRef = useRef<HTMLDivElement>(null);
 
   // Components
-  const projectComponents: Record<number, React.FC<WeatherAppProps>> = {
+  const projectComponents: Record<number, React.FC<HomeProjectProps>> = {
     1: WeatherApp,
     2: Mazinger,
     3: Cassecroute,
+    4: Three,
   };
   const Component = selectedProject ? projectComponents[selectedProject] : null;
 
@@ -37,7 +39,8 @@ function ProjectDetail({
   const projectSlideCounts: Record<number, number> = {
     1: 4,
     2: 5,
-    3: 2,
+    3: 1,
+    4: 1,
   };
 
   useGSAP(
@@ -102,7 +105,7 @@ function ProjectDetail({
 
   const handleChangeProject = () => {
     if (selectedProject === null) return;
-    const nextProject = selectedProject + 1 > 3 ? 1 : selectedProject + 1;
+    const nextProject = selectedProject + 1 > 4 ? 1 : selectedProject + 1;
     gsap.to(projectContentTransitionRef.current, {
       x: "-100%",
       duration: 0.5,

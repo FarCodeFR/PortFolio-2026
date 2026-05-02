@@ -1,5 +1,5 @@
 import styles from "./ProjectGrid.module.scss";
-import { Fragment, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
@@ -172,6 +172,7 @@ function ProjectGrid({
                       alt={`${el.title} mobile ${index + 1}`}
                       width={200}
                       height={400}
+                      loading="eager"
                     />
                   </li>
                 ))}

@@ -12,7 +12,7 @@ export type ProjectDetailProps = {
   setSelectedProject: (n: number) => void;
 };
 
-export type WeatherAppProps = {
+export type HomeProjectProps = {
   projectDetailContentRef: React.RefObject<HTMLDivElement | null>;
   isOpen: boolean;
   slideCount: number;

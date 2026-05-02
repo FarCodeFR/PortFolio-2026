@@ -6,6 +6,7 @@ import { useHeaderIntroAnimation } from "@/app/hooks/animations/useHeaderAnimati
 function Header({ setOpen, setOpenContact, setIntroDone }: OpenType) {
   const [time, setTime] = useState(new Date());
   const [mounted, setMounted] = useState(false);
+  const [isSwitch, setIsSwitch] = useState("full");
 
   // Fix désynchronisation d'hydratation
   useEffect(() => {
