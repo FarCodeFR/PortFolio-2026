@@ -15,9 +15,7 @@ function Footer({
         setSelectedProject={setSelectedProject}
       />
       <div className={styles.notice}>
-        <p>
-          🚧 Version mobile et projet casse-croûte en cours de développement 🚧
-        </p>
+        <p>🚧 Version mobile en cours de développement 🚧</p>
       </div>
     </footer>
   );

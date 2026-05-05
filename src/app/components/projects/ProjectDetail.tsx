@@ -1,25 +1,24 @@
 "use client";
 
-import gsap from "gsap";
+import { useGSAP, gsap } from "@/app/lib/gsap";
 import { useRef } from "react";
 import styles from "./ProjectDetail.module.scss";
 import Mazinger from "./Mazinger/Mazinger";
-import { useGSAP } from "@gsap/react";
 import Cassecroute from "./Casse_croute/CasseCroute";
 import { HomeProjectProps } from "@/app/types/types/global.t";
 import WeatherApp from "./WeatherApp/WeatherApp";
 import Image from "next/image";
 import Three from "./Three/Three";
+import BreakinGood from "./Breakin_good/BreakinGood";
+import Inventeur from "./Inventeur/Inventeur";
+import Enjeux from "./Enjeux/Enjeux";
 
-interface ProjectDetailProps {
+interface DetailPorps {
   selectedProject: number | null;
   setSelectedProject: (n: number) => void;
 }
 
-function ProjectDetail({
-  selectedProject,
-  setSelectedProject,
-}: ProjectDetailProps) {
+function ProjectDetail({ selectedProject, setSelectedProject }: DetailPorps) {
   const projectDetailRef = useRef<HTMLDivElement>(null);
   const projectDetailContentRef = useRef<HTMLDivElement>(null);
   const projectContentTransitionRef = useRef<HTMLDivElement>(null);
@@ -32,6 +31,9 @@ function ProjectDetail({
     2: Mazinger,
     3: Cassecroute,
     4: Three,
+    5: BreakinGood,
+    6: Inventeur,
+    7: Enjeux,
   };
   const Component = selectedProject ? projectComponents[selectedProject] : null;
 
@@ -41,6 +43,9 @@ function ProjectDetail({
     2: 5,
     3: 1,
     4: 1,
+    5: 1,
+    6: 1,
+    7: 1,
   };
 
   useGSAP(
@@ -105,7 +110,7 @@ function ProjectDetail({
 
   const handleChangeProject = () => {
     if (selectedProject === null) return;
-    const nextProject = selectedProject + 1 > 4 ? 1 : selectedProject + 1;
+    const nextProject = selectedProject + 1 > 7 ? 1 : selectedProject + 1;
     gsap.to(projectContentTransitionRef.current, {
       x: "-100%",
       duration: 0.5,

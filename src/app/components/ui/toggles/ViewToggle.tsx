@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./ViewToggle.module.scss";
-import { gsap } from "gsap";
+import { gsap } from "@/app/lib/gsap";
 import { ProjectDetailProps } from "@/app/types/types/global.t";
 
 function ViewToggle({
@@ -9,9 +9,13 @@ function ViewToggle({
   selectedProject,
   setSelectedProject,
 }: ProjectDetailProps) {
-  const [isSwitch, setIsSwitch] = useState("full");
+  const [isSwitch, setIsSwitch] = useState(
+    selectedProject !== null ? "one" : "full",
+  );
   const thumbRef = useRef<HTMLSpanElement>(null);
 
+  // Synchronise l'état visuel du toggle avec le projet sélectionné depuis l'extérieur.
+  // Si un projet est ouvert, on passe en vue "one", sinon on revient en "full".
   useEffect(() => {
     if (selectedProject !== null) {
       setIsSwitch("one");
@@ -22,9 +26,9 @@ function ViewToggle({
 
   useLayoutEffect(() => {
     if (!thumbRef.current) {
-      console.log("Erreur useRef");
       return;
     }
+
     gsap.to(thumbRef.current, {
       duration: 0.8,
       ease: "power4.out",
@@ -32,15 +36,16 @@ function ViewToggle({
     });
   }, [isSwitch]);
 
-  // Fermeture
+  // Fermeture || ouverture
   const handleToogle = (mode: "one" | "full") => {
     setIsSwitch(mode);
 
     if (mode === "full") {
       onCloseDetail();
     }
+    const projectRandom = Math.floor(Math.random() * 7 + 1);
     if (mode === "one") {
-      setSelectedProject(1);
+      setSelectedProject(projectRandom);
     }
   };
 
@@ -59,6 +64,7 @@ function ViewToggle({
         aria-pressed={isSwitch === "full"}
         onClick={() => handleToogle("full")}
         className={isSwitch === "full" ? styles.isActive : ""}
+        aria-label="Afficher les projets solo"
       >
         Full
       </button>

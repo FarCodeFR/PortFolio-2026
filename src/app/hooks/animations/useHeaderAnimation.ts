@@ -19,6 +19,7 @@ export function useHeaderIntroAnimation({
         !linkRef.current
       )
         return;
+      // SplitText découpe le nom en caractères individuels pour les animer un par un
       const hd_split = new SplitText(nameRef.current, { type: "chars" });
       const hd_navLinks = linkRef.current.querySelectorAll(
         "li",
@@ -77,6 +78,7 @@ export function useHeaderIntroAnimation({
           [],
           "-=0.8",
         )
+        // Pulse infini sur le statut pour indiquer la disponibilité en temps réel
         .to(statusRef.current, {
           color: "#a8a9ab",
           repeat: -1,
@@ -84,7 +86,8 @@ export function useHeaderIntroAnimation({
           duration: 2,
           ease: "sine.inOut",
         });
-      // Nettoie SplitText dans le DOM
+      // Revert SplitText : retire les spans injectés dans le DOM
+      // pour remettre le texte dans son état HTML d'origine au cleanup.
       return () => {
         hd_split.revert();
       };

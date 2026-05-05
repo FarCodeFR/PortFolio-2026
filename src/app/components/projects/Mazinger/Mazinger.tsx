@@ -1,13 +1,12 @@
 import styles from "./Mazinger.module.scss";
 import stylesShared from "../AllProjectDetail.module.scss";
 import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import useHorizontalScroll from "@/app/hooks/animations/useHorizontalScroll";
 import { HomeProjectProps } from "@/app/types/types/global.t";
 import dataProjectDetail from "@/app/data/project_info.json";
 import CarouselEnemy from "../../ui/carousel/CarouselEnemy";
 import Image from "next/image";
+import { useGSAP, gsap } from "@/app/lib/gsap";
 
 function Mazinger({
   projectDetailContentRef,

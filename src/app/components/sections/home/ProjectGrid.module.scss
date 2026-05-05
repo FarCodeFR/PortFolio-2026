@@ -9,10 +9,37 @@
   height: 100%;
 }
 
+.containerHomeProject {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
 // Titre Projects
 .t_home {
   @include navMaj;
   color: $c-fg-secondary;
+}
+
+// View list projects
+
+.viewListProjectHome {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.viewListProjectHome > button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  @include navMaj;
+  color: $c-fg-secondary;
+  padding: 0;
+}
+.activeViewProject {
+  transition: ease-in 0.3s;
+  color: $c-fg-primary !important;
 }
 
 // Ul container
@@ -32,6 +59,7 @@
   height: 446px;
   will-change: transform, opacity;
   flex: 1;
+  opacity: 0;
   height: 450px;
 
   transition:
@@ -78,7 +106,7 @@
   img {
     filter: grayscale(0%) brightness(0.9) !important;
     opacity: 1 !important;
-    object-position: center !important;
+    object-position: top !important;
     transform: scale(1.04);
   }
 

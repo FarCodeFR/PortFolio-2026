@@ -63,7 +63,7 @@ function Three({
               <picture>
                 <Image
                   src="/images/projects/three/threeProject.png"
-                  alt="Application météo"
+                  alt="Logo three.js"
                   width={400}
                   height={800}
                 />
