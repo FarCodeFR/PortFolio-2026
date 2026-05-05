@@ -176,31 +176,54 @@
       }
     ]
   },
-
   {
     "BreakinGood": [
       {
         "id": 1,
         "tag": "année",
-        "post": "2024"
+        "post": "2026"
       },
       {
         "id": 2,
         "tag": "à propos",
-        "post": "Réalisation et intégration d’un site WordPress pour une structure orientée accompagnement et stratégie digitale, avec mise en place des pages, contenus et optimisation de l’expérience utilisateur."
+        "post": "BreakinGood est une structure indépendante spécialisée dans le placement de produit, le storytelling de marque et les partenariats stratégiques dans l’univers du cinéma et des séries. L’objectif était de concevoir un site vitrine professionnel permettant de valoriser leur expertise, renforcer leur crédibilité et présenter clairement leur approche autour de la stratégie de marque."
       },
       {
         "id": 3,
         "tag": "rôle",
-        "post": "Intégrateur WordPress"
+        "post": "Développeur / Intégrateur WordPress"
       },
       {
         "id": 4,
         "tag": "stack",
-        "post": ["WordPress", "Elementor", "JetEngine"]
+        "post": [
+          "WordPress",
+          "Elementor",
+          "Crocoblock",
+          "JetEngine",
+          "Meta Box",
+          "Brevo",
+          "Rank Math SEO",
+          "Hostinger"
+        ]
       },
       {
         "id": 5,
+        "tag": "mission",
+        "post": "Intégration complète de la maquette Figma, création des templates dynamiques, configuration des Custom Post Types, structuration des contenus avec Meta Box et Crocoblock, mise en place des formulaires avec Brevo, automatisation des envois de mails, optimisation SEO avec Rank Math, mise en production sur Hostinger et formation du client à l’utilisation du back-office."
+      },
+      {
+        "id": 6,
+        "tag": "challenge",
+        "post": "La principale difficulté était organisationnelle : attendre les validations, retours et modifications de contenu pour avancer efficacement sur certaines parties du projet."
+      },
+      {
+        "id": 7,
+        "tag": "résultat",
+        "post": "Mise en ligne d’un site vitrine complet, optimisé pour le référencement et pensé pour être administrable facilement par le client, avec accompagnement et formation sur le back-office WordPress."
+      },
+      {
+        "id": 8,
         "tag": "site",
         "post": "https://breakin-good.com"
       }
@@ -211,25 +234,40 @@
       {
         "id": 1,
         "tag": "année",
-        "post": "2024"
+        "post": "2025"
       },
       {
         "id": 2,
         "tag": "à propos",
-        "post": "Les Inventeurs est un espace de création situé à Paris proposant des ateliers de bricolage, menuiserie, métallerie, soudure et fabrication DIY pour enfants, adolescents et adultes."
+        "post": "Les Inventeurs est un espace de création situé à Paris proposant des ateliers de bricolage, menuiserie, métallerie, soudure et fabrication DIY pour enfants, adolescents et adultes. Le projet consistait à faire évoluer un site déjà existant afin d’améliorer sa visibilité, moderniser certaines pages et rendre l’expérience de réservation plus fluide pour les utilisateurs."
       },
       {
         "id": 3,
         "tag": "rôle",
-        "post": "Ajout de nouvelles fonctionnalités, création de landing pages, intégration de Tourbiz pour la gestion du panier et des réservations, optimisation de l’expérience utilisateur."
+        "post": "Développeur / Intégrateur WordPress"
       },
       {
         "id": 4,
         "tag": "stack",
-        "post": ["WordPress", "Elementor", "JetEngine", "Tourbiz"]
+        "post": ["WordPress", "Elementor", "JetEngine", "Tourbiz", "Brevo"]
       },
       {
         "id": 5,
+        "tag": "mission",
+        "post": "Ajout de nouvelles fonctionnalités, amélioration du design de certaines pages, création de landing pages, intégration de Tourbiz pour la gestion des articles, commandes et réservations, optimisation du tunnel de réservation, amélioration de l’expérience utilisateur, automatisation des mails avec Brevo, structuration dynamique des contenus et maintenance évolutive du site."
+      },
+      {
+        "id": 6,
+        "tag": "challenge",
+        "post": "Le principal challenge était de reprendre un projet déjà existant avec ses contraintes techniques et sa structure en place, tout en améliorant l’expérience utilisateur sans perturber le fonctionnement en production."
+      },
+      {
+        "id": 7,
+        "tag": "résultat",
+        "post": "Le site est devenu plus clair, plus attractif et plus simple à utiliser. Le système de réservation a été amélioré pour fluidifier le parcours utilisateur, faciliter la prise de commande et rendre l’ensemble plus intuitif pour les clients."
+      },
+      {
+        "id": 8,
         "tag": "site",
         "post": "https://lesinventeurs.fr"
       }
@@ -240,25 +278,46 @@
       {
         "id": 1,
         "tag": "année",
-        "post": "2024"
+        "post": "2025"
       },
       {
         "id": 2,
         "tag": "à propos",
-        "post": "Site éditorial spécialisé dans l’information et l’analyse autour des jeux d’argent, casinos et paris en ligne, avec une forte dimension de contenu et de référencement."
+        "post": "Les Enjeux est un site éditorial spécialisé dans l’information et l’analyse autour des jeux d’argent, casinos et paris en ligne, avec une forte dimension de contenu et de référencement. Le projet consistait à reprendre un site déjà avancé reposant sur un thème payant devenu trop limitant afin de repartir sur une structure plus propre, performante et maintenable."
       },
       {
         "id": 3,
         "tag": "rôle",
-        "post": "Refonte complète du site en supprimant le thème par défaut pour développer une structure sur mesure, ajout de nouvelles fonctionnalités et export des articles au format PDF."
+        "post": "Développeur / Intégrateur WordPress"
       },
       {
         "id": 4,
         "tag": "stack",
-        "post": ["WordPress", "Elementor", "JetEngine", "PDF Export"]
+        "post": [
+          "WordPress",
+          "Elementor",
+          "JetEngine",
+          "PDF Export",
+          "UTM Tracking"
+        ]
       },
       {
         "id": 5,
+        "tag": "mission",
+        "post": "Suppression du thème existant, reconstruction complète du site avec une structure WordPress personnalisée, développement de composants réutilisables, amélioration de l’UX, modernisation de l’interface, optimisation SEO, gestion des articles éditoriaux, mise en place de l’export PDF des articles, ajout de liens UTM pour le suivi publicitaire et correction des fonctionnalités cassées liées à la suppression du thème payant."
+      },
+      {
+        "id": 6,
+        "tag": "challenge",
+        "post": "Le principal challenge était de reprendre un projet déjà très avancé avec un grand volume d’articles existants, supprimer complètement le thème précédent sans perdre la structure ni les contenus, puis reconstruire l’ensemble au plus proche de l’existant tout en corrigeant les limites techniques et les problèmes liés au plugin PDF."
+      },
+      {
+        "id": 7,
+        "tag": "résultat",
+        "post": "Le site est devenu plus stable, plus performant et plus simple à maintenir. La nouvelle architecture améliore la réutilisation des composants, la gestion des contenus éditoriaux, l’expérience utilisateur, le référencement naturel ainsi que le suivi marketing via les liens UTM."
+      },
+      {
+        "id": 8,
         "tag": "site",
         "post": "https://les-enjeux.com"
       }
