@@ -64,12 +64,12 @@
       {
         "id": 2,
         "tag": "à propos",
-        "post": "Application météo mobile développée entièrement seul avec React Native et Expo première expérience mobile pour moi.\n\nIntégration de l'API Free Weather API pour afficher les données en temps réel : températures, prévisions horaires et hebdomadaires. \n\nDifficulté principale : apprendre React Native from scratch, gérer les différences avec React web et builder l'app sur mon téléphone via Xcode."
+        "post": "WeatherApp est une application météo mobile réalisée dans le cadre d’un projet scolaire. L’objectif était de découvrir React Native, créer une première application mobile avec Expo et travailler avec une API météo pour afficher des données en temps réel."
       },
       {
         "id": 3,
         "tag": "rôle",
-        "post": "Conception et développement"
+        "post": "Conception et développement complet de l’application"
       },
       {
         "id": 4,
@@ -84,6 +84,26 @@
       },
       {
         "id": 5,
+        "tag": "mission",
+        "post": "Développement complet de l’application mobile, intégration de l’API météo, gestion de la géolocalisation, recherche de ville, affichage de la météo sur 24h et des prévisions hebdomadaires, création du design mobile, mise en place de la navigation et test de l’application sur téléphone via Expo et Xcode."
+      },
+      {
+        "id": 6,
+        "tag": "challenge",
+        "post": "Le principal challenge était d’apprendre React Native et de comprendre les différences avec React web, notamment sur la navigation, la gestion de l’API, le design mobile et le build de l’application avec Expo et Xcode."
+      },
+      {
+        "id": 7,
+        "tag": "résultat",
+        "post": "L’application n’est pas encore totalement terminée, mais la base principale est fonctionnelle : l’utilisateur peut afficher la météo selon sa géolocalisation ou rechercher une ville. L’app peut être lancée via Expo en scannant un QR code ou buildée pour être testée sur téléphone."
+      },
+      {
+        "id": 8,
+        "tag": "apprentissage",
+        "post": "Ce projet m’a permis de découvrir le développement mobile, d’élargir ma vision au-delà du web et de faire mes premiers pas avec React Native, Expo et le build d’une application sur téléphone."
+      },
+      {
+        "id": 9,
         "tag": "site",
         "post": "https://github.com/FarCodeFR/WeatherApp"
       }
@@ -283,7 +303,7 @@
       {
         "id": 2,
         "tag": "à propos",
-        "post": "Les Enjeux est un site éditorial spécialisé dans l’information et l’analyse autour des jeux d’argent, casinos et paris en ligne, avec une forte dimension de contenu et de référencement. Le projet consistait à reprendre un site déjà avancé reposant sur un thème payant devenu trop limitant afin de repartir sur une structure plus propre, performante et maintenable."
+        "post": "Les Enjeux est un site éditorial spécialisé dans l’information et l’analyse autour des jeux d’argent, casinos et paris en ligne, avec une forte dimension de contenu et de référencement. Le projet consistait à reprendre un site déjà avancé reposant sur un thème payant devenu trop limitant afin de repartir sur une structure plus moderne, performante et maintenable."
       },
       {
         "id": 3,
@@ -309,7 +329,7 @@
       {
         "id": 6,
         "tag": "challenge",
-        "post": "Le principal challenge était de reprendre un projet déjà très avancé avec un grand volume d’articles existants, supprimer complètement le thème précédent sans perdre la structure ni les contenus, puis reconstruire l’ensemble au plus proche de l’existant tout en corrigeant les limites techniques et les problèmes liés au plugin PDF."
+        "post": "Le principal challenge était de reprendre un projet déjà très avancé avec un grand volume d’articles existants, supprimer complètement le thème précédent sans perdre la structure ni les contenus, puis reconstruire l’ensemble du site pour se rapprocher du model de base tout en corrigeant les limites techniques et les problèmes liés au plugin PDF."
       },
       {
         "id": 7,

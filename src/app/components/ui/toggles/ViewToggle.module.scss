@@ -40,8 +40,9 @@
   }
 }
 
-@media (max-width: 480px) {
-  .toogle {
-    z-index: 6;
+@media (max-width: 450px) {
+  .toggle {
+    position: fixed;
+    bottom: 6dvh;
   }
 }
