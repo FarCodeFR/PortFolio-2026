@@ -1,8 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Lenis from "lenis";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP, gsap, ScrollTrigger } from "@/app/lib/gsap";
 import { HomeProjectProps } from "@/app/types/types/global.t";
 
 export default function useHorizontalScroll({
@@ -13,18 +11,18 @@ export default function useHorizontalScroll({
   const wrapperProjectRef = useRef<HTMLDivElement>(null);
   const projectDetailScopeRef = useRef<HTMLDivElement>(null);
 
-  if (typeof window !== "undefined") {
-    gsap.registerPlugin(useGSAP, ScrollTrigger);
-  }
-
   useGSAP(
     () => {
       if (!isOpen || !projectDetailContentRef.current) return;
 
+      // Nettoie les ScrollTriggers précédents avant d'en créer de nouveaux,
+      // pour éviter les conflits si isOpen toggle est utilisé plusieurs fois.
       ScrollTrigger.getAll().forEach((t) => t.kill());
 
       const isMobile = window.innerWidth <= 480;
 
+      // Lenis est scopé sur le conteneur du détail projet, pas sur window,
+      // pour ne pas interférer avec le scroll global de la page.
       const lenis = new Lenis({
         wrapper: projectDetailContentRef.current,
         content: projectDetailScopeRef.current as HTMLElement,
@@ -32,13 +30,19 @@ export default function useHorizontalScroll({
         smoothWheel: true,
       });
 
-      // Connecte Lenis à ScrollTrigger
+      // Synchronise Lenis avec ScrollTrigger pour que le scrub
+      // suive le scroll smoothé plutôt que le scroll natif brut.
       lenis.on("scroll", ScrollTrigger.update);
-      // gsap.ticker.add((time) => lenis.raf(time * 1000));
+
+      // Stocke la référence du RAF pour pouvoir la retirer proprement au cleanup.
       const lenisRaf = (time: number) => lenis.raf(time * 1000);
       gsap.ticker.add(lenisRaf);
+
+      // Désactive le lag smoothing de GSAP pour éviter les sauts
       gsap.ticker.lagSmoothing(0);
 
+      // Le scroll horizontal n'existe qu'en desktop —
+      // sur mobile, le contenu défile verticalement.
       if (!isMobile) {
         gsap.to(wrapperProjectRef.current, {
           x: `-${(slideCount - 1) * 100}vw`,
@@ -49,6 +53,7 @@ export default function useHorizontalScroll({
             scrub: true,
             end: `+=${(slideCount - 1) * 100}%`,
             scroller: projectDetailContentRef.current,
+            // Recalcule les dimensions si la fenêtre est redimensionnée
             invalidateOnRefresh: true,
             snap: {
               snapTo: 1 / (slideCount - 1),
@@ -63,6 +68,8 @@ export default function useHorizontalScroll({
 
       ScrollTrigger.refresh();
 
+      // Cleanup : détruit Lenis et retire son RAF du ticker GSAP
+      // pour éviter les memory leaks quand le détail projet se ferme.
       return () => {
         lenis.destroy();
         gsap.ticker.remove(lenisRaf);

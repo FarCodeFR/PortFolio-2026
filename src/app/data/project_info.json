@@ -1,6 +1,6 @@
 [
   {
-    "Home_projects": [
+    "Code_projects": [
       {
         "id": 1,
         "title": "Weather App",
@@ -29,7 +29,28 @@
         "id": 4,
         "title": "Three.js",
         "image": "/images/projects/three/threeProject.png",
-        "hoverImage": "/images/projects/three/three_bg.webp"
+        "hoverImage": "/images/projects/three/hover_three.webp"
+      }
+    ],
+    "Cms_projects": [
+      {
+        "id": 5,
+        "title": "Breakin'good",
+        "image": "/images/projects/breakin_good/breakin_good.png",
+        "hoverImage": "/images/projects/breakin_good/hover_breakin.png",
+        "imageMobile": []
+      },
+      {
+        "id": 6,
+        "title": "Les-inventeurs",
+        "image": "/images/projects/les_inventeurs/les_inventeurs.webp",
+        "hoverImage": "/images/projects/les_inventeurs/hover_les_inventeurs.png"
+      },
+      {
+        "id": 7,
+        "title": "Les-enjeux",
+        "image": "/images/projects/les_enjeux/les_enjeux.png",
+        "hoverImage": "/images/projects/les_enjeux/hover_les_enjeux.png"
       }
     ]
   },
@@ -152,6 +173,94 @@
         "id": 5,
         "tag": "site",
         "post": "https://threejs-journey.com"
+      }
+    ]
+  },
+
+  {
+    "BreakinGood": [
+      {
+        "id": 1,
+        "tag": "année",
+        "post": "2024"
+      },
+      {
+        "id": 2,
+        "tag": "à propos",
+        "post": "Réalisation et intégration d’un site WordPress pour une structure orientée accompagnement et stratégie digitale, avec mise en place des pages, contenus et optimisation de l’expérience utilisateur."
+      },
+      {
+        "id": 3,
+        "tag": "rôle",
+        "post": "Intégrateur WordPress"
+      },
+      {
+        "id": 4,
+        "tag": "stack",
+        "post": ["WordPress", "Elementor", "JetEngine"]
+      },
+      {
+        "id": 5,
+        "tag": "site",
+        "post": "https://breakin-good.com"
+      }
+    ]
+  },
+  {
+    "Les_Inventeurs": [
+      {
+        "id": 1,
+        "tag": "année",
+        "post": "2024"
+      },
+      {
+        "id": 2,
+        "tag": "à propos",
+        "post": "Les Inventeurs est un espace de création situé à Paris proposant des ateliers de bricolage, menuiserie, métallerie, soudure et fabrication DIY pour enfants, adolescents et adultes."
+      },
+      {
+        "id": 3,
+        "tag": "rôle",
+        "post": "Ajout de nouvelles fonctionnalités, création de landing pages, intégration de Tourbiz pour la gestion du panier et des réservations, optimisation de l’expérience utilisateur."
+      },
+      {
+        "id": 4,
+        "tag": "stack",
+        "post": ["WordPress", "Elementor", "JetEngine", "Tourbiz"]
+      },
+      {
+        "id": 5,
+        "tag": "site",
+        "post": "https://lesinventeurs.fr"
+      }
+    ]
+  },
+  {
+    "Les_Enjeux": [
+      {
+        "id": 1,
+        "tag": "année",
+        "post": "2024"
+      },
+      {
+        "id": 2,
+        "tag": "à propos",
+        "post": "Site éditorial spécialisé dans l’information et l’analyse autour des jeux d’argent, casinos et paris en ligne, avec une forte dimension de contenu et de référencement."
+      },
+      {
+        "id": 3,
+        "tag": "rôle",
+        "post": "Refonte complète du site en supprimant le thème par défaut pour développer une structure sur mesure, ajout de nouvelles fonctionnalités et export des articles au format PDF."
+      },
+      {
+        "id": 4,
+        "tag": "stack",
+        "post": ["WordPress", "Elementor", "JetEngine", "PDF Export"]
+      },
+      {
+        "id": 5,
+        "tag": "site",
+        "post": "https://les-enjeux.com"
       }
     ]
   }

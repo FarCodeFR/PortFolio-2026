@@ -7,6 +7,7 @@ import SiteShell from "./components/layout/SiteShell";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
   // Fin d'animation header
   const [introDone, setIntroDone] = useState(false);
 
