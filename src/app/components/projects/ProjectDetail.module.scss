@@ -84,7 +84,7 @@
     order: 10;
     padding: 40px 0;
     // Espace supplémentaire pour ne pas être caché par la barre Safari
-    padding-bottom: calc(40px + env(safe-area-inset-bottom));
+    padding-bottom: calc(20dvh + env(safe-area-inset-bottom));
     justify-content: start;
   }
 
