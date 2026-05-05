@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import styles from "./Contact.module.scss";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { useGSAP, gsap } from "@/app/lib/gsap";
 import Reseau from "../About/Reseau";
 import { ContactProps } from "@/app/types/types/contact.t";
 import { useKeyHandler } from "@/app/hooks/animations/useKeyHandler";
@@ -24,14 +23,18 @@ function Contact({ setOpenContact, openContact }: ContactProps) {
 
       if (!panel || !shape || !content) return;
 
+      // Annule toute animation en cours avant d'en lancer une nouvelle,
       gsap.killTweensOf([panel, shape, content]);
       let tl: gsap.core.Timeline | undefined;
+
       if (openContact) {
         panel.classList.add(styles.visible);
 
         const tl = gsap.timeline();
 
         tl.set(content, { opacity: 0, y: 20 })
+          // Animation de la forme en 3 phases :
+          // départ à scale 0 → expansion rapide → remplissage total de l'écran.
           .to(shape, {
             keyframes: [
               // Phase 1
@@ -60,6 +63,7 @@ function Contact({ setOpenContact, openContact }: ContactProps) {
             xPercent: -50,
             yPercent: -50,
           })
+          // Fait entrer le contenu juste avant la fin de l'animation
           .to(
             content,
             {
@@ -76,6 +80,8 @@ function Contact({ setOpenContact, openContact }: ContactProps) {
             panel.classList.remove(styles.visible);
           },
         });
+        // Ordre inversé à l'ouverture : contenu sort en premier,
+        // puis la forme se rétracte.
         tl.to(content, {
           autoAlpha: 0,
           y: 20,
@@ -90,6 +96,7 @@ function Contact({ setOpenContact, openContact }: ContactProps) {
           ease: "power2.inOut",
         });
       }
+      // Cleanup : tue la timeline si openContact change avant la fin de l'animation
       return () => {
         tl?.kill();
       };

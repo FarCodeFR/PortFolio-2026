@@ -1,12 +1,10 @@
 import { useRef } from "react";
 import styles from "./About.module.scss";
-import gsap from "gsap";
+import { useGSAP, gsap, SplitText } from "@/app/lib/gsap";
 import CarouselLogo from "./CarouselLogo";
 import Experience from "./Experience";
 import Hobby from "./Hobby";
 import Reseau from "./Reseau";
-import { useGSAP } from "@gsap/react";
-import SplitText from "gsap/SplitText";
 import { AboutProps } from "@/app/types/types/about.t";
 import { useKeyHandler } from "@/app/hooks/animations/useKeyHandler";
 

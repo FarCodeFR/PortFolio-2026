@@ -1,7 +1,6 @@
 import styles from "./ProjectGrid.module.scss";
 import { useRef, useState } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { useGSAP, gsap } from "@/app/lib/gsap";
 import Image from "next/image";
 import dataProjects from "@/app/data/project_info.json";
 
@@ -19,12 +18,26 @@ function ProjectGrid({
   const [isActive, setIsActive] = useState<number | null>(null);
   const containerProjectRef = useRef<HTMLDivElement>(null);
   const projectsListRef = useRef<HTMLUListElement>(null);
-  const projects = dataProjects[0].Home_projects ?? [];
 
-  // Play animation
+  // Data des projets
+  const projectsCode = dataProjects[0].Code_projects ?? [];
+  const projectsCms = dataProjects[0].Cms_projects ?? [];
+
+  // currentView contrôle quelles cartes sont dans le DOM.
+  // Il ne change que dans le onComplete de GSAP, jamais directement au clic,
+  // pour garantir que React ne remplace les cartes qu'après l'animation de sortie.
+  const [currentView, setCurrentView] = useState<"CODE" | "CMS">("CODE");
+  const [isAnimatingView, setAnimatingView] = useState(false);
+
+  // Ref pour stocker la destination du switch sans déclencher de re-render.
+  const nextViewRef = useRef<"CODE" | "CMS">("CODE");
+
+  // Bloque les interactions jusqu'à la fin de l'animation d'entrée
   const [isReady, setIsReady] = useState(false);
 
-  // Animation d'apparition des cartes projets
+  // Animation d'entrée : les cartes partent en forme de bulle et s'étirent jusqu'à leur forme finale.
+  // Attend la fin de l'intro parente (introDone) avant de se lancer.
+  // revertOnUpdate nettoie l'animation précédente si introDone change en cours de route.
   useGSAP(
     () => {
       const cards = gsap.utils.toArray<HTMLLIElement>(
@@ -33,7 +46,6 @@ function ProjectGrid({
 
       if (!cards.length) return;
 
-      // Désactive temporairement les interactions
       setIsReady(false);
 
       // Etat initial
@@ -48,9 +60,8 @@ function ProjectGrid({
         borderRadius: "999px",
       });
 
-      // Fin de l'intro continue l'animation
+      // Bloque l'animation jusqu'à la fin de l'intro parente
       if (!introDone) {
-        gsap.set(cards, { pointerEvents: "none" });
         return;
       }
 
@@ -76,10 +87,10 @@ function ProjectGrid({
     },
   );
 
-  // Gere le hover et le clic des cartes
+  // Fait sortir la grille vers la gauche quand un projet est sélectionné,
+  // et la ramène à sa position initiale quand on revient.
   useGSAP(() => {
     if (selectedProject !== null) {
-      // Lance l'animation
       gsap.to(containerProjectRef.current, {
         x: "-100%",
         scale: 0.5,
@@ -88,7 +99,6 @@ function ProjectGrid({
         ease: "power3.inOut",
       });
     } else {
-      // Animation de retour
       gsap.to(containerProjectRef.current, {
         x: "0%",
         scale: 1,
@@ -99,6 +109,8 @@ function ProjectGrid({
     }
   }, [selectedProject]);
 
+  // Déplace le titre h2 vers le bas de la carte au hover via elastic,
+  // et le ramène en position initiale au leave.
   const animateTitle = (el: HTMLLIElement, state: "enter" | "leave") => {
     const title = el.querySelector("h2");
     if (!title) return;
@@ -133,13 +145,102 @@ function ProjectGrid({
     setIsActive(null);
   };
 
+  // Stocke la destination et déclenche l'animation de sortie.
+  const handleSwitchListView = (mode: "CODE" | "CMS") => {
+    if (!isReady || isAnimatingView || mode === currentView) return;
+    setAnimatingView(true);
+    nextViewRef.current = mode;
+  };
+
+  // Switch l'affichage des projets en fonction de la vue
+  const currentProjects = currentView === "CODE" ? projectsCode : projectsCms;
+
+  // Anime l'entrée des nouvelles cartes quand l'utilisateur switche entre CODE et CMS dans les deux sens.
+  // isReady empêche ce useGSAP de tourner pendant l'animation bulle initiale.
+  useGSAP(
+    () => {
+      if (!isReady) return;
+
+      // Récupère la classe
+      const itemProject = gsap.utils.toArray<HTMLLIElement>(
+        `.${styles.projectCards}`,
+      );
+
+      const tl_list_projects = gsap.timeline({
+        defaults: { ease: "sine.inOut" },
+      });
+
+      if (isAnimatingView) {
+        tl_list_projects.fromTo(
+          itemProject,
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+          },
+          {
+            clipPath: "inset(100% 0% 0% 0%)",
+            onComplete: () => {
+              setCurrentView(nextViewRef.current);
+              setAnimatingView(false);
+            },
+            stagger: { amount: 0.3, from: "random" },
+          },
+        );
+      } else if (!isAnimatingView) {
+        tl_list_projects.fromTo(
+          itemProject,
+          {
+            autoAlpha: 0.4,
+            clipPath: "inset(100% 0% 0% 0%)",
+          },
+          {
+            autoAlpha: 1,
+            clipPath: "inset(0% 0% 0% 0%)",
+            stagger: { amount: 0.3, from: "random" },
+          },
+        );
+      }
+    },
+    {
+      scope: containerProjectRef,
+      dependencies: [currentView, isAnimatingView],
+    },
+  );
   return (
     <section ref={containerProjectRef} className={styles.projectGrid}>
-      <h1 className={styles.t_home}>Projects</h1>
+      <div className={styles.containerHomeProject}>
+        <h1 className={styles.t_home}>Projects</h1>
+        <div className={styles.viewListProjectHome}>
+          <button
+            type="button"
+            onClick={() => handleSwitchListView("CODE")}
+            className={currentView === "CODE" ? styles.activeViewProject : ""}
+          >
+            CODE
+          </button>
+          <p>|</p>
+          <button
+            type="button"
+            onClick={() => handleSwitchListView("CMS")}
+            className={currentView === "CMS" ? styles.activeViewProject : ""}
+          >
+            CMS
+          </button>
+        </div>
+      </div>
       <ul ref={projectsListRef} className={styles.listProject}>
-        {projects?.map((el) => (
+        {currentProjects.map((el) => (
           <li
             key={el.id}
+            role="button"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setSelectedProject(el.id);
+              }
+            }}
+            onFocus={(e) => handleEnter(el.id, e.currentTarget)}
+            tabIndex={isReady && !isAnimatingView ? 0 : -1} // -1 = exclu du tab quand caché
+            aria-label={`Ouvrir le projet ${el.title}`}
             onMouseEnter={(e) => handleEnter(el.id, e.currentTarget)}
             onMouseLeave={(e) => handleLeave(e.currentTarget)}
             onClick={() => setSelectedProject(el.id)}
