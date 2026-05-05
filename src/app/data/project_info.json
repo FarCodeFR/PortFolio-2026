@@ -114,17 +114,17 @@
       {
         "id": 1,
         "tag": "année",
-        "post": "2026"
+        "post": "2025"
       },
       {
         "id": 2,
         "tag": "à propos",
-        "post": "Shoot 'em up arcade développé en binôme avec p5.js et Node.js/Express.\n\nMa contribution : développement des blueprints ennemis et boss, système de HUD (score, vies), changement de zones, gestion des musiques et options (mode invincible, son on/off).\n\nDifficulté principale : première utilisation de p5.js — apprendre à créer un jeu complet en HTML / JavaScript / CSS vanilla sans framework."
+        "post": "Mazinger est un shoot 'em up arcade développé en binôme dans le cadre d’un projet de découverte de p5.js et du développement de jeu en HTML, CSS et JavaScript vanilla. L’objectif était de créer un jeu complet sans framework, avec gestion des ennemis, des niveaux, du HUD, des musiques et des effets sonores."
       },
       {
         "id": 3,
         "tag": "rôle",
-        "post": "Développement des blueprints ennemis et boss, création du système de HUD (score, vies), gestion des changements de zones, des musiques et des options de jeu."
+        "post": "Développement des blueprints des ennemis, organisation des niveaux, création du HUD (score, vies), gestion des musiques, sons d’explosions et intégration des différentes logiques de gameplay."
       },
       {
         "id": 4,
@@ -133,6 +133,26 @@
       },
       {
         "id": 5,
+        "tag": "mission",
+        "post": "Création des blueprints ennemis, mise en place des patterns de tir, organisation des niveaux, développement du HUD avec score et système de vies, gestion des musiques, effets sonores et intégration des différentes mécaniques de gameplay pour structurer l’expérience de jeu."
+      },
+      {
+        "id": 6,
+        "tag": "challenge",
+        "post": "Le principal challenge était l’absence totale de connaissances en développement de jeu. Il a fallu apprendre à structurer la logique gameplay, organiser les blueprints, gérer les patterns ennemis et comprendre la création complète d’un jeu avec p5.js."
+      },
+      {
+        "id": 7,
+        "tag": "résultat",
+        "post": "Le projet a permis de créer un shoot 'em up fonctionnel avec plusieurs niveaux, des ennemis structurés par blueprints, un HUD complet et une gestion des sons et musiques. Cette première expérience a permis de comprendre les bases du game development en JavaScript vanilla."
+      },
+      {
+        "id": 8,
+        "tag": "apprentissage",
+        "post": "Ce projet m’a permis d’apprendre l’utilisation des blueprints pour organiser les niveaux, les patterns des ennemis, leurs tirs et la structure globale du gameplay, tout en découvrant la logique du développement de jeu avec p5.js."
+      },
+      {
+        "id": 9,
         "tag": "site",
         "post": "https://github.com/FarCodeFR/Mazinger-Type"
       }
