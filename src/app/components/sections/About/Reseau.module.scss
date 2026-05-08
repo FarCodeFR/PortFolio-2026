@@ -33,7 +33,6 @@
     left: 0;
     width: 0%;
     height: 1.5px;
-    background: $c-fg-primary;
     transition: linear 0.3s;
   }
 }
@@ -46,6 +45,10 @@
   }
   & span {
     width: 100%;
+    background: $c-brand-rest;
+  }
+  & a {
+    color: $c-brand-rest;
   }
 }
 

@@ -26,7 +26,7 @@ export default function ProjectDetail({
         <div className={styles.hero_content}>
           <p className={styles.hero_tag}>{project.tag}</p>
           <h1>{project.title}</h1>
-          <p className={styles.hero_description}>{project.about}</p>
+          <p className={styles.hero_description}>{project.headline}</p>
           <div className={styles.hero_scroll}>
             <p>Scroll pour explorer</p>
             <svg
