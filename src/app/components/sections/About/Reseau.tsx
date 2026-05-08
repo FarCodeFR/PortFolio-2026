@@ -43,8 +43,8 @@ function Reseau({ variant = "about" }: ReseauPorpsStyle) {
       </li>
 
       <li>
-        <a href="mailto:Timothernd@gmail.com">
-          Timothernd@gmail.com{" "}
+        <a href="mailto:Timothe-44@hotmail.fr">
+          Timothe-44@hotmail.fr{" "}
           <Image
             src="/images/decos/reseau.svg"
             alt="décoration icon"
