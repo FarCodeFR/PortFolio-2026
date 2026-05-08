@@ -11,6 +11,7 @@ export interface ProjectDetailProps {
   id: number;
   slug: string;
   title: string;
+  headline: string;
   tag: string;
   category: string;
   year: string;
