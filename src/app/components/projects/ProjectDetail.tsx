@@ -92,7 +92,9 @@ export default function ProjectDetail({
         {/* Mission */}
         {project.mission && (
           <div className={styles.project_mission}>
-            <Image src={project.image_mission} alt={project.title} fill />
+            {project.image_mission && (
+              <Image src={project.image_mission} alt={project.title} fill />
+            )}
             <div className={styles.project_detail_section}>
               <div className={styles.project_detail_section_col_one}>
                 <section className={styles.infoBlock}>
