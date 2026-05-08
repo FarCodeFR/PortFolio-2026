@@ -1,366 +1,189 @@
 [
   {
-    "Code_projects": [
-      {
-        "id": 1,
-        "title": "Weather App",
-        "image": "/images/projects/weather/weather.webp",
-        "hoverImage": "/images/projects/weather/hover_weather.webp",
-        "imageMobile": [
-          "/images/projects/weather/mobile/neige.svg",
-          "/images/projects/weather/mobile/orage.svg",
-          "/images/projects/weather/mobile/pluie.svg",
-          "/images/projects/weather/mobile/soleil.svg"
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Mazinger",
-        "image": "/images/projects/mazinger/mazinger.png",
-        "hoverImage": "/images/projects/mazinger/hover_mazinger.webp"
-      },
-      {
-        "id": 3,
-        "title": "Casse croute",
-        "image": "/images/projects/casse_croute/casse_croute.webp",
-        "hoverImage": "/images/projects/casse_croute/hover_casse_croute.webp"
-      },
-      {
-        "id": 4,
-        "title": "Three.js",
-        "image": "/images/projects/three/threeProject.png",
-        "hoverImage": "/images/projects/three/hover_three.webp"
-      }
+    "id": 1,
+    "slug": "weather-app",
+    "title": "Weather App",
+    "tag": "- Application mobile",
+    "category": "code",
+    "year": "2026",
+    "image": "/images/projects/weather/weather.webp",
+    "hoverImage": "/images/projects/weather/hover_weather.webp",
+    "alt": "Aperçu de Weather App, une application mobile météo développée en React Native et Expo",
+    "caroussel": [
+      "/images/projects/weather/mobile/neige.svg",
+      "/images/projects/weather/mobile/orage.svg",
+      "/images/projects/weather/mobile/pluie.svg",
+      "/images/projects/weather/mobile/soleil.svg"
     ],
-    "Cms_projects": [
-      {
-        "id": 5,
-        "title": "Breakin'good",
-        "image": "/images/projects/breakin_good/breakin_good.png",
-        "hoverImage": "/images/projects/breakin_good/hover_breakin.png",
-        "imageMobile": []
-      },
-      {
-        "id": 6,
-        "title": "Les-inventeurs",
-        "image": "/images/projects/les_inventeurs/les_inventeurs.webp",
-        "hoverImage": "/images/projects/les_inventeurs/hover_les_inventeurs.png"
-      },
-      {
-        "id": 7,
-        "title": "Les-enjeux",
-        "image": "/images/projects/les_enjeux/les_enjeux.png",
-        "hoverImage": "/images/projects/les_enjeux/hover_les_enjeux.png"
-      }
-    ]
+    "about": "WeatherApp est une application météo mobile réalisée dans le cadre d'un projet scolaire. L'objectif était de découvrir React Native, créer une première application mobile avec Expo et travailler avec une API météo pour afficher des données en temps réel.",
+    "role": "Conception et développement complet de l'application",
+    "stack": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Free Weather API",
+      "Xcode"
+    ],
+    "mission": "Développement complet de l'application mobile, intégration de l'API météo, gestion de la géolocalisation, recherche de ville, affichage de la météo sur 24h et des prévisions hebdomadaires, création du design mobile, mise en place de la navigation et test de l'application sur téléphone via Expo et Xcode.",
+    "challenge": "Le principal challenge était d'apprendre React Native et de comprendre les différences avec React web, notamment sur la navigation, la gestion de l'API, le design mobile et le build de l'application avec Expo et Xcode.",
+    "result": "L'application n'est pas encore totalement terminée, mais la base principale est fonctionnelle : l'utilisateur peut afficher la météo selon sa géolocalisation ou rechercher une ville. L'app peut être lancée via Expo en scannant un QR code ou buildée pour être testée sur téléphone.",
+    "learning": "Ce projet m'a permis de découvrir le développement mobile, d'élargir ma vision au-delà du web et de faire mes premiers pas avec React Native, Expo et le build d'une application sur téléphone.",
+    "github": "https://github.com/FarCodeFR/WeatherApp",
+    "live": null,
+    "background": "/images/projects/weather/hero_pres_weather.jpg",
+    "image_mission": "/images/projects/weather/mission_reverse.jpg"
   },
   {
-    "WeatherApp": [
-      {
-        "id": 1,
-        "tag": "année",
-        "post": "2026"
-      },
-      {
-        "id": 2,
-        "tag": "à propos",
-        "post": "WeatherApp est une application météo mobile réalisée dans le cadre d’un projet scolaire. L’objectif était de découvrir React Native, créer une première application mobile avec Expo et travailler avec une API météo pour afficher des données en temps réel."
-      },
-      {
-        "id": 3,
-        "tag": "rôle",
-        "post": "Conception et développement complet de l’application"
-      },
-      {
-        "id": 4,
-        "tag": "stack",
-        "post": [
-          "React Native",
-          "Expo",
-          "TypeScript",
-          "Free Weather API",
-          "Xcode"
-        ]
-      },
-      {
-        "id": 5,
-        "tag": "mission",
-        "post": "Développement complet de l’application mobile, intégration de l’API météo, gestion de la géolocalisation, recherche de ville, affichage de la météo sur 24h et des prévisions hebdomadaires, création du design mobile, mise en place de la navigation et test de l’application sur téléphone via Expo et Xcode."
-      },
-      {
-        "id": 6,
-        "tag": "challenge",
-        "post": "Le principal challenge était d’apprendre React Native et de comprendre les différences avec React web, notamment sur la navigation, la gestion de l’API, le design mobile et le build de l’application avec Expo et Xcode."
-      },
-      {
-        "id": 7,
-        "tag": "résultat",
-        "post": "L’application n’est pas encore totalement terminée, mais la base principale est fonctionnelle : l’utilisateur peut afficher la météo selon sa géolocalisation ou rechercher une ville. L’app peut être lancée via Expo en scannant un QR code ou buildée pour être testée sur téléphone."
-      },
-      {
-        "id": 8,
-        "tag": "apprentissage",
-        "post": "Ce projet m’a permis de découvrir le développement mobile, d’élargir ma vision au-delà du web et de faire mes premiers pas avec React Native, Expo et le build d’une application sur téléphone."
-      },
-      {
-        "id": 9,
-        "tag": "site",
-        "post": "https://github.com/FarCodeFR/WeatherApp"
-      }
-    ]
+    "id": 2,
+    "slug": "mazinger",
+    "title": "Mazinger",
+    "tag": "- Shoot'em up",
+    "category": "code",
+    "year": "2025",
+    "image": "/images/projects/mazinger/mazinger.png",
+    "hoverImage": "/images/projects/mazinger/hover_mazinger.webp",
+    "alt": "Aperçu de Mazinger, un shoot'em up arcade développé en JavaScript avec p5.js",
+    "imageMobile": [],
+    "about": "Mazinger est un shoot 'em up arcade développé en binôme dans le cadre d'un projet de découverte de p5.js et du développement de jeu en HTML, CSS et JavaScript vanilla. L'objectif était de créer un jeu complet sans framework, avec gestion des ennemis, des niveaux, du HUD, des musiques et des effets sonores.",
+    "role": "Développement des blueprints des ennemis, organisation des niveaux, création du HUD (score, vies), gestion des musiques, sons d'explosions et intégration des différentes logiques de gameplay.",
+    "stack": ["HTML", "CSS", "JavaScript", "p5.js", "Node.js", "Express"],
+    "mission": "Création des blueprints ennemis, mise en place des patterns de tir, organisation des niveaux, développement du HUD avec score et système de vies, gestion des musiques, effets sonores et intégration des différentes mécaniques de gameplay pour structurer l'expérience de jeu.",
+    "challenge": "Le principal challenge était l'absence totale de connaissances en développement de jeu. Il a fallu apprendre à structurer la logique gameplay, organiser les blueprints, gérer les patterns ennemis et comprendre la création complète d'un jeu avec p5.js.",
+    "result": "Le projet a permis de créer un shoot 'em up fonctionnel avec plusieurs niveaux, des ennemis structurés par blueprints, un HUD complet et une gestion des sons et musiques.",
+    "learning": "Ce projet m'a permis d'apprendre l'utilisation des blueprints pour organiser les niveaux, les patterns des ennemis, leurs tirs et la structure globale du gameplay, tout en découvrant la logique du développement de jeu avec p5.js.",
+    "github": "https://github.com/FarCodeFR/Mazinger-Type",
+    "live": null,
+    "background": "/images/projects/mazinger/hover_mazinger.webp",
+    "image_mission": "/images/projects/mazinger/maps/mapThree.png"
   },
   {
-    "Mazinger": [
-      {
-        "id": 1,
-        "tag": "année",
-        "post": "2025"
-      },
-      {
-        "id": 2,
-        "tag": "à propos",
-        "post": "Mazinger est un shoot 'em up arcade développé en binôme dans le cadre d’un projet de découverte de p5.js et du développement de jeu en HTML, CSS et JavaScript vanilla. L’objectif était de créer un jeu complet sans framework, avec gestion des ennemis, des niveaux, du HUD, des musiques et des effets sonores."
-      },
-      {
-        "id": 3,
-        "tag": "rôle",
-        "post": "Développement des blueprints des ennemis, organisation des niveaux, création du HUD (score, vies), gestion des musiques, sons d’explosions et intégration des différentes logiques de gameplay."
-      },
-      {
-        "id": 4,
-        "tag": "stack",
-        "post": ["HTML", "CSS", "JavaScript", "p5.js", "Node.js", "Express"]
-      },
-      {
-        "id": 5,
-        "tag": "mission",
-        "post": "Création des blueprints ennemis, mise en place des patterns de tir, organisation des niveaux, développement du HUD avec score et système de vies, gestion des musiques, effets sonores et intégration des différentes mécaniques de gameplay pour structurer l’expérience de jeu."
-      },
-      {
-        "id": 6,
-        "tag": "challenge",
-        "post": "Le principal challenge était l’absence totale de connaissances en développement de jeu. Il a fallu apprendre à structurer la logique gameplay, organiser les blueprints, gérer les patterns ennemis et comprendre la création complète d’un jeu avec p5.js."
-      },
-      {
-        "id": 7,
-        "tag": "résultat",
-        "post": "Le projet a permis de créer un shoot 'em up fonctionnel avec plusieurs niveaux, des ennemis structurés par blueprints, un HUD complet et une gestion des sons et musiques. Cette première expérience a permis de comprendre les bases du game development en JavaScript vanilla."
-      },
-      {
-        "id": 8,
-        "tag": "apprentissage",
-        "post": "Ce projet m’a permis d’apprendre l’utilisation des blueprints pour organiser les niveaux, les patterns des ennemis, leurs tirs et la structure globale du gameplay, tout en découvrant la logique du développement de jeu avec p5.js."
-      },
-      {
-        "id": 9,
-        "tag": "site",
-        "post": "https://github.com/FarCodeFR/Mazinger-Type"
-      }
-    ]
+    "id": 3,
+    "slug": "casse-croute",
+    "title": "Casse croute",
+    "tag": "- Application partage de recettes",
+    "category": "code",
+    "year": "2025",
+    "image": "/images/projects/casse_croute/casse_croute.webp",
+    "hoverImage": "/images/projects/casse_croute/hover_casse_croute.webp",
+    "alt": "Aperçu de Casse Croute, une application full stack de partage de recettes développée en React et Node.js",
+    "imageMobile": [],
+    "about": "Application full stack de partage de recettes réalisée en équipe de 4, dans le cadre de la certification Développeur Web et Web Mobile. Les utilisateurs peuvent créer un compte, gérer leurs recettes et favoris. Un dashboard administrateur permet la modération complète du contenu.",
+    "role": "Création du design, développement des dashboards admin et utilisateur, mise en place de la gestion de l'état global des utilisateurs avec Context API, ainsi que l'authentification sécurisée avec JWT et hachage des mots de passe via Argon2id.",
+    "stack": ["React", "TypeScript", "Node.js", "Express", "MySQL"],
+    "mission": null,
+    "challenge": null,
+    "result": null,
+    "learning": null,
+    "github": "https://github.com/FarCodeFR/Casse-Croute",
+    "live": null,
+    "background": "/images/projects/weather/hero_pres_weather.jpg",
+    "image_mission": "/images/projects/casse_croute/desktop-home.png"
   },
   {
-    "CasseCroute": [
-      {
-        "id": 1,
-        "tag": "année",
-        "post": "2025"
-      },
-      {
-        "id": 2,
-        "tag": "à propos",
-        "post": "Application full stack de partage de recettes réalisée en équipe de 4, dans le cadre de la certification Développeur Web et Web Mobile. \n\n Les utilisateurs peuvent créer un compte, gérer leurs recettes et favoris.\n\n Un dashboard administrateur permet la modération complète du contenu."
-      },
-      {
-        "id": 3,
-        "tag": "rôle",
-        "post": "Création du design, développement des dashboards admin et utilisateur, mise en place de la gestion de l’état global des utilisateurs avec Context API, ainsi que l’authentification sécurisée avec JWT et hachage des mots de passe via Argon2id."
-      },
-      {
-        "id": 4,
-        "tag": "stack",
-        "post": ["React", "TypeScript", "Node.js", "Express", "MySQL"]
-      },
-      {
-        "id": 5,
-        "tag": "site",
-        "post": "https://github.com/FarCodeFR/Casse-Croute"
-      }
-    ]
+    "id": 4,
+    "slug": "three-js",
+    "title": "Three.js",
+    "tag": "- Apprentissage",
+    "category": "code",
+    "year": "2026",
+    "image": "/images/projects/three/threeProject.png",
+    "hoverImage": "/images/projects/three/hover_three.webp",
+    "alt": "Aperçu d'un projet d'apprentissage Three.js, WebGL et GLSL pour la 3D sur le web",
+    "imageMobile": [],
+    "about": "Projet en cours de développement. J'apprends Three.js en suivant les cours de Bruno Simon sur threejs-journey.com. Le projet arrivera prochainement...",
+    "role": "Apprentissage seul",
+    "stack": ["Three.js", "WebGL", "GLSL", "JavaScript", "React Three Fiber"],
+    "mission": null,
+    "challenge": null,
+    "result": null,
+    "learning": null,
+    "github": null,
+    "live": "https://threejs-journey.com",
+    "background": "/images/projects/three/threeProject.png",
+    "image_mission": "/images/projects/three/threeProject.png"
   },
   {
-    "Three.js": [
-      {
-        "id": 1,
-        "tag": "année",
-        "post": "2026"
-      },
-      {
-        "id": 2,
-        "tag": "à propos",
-        "post": "Projet en cours de développement.\n\nJ'apprends Three.js en suivant les cours de Bruno Simon sur threejs-journey.com. \n\nLe projet arrivera prochainement..."
-      },
-      {
-        "id": 3,
-        "tag": "rôle",
-        "post": "Apprentissage seul"
-      },
-      {
-        "id": 4,
-        "tag": "stack",
-        "post": ["Three.js", "WebGL", "GLSL", "JavaScript", "React Three Fiber"]
-      },
-      {
-        "id": 5,
-        "tag": "site",
-        "post": "https://threejs-journey.com"
-      }
-    ]
+    "id": 5,
+    "slug": "breakin-good",
+    "title": "Breakin'good",
+    "tag": "- Spécialisée dans le placement de produit",
+    "category": "cms",
+    "year": "2026",
+    "image": "/images/projects/breakin_good/breakin_good.png",
+    "hoverImage": "/images/projects/breakin_good/hover_breakin.png",
+    "alt": "Aperçu du site vitrine Breakin'Good, agence spécialisée dans le placement de produit et le storytelling de marque",
+    "imageMobile": [],
+    "about": "BreakinGood est une structure indépendante spécialisée dans le placement de produit, le storytelling de marque et les partenariats stratégiques dans l'univers du cinéma et des séries. L'objectif était de concevoir un site vitrine professionnel permettant de valoriser leur expertise, renforcer leur crédibilité et présenter clairement leur approche autour de la stratégie de marque.",
+    "role": "Développeur / Intégrateur WordPress",
+    "stack": [
+      "WordPress",
+      "Elementor",
+      "Crocoblock",
+      "JetEngine",
+      "Meta Box",
+      "Brevo",
+      "Rank Math SEO",
+      "Hostinger"
+    ],
+    "mission": "Intégration complète de la maquette Figma, création des templates dynamiques, configuration des Custom Post Types, structuration des contenus avec Meta Box et Crocoblock, mise en place des formulaires avec Brevo, automatisation des envois de mails, optimisation SEO avec Rank Math, mise en production sur Hostinger et formation du client à l'utilisation du back-office.",
+    "challenge": "La principale difficulté était organisationnelle : attendre les validations, retours et modifications de contenu pour avancer efficacement sur certaines parties du projet.",
+    "result": "Mise en ligne d'un site vitrine complet, optimisé pour le référencement et pensé pour être administrable facilement par le client, avec accompagnement et formation sur le back-office WordPress.",
+    "learning": null,
+    "github": null,
+    "live": "https://breakin-good.com",
+    "background": "/images/projects/breakin_good/hero_pres_breakin.jpg",
+    "image_mission": "/images/projects/breakin_good/breakin_good.png"
   },
   {
-    "BreakinGood": [
-      {
-        "id": 1,
-        "tag": "année",
-        "post": "2026"
-      },
-      {
-        "id": 2,
-        "tag": "à propos",
-        "post": "BreakinGood est une structure indépendante spécialisée dans le placement de produit, le storytelling de marque et les partenariats stratégiques dans l’univers du cinéma et des séries. L’objectif était de concevoir un site vitrine professionnel permettant de valoriser leur expertise, renforcer leur crédibilité et présenter clairement leur approche autour de la stratégie de marque."
-      },
-      {
-        "id": 3,
-        "tag": "rôle",
-        "post": "Développeur / Intégrateur WordPress"
-      },
-      {
-        "id": 4,
-        "tag": "stack",
-        "post": [
-          "WordPress",
-          "Elementor",
-          "Crocoblock",
-          "JetEngine",
-          "Meta Box",
-          "Brevo",
-          "Rank Math SEO",
-          "Hostinger"
-        ]
-      },
-      {
-        "id": 5,
-        "tag": "mission",
-        "post": "Intégration complète de la maquette Figma, création des templates dynamiques, configuration des Custom Post Types, structuration des contenus avec Meta Box et Crocoblock, mise en place des formulaires avec Brevo, automatisation des envois de mails, optimisation SEO avec Rank Math, mise en production sur Hostinger et formation du client à l’utilisation du back-office."
-      },
-      {
-        "id": 6,
-        "tag": "challenge",
-        "post": "La principale difficulté était organisationnelle : attendre les validations, retours et modifications de contenu pour avancer efficacement sur certaines parties du projet."
-      },
-      {
-        "id": 7,
-        "tag": "résultat",
-        "post": "Mise en ligne d’un site vitrine complet, optimisé pour le référencement et pensé pour être administrable facilement par le client, avec accompagnement et formation sur le back-office WordPress."
-      },
-      {
-        "id": 8,
-        "tag": "site",
-        "post": "https://breakin-good.com"
-      }
-    ]
+    "id": 6,
+    "slug": "les-inventeurs",
+    "title": "Les-inventeurs",
+    "tag": "- Ateliers de bricolage",
+    "category": "cms",
+    "year": "2025",
+    "image": "/images/projects/les_inventeurs/les_inventeurs.webp",
+    "hoverImage": "/images/projects/les_inventeurs/hover_les_inventeurs.png",
+    "alt": "Aperçu du site Les Inventeurs, espace de création proposant des ateliers de bricolage et fabrication DIY à Paris",
+    "imageMobile": [],
+    "about": "Les Inventeurs est un espace de création situé à Paris proposant des ateliers de bricolage, menuiserie, métallerie, soudure et fabrication DIY pour enfants, adolescents et adultes. Le projet consistait à faire évoluer un site déjà existant afin d'améliorer sa visibilité, moderniser certaines pages et rendre l'expérience de réservation plus fluide pour les utilisateurs.",
+    "role": "Développeur / Intégrateur WordPress",
+    "stack": ["WordPress", "Elementor", "JetEngine", "Tourbiz", "Brevo"],
+    "mission": "Ajout de nouvelles fonctionnalités, amélioration du design de certaines pages, création de landing pages, intégration de Tourbiz pour la gestion des articles, commandes et réservations, optimisation du tunnel de réservation, amélioration de l'expérience utilisateur, automatisation des mails avec Brevo, structuration dynamique des contenus et maintenance évolutive du site.",
+    "challenge": "Le principal challenge était de reprendre un projet déjà existant avec ses contraintes techniques et sa structure en place, tout en améliorant l'expérience utilisateur sans perturber le fonctionnement en production.",
+    "result": "Le site est devenu plus clair, plus attractif et plus simple à utiliser. Le système de réservation a été amélioré pour fluidifier le parcours utilisateur, faciliter la prise de commande et rendre l'ensemble plus intuitif pour les clients.",
+    "learning": null,
+    "github": null,
+    "live": "https://lesinventeurs.fr",
+    "background": "/images/projects/weather/hero_pres_weather.jpg",
+    "image_mission": "/images/projects/les_inventeurs/les_inventeurs.webp"
   },
   {
-    "Les_Inventeurs": [
-      {
-        "id": 1,
-        "tag": "année",
-        "post": "2025"
-      },
-      {
-        "id": 2,
-        "tag": "à propos",
-        "post": "Les Inventeurs est un espace de création situé à Paris proposant des ateliers de bricolage, menuiserie, métallerie, soudure et fabrication DIY pour enfants, adolescents et adultes. Le projet consistait à faire évoluer un site déjà existant afin d’améliorer sa visibilité, moderniser certaines pages et rendre l’expérience de réservation plus fluide pour les utilisateurs."
-      },
-      {
-        "id": 3,
-        "tag": "rôle",
-        "post": "Développeur / Intégrateur WordPress"
-      },
-      {
-        "id": 4,
-        "tag": "stack",
-        "post": ["WordPress", "Elementor", "JetEngine", "Tourbiz", "Brevo"]
-      },
-      {
-        "id": 5,
-        "tag": "mission",
-        "post": "Ajout de nouvelles fonctionnalités, amélioration du design de certaines pages, création de landing pages, intégration de Tourbiz pour la gestion des articles, commandes et réservations, optimisation du tunnel de réservation, amélioration de l’expérience utilisateur, automatisation des mails avec Brevo, structuration dynamique des contenus et maintenance évolutive du site."
-      },
-      {
-        "id": 6,
-        "tag": "challenge",
-        "post": "Le principal challenge était de reprendre un projet déjà existant avec ses contraintes techniques et sa structure en place, tout en améliorant l’expérience utilisateur sans perturber le fonctionnement en production."
-      },
-      {
-        "id": 7,
-        "tag": "résultat",
-        "post": "Le site est devenu plus clair, plus attractif et plus simple à utiliser. Le système de réservation a été amélioré pour fluidifier le parcours utilisateur, faciliter la prise de commande et rendre l’ensemble plus intuitif pour les clients."
-      },
-      {
-        "id": 8,
-        "tag": "site",
-        "post": "https://lesinventeurs.fr"
-      }
-    ]
-  },
-  {
-    "Les_Enjeux": [
-      {
-        "id": 1,
-        "tag": "année",
-        "post": "2025"
-      },
-      {
-        "id": 2,
-        "tag": "à propos",
-        "post": "Les Enjeux est un site éditorial spécialisé dans l’information et l’analyse autour des jeux d’argent, casinos et paris en ligne, avec une forte dimension de contenu et de référencement. Le projet consistait à reprendre un site déjà avancé reposant sur un thème payant devenu trop limitant afin de repartir sur une structure plus moderne, performante et maintenable."
-      },
-      {
-        "id": 3,
-        "tag": "rôle",
-        "post": "Développeur / Intégrateur WordPress"
-      },
-      {
-        "id": 4,
-        "tag": "stack",
-        "post": [
-          "WordPress",
-          "Elementor",
-          "JetEngine",
-          "PDF Export",
-          "UTM Tracking"
-        ]
-      },
-      {
-        "id": 5,
-        "tag": "mission",
-        "post": "Suppression du thème existant, reconstruction complète du site avec une structure WordPress personnalisée, développement de composants réutilisables, amélioration de l’UX, modernisation de l’interface, optimisation SEO, gestion des articles éditoriaux, mise en place de l’export PDF des articles, ajout de liens UTM pour le suivi publicitaire et correction des fonctionnalités cassées liées à la suppression du thème payant."
-      },
-      {
-        "id": 6,
-        "tag": "challenge",
-        "post": "Le principal challenge était de reprendre un projet déjà très avancé avec un grand volume d’articles existants, supprimer complètement le thème précédent sans perdre la structure ni les contenus, puis reconstruire l’ensemble du site pour se rapprocher du model de base tout en corrigeant les limites techniques et les problèmes liés au plugin PDF."
-      },
-      {
-        "id": 7,
-        "tag": "résultat",
-        "post": "Le site est devenu plus stable, plus performant et plus simple à maintenir. La nouvelle architecture améliore la réutilisation des composants, la gestion des contenus éditoriaux, l’expérience utilisateur, le référencement naturel ainsi que le suivi marketing via les liens UTM."
-      },
-      {
-        "id": 8,
-        "tag": "site",
-        "post": "https://les-enjeux.com"
-      }
-    ]
+    "id": 7,
+    "slug": "les-enjeux",
+    "title": "Les-enjeux",
+    "tag": "- Site éditorial",
+    "category": "cms",
+    "year": "2025",
+    "image": "/images/projects/les_enjeux/les_enjeux.png",
+    "hoverImage": "/images/projects/les_enjeux/hover_les_enjeux.png",
+    "alt": "Aperçu du site éditorial Les Enjeux, spécialisé dans l'analyse des jeux d'argent et casinos en ligne",
+    "imageMobile": [],
+    "about": "Les Enjeux est un site éditorial spécialisé dans l'information et l'analyse autour des jeux d'argent, casinos et paris en ligne, avec une forte dimension de contenu et de référencement. Le projet consistait à reprendre un site déjà avancé reposant sur un thème payant devenu trop limitant afin de repartir sur une structure plus moderne, performante et maintenable.",
+    "role": "Développeur / Intégrateur WordPress",
+    "stack": [
+      "WordPress",
+      "Elementor",
+      "JetEngine",
+      "PDF Export",
+      "UTM Tracking"
+    ],
+    "mission": "Suppression du thème existant, reconstruction complète du site avec une structure WordPress personnalisée, développement de composants réutilisables, amélioration de l'UX, modernisation de l'interface, optimisation SEO, gestion des articles éditoriaux, mise en place de l'export PDF des articles, ajout de liens UTM pour le suivi publicitaire et correction des fonctionnalités cassées liées à la suppression du thème payant.",
+    "challenge": "Le principal challenge était de reprendre un projet déjà très avancé avec un grand volume d'articles existants, supprimer complètement le thème précédent sans perdre la structure ni les contenus, puis reconstruire l'ensemble du site.",
+    "result": "Le site est devenu plus stable, plus performant et plus simple à maintenir. La nouvelle architecture améliore la réutilisation des composants, la gestion des contenus éditoriaux, l'expérience utilisateur, le référencement naturel ainsi que le suivi marketing via les liens UTM.",
+    "learning": null,
+    "github": null,
+    "live": "https://les-enjeux.com",
+    "background": "/images/projects/weather/hero_pres_weather.jpg",
+    "image_mission": "/images/projects/les_enjeux/les_enjeux.png"
   }
 ]

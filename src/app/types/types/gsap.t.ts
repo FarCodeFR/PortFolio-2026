@@ -6,5 +6,4 @@ export type UseHeaderAnimationParams = {
   statusRef: RefObject<HTMLParagraphElement | null>;
   timeRef: RefObject<HTMLDivElement | null>;
   linkRef: RefObject<HTMLUListElement | null>;
-  setIntroDone: (value: boolean) => void;
 };

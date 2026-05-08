@@ -1,107 +1,394 @@
-.container_modal_project_detail {
-  position: fixed;
-  top: 62px;
-  right: 0;
-  width: 100%;
-  height: calc(100dvh - 62px);
-  transform: translateX(100%);
-  z-index: 7;
+@use "@/app/styles/mixins" as *;
+@use "@/app/styles/tokens" as *;
+
+// ─── Breakpoints ───────────────────────────────────────────
+$bp-tablet: 768px;
+$bp-mobile: 480px;
+
+// Main
+.project_detail_container {
+  color: $c-fg-primary;
   background: $c-bg-primary;
-}
-
-.container_next_project {
-  display: flex;
-  justify-content: start;
+  min-height: 100vh;
+  max-width: 100%;
   margin: 0 auto;
-  max-width: 1350px;
-  width: 100%;
-}
 
-@media (max-width: 1027px) {
-  .container_next_project {
-    max-width: 90%;
-    min-width: auto;
+  h1 {
+    @include h2;
+    font-size: clamp(3rem, 12vw, #{$fs-h2});
+    line-height: 0.95;
+    margin-bottom: 60px;
+  }
+
+  .linkSite {
+    display: flex;
+    gap: $space-l;
+    justify-content: center;
+    padding: 0 0 40px 0;
+    margin-top: $space-xl;
+
+    a {
+      @include link;
+    }
   }
 }
 
-.container_project_detail {
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
+// HEROS
+.project_hero {
+  position: relative;
+  @include center;
+  min-height: 100vh;
   overflow: hidden;
-  overflow-y: scroll;
+  width: 100%;
+  align-items: center;
+  align-content: center;
 
-  & .btn_next_project {
-    position: fixed;
-    bottom: 20%;
-    @include buttonClosed;
-  }
-
-  .btn_next_project {
-    @include h3;
-    width: auto;
-    height: auto;
-    bottom: 5%;
-    padding: 0;
+  // IMAGE + DECORATION
+  .hero_bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
 
     & img {
-      padding-bottom: 5px;
-      rotate: 90deg;
-      width: auto !important;
-      height: auto !important;
-      scale: 0.5;
-      transition: ease-in 0.2s;
+      object-fit: cover;
+      object-position: center;
     }
   }
 
-  .btn_next_project:hover > img {
-    rotate: 0deg;
-    scale: 1;
-  }
-}
-
-//
-// Responsive
-//
-
-@media (max-width: 480px) {
-  .container_modal_project_detail {
-    // Sécurité pour le home indicator iPhone (env safe-area)
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-
-  .container_project_detail {
-    overflow-x: hidden;
-    overflow-y: auto;
+  .hero_content {
+    position: relative;
+    z-index: 10;
+    width: 60%;
     display: flex;
     flex-direction: column;
-    -webkit-overflow-scrolling: touch;
-    // Laisse de la place pour la barre en bas du navigateur
-    padding-bottom: env(safe-area-inset-bottom);
-  }
 
-  .container_next_project {
-    order: 10;
-    padding: 40px 0;
-    // Espace supplémentaire pour ne pas être caché par la barre Safari
-    padding-bottom: calc(20dvh + env(safe-area-inset-bottom));
-    justify-content: start;
-  }
-
-  .btn_next_project:hover {
-    margin: 0 !important;
-  }
-
-  .container_project_detail .btn_next_project {
-    position: static;
-    margin: 0% 5% !important;
-    width: auto;
-    height: auto;
-    max-width: 280px;
-    font-size: 40px;
-
-    & img {
-      display: none;
+    & h1 {
+      @include h2;
+      line-height: 1em;
+      text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.35),
+        0 12px 40px rgba(0, 0, 0, 0.25);
+      margin: 0;
+      padding-bottom: 0.1em;
+      font-size: clamp(3rem, 12vw, #{$size_150});
     }
+
+    .hero_tag {
+      @include bodyM;
+      color: $c-fg-primary;
+      opacity: 0.6;
+      text-transform: uppercase;
+      width: 50%;
+      font-weight: bold;
+    }
+
+    .hero_description {
+      @include bodyM;
+      line-height: 1.5em;
+      width: 60%;
+      color: $c-fg-primary;
+      padding-bottom: 10rem;
+    }
+    // ICON
+    .hero_scroll {
+      width: 50%;
+      left: 0;
+      align-items: start;
+      & p {
+        @include bodyL;
+        color: $c-fg-secondary;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .scroll_icon {
+        width: 50%;
+        color: $c-fg-secondary;
+        opacity: 0.7;
+        padding-top: 0.5em;
+        animation: 1s slidein linear infinite alternate;
+      }
+    }
+  }
+}
+
+// Animation scroll icon
+
+@keyframes slidein {
+  from {
+    transform: translateY(10px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
+// SECTION PROJECT INFO
+
+.project_detail_info {
+  & h2 {
+    @include h3;
+    padding-bottom: 0.3em;
+  }
+}
+
+// / SECTION GLOBAL
+.project_detail_section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20%;
+  width: 100%;
+  height: 70vh;
+  padding: 5em 0;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+// COL ONE GLOBAL
+.project_detail_section_col_one {
+  width: 40%;
+  z-index: 3;
+  & section {
+    p:first-child {
+      padding-bottom: 1.5em;
+      @include bodyXL;
+      color: $c-fg-secondary;
+    }
+    & p:last-child {
+      @include bodyM;
+      line-height: 1.6em;
+      width: 100%;
+    }
+  }
+}
+
+// COL TWO
+.project_detail_section_col_two {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10%;
+  padding-top: 5%;
+  width: 40%;
+  .infoBlock {
+    & h3 {
+      @include navMaj;
+      color: $c-fg-secondary;
+      padding-bottom: 0.3em;
+    }
+
+    & p {
+      @include bodyM;
+    }
+
+    & ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0px;
+      gap: 0.5em;
+      margin: 0;
+
+      & li {
+        padding: 5px 10px;
+        border-radius: 6px;
+        @include bodyM;
+        color: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+// SECTION MISSION
+
+.project_mission {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  & img {
+    object-fit: cover;
+    filter: brightness(40%);
+  }
+}
+
+.project_detail_section {
+  position: relative;
+}
+
+// SECTION RESULT
+
+// SECTION NEXT PROJECT
+
+.project_next {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20vh;
+  margin: 0;
+  background-color: $c-fg-primary;
+  transition: ease-in 0.2s;
+
+  & button {
+    cursor: pointer;
+    width: max-content;
+    border: none;
+    background: none;
+  }
+
+  & span {
+    color: $c-bg-primary;
+    @include bodyL;
+    line-height: 1em;
+  }
+}
+
+.project_next:hover {
+  background-color: $c-bg-primary;
+  transition: ease 0.2s;
+  & button {
+    & h2 {
+      color: $c-fg-primary-hover;
+      transition: ease-in 0.2s;
+    }
+    & span {
+      color: $c-fg-secondary-hover;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Responsive
+// ─────────────────────────────────────────────────────────────
+
+@media (max-width: $bp-tablet) {
+  .project_detail_container {
+    h1 {
+      margin-bottom: 40px;
+    }
+  }
+
+  .project_hero .hero_content {
+    width: 85%;
+
+    & h1 {
+      @include h1;
+      padding-bottom: 0.2em;
+    }
+
+    .hero_tag {
+      width: 70%;
+    }
+    .hero_description {
+      width: 90%;
+      padding-bottom: 6rem;
+    }
+    .hero_scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10em;
+      width: 100%;
+    }
+  }
+
+  .project_detail_section {
+    flex-direction: column;
+    height: auto;
+    gap: 3em;
+    padding: 3em 24px;
+  }
+
+  .project_detail_section_col_one {
+    width: 100%;
+
+    & section {
+      p:first-child {
+        padding-bottom: 1.2em;
+      }
+    }
+  }
+
+  .project_detail_section_col_two {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding-top: 0;
+    width: 100%;
+
+    .infoBlock {
+      width: calc(50% - 1em);
+      gap: 1.2em;
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .project_detail_container {
+    h1 {
+      margin-bottom: 24px;
+    }
+
+    .linkSite {
+      flex-wrap: wrap;
+      padding: 0 24px 32px;
+    }
+  }
+
+  .project_hero .hero_content {
+    width: 90%;
+    padding: 0 24px;
+
+    .hero_tag {
+      width: 100%;
+      margin-bottom: 0.8em;
+    } // + espace sous le tag
+    .hero_description {
+      width: 100%;
+      padding-bottom: 3rem;
+    }
+    .scroll_icon {
+      width: 30%;
+    }
+  }
+
+  .project_detail_section {
+    gap: 2.5em;
+    padding: 3em 24px;
+  }
+
+  .project_detail_section_col_one {
+    & section {
+      p:first-child {
+        padding-bottom: 1em;
+      }
+      p:last-child {
+        line-height: 1.8em;
+      } // + lisibilité
+    }
+  }
+
+  .project_detail_section_col_two {
+    flex-direction: column;
+    gap: 2em;
+
+    .infoBlock {
+      width: 100%;
+
+      & h3 {
+        padding-bottom: 0.5em;
+      }
+      & ul {
+        gap: 0.6em;
+      }
+    }
+  }
+
+  .project_next {
+    height: auto;
+    padding: 3em 24px;
   }
 }

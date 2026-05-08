@@ -1,3 +1,10 @@
+@use "@/app/styles/mixins" as *;
+@use "@/app/styles/tokens" as *;
+
+// ─── Breakpoints ───────────────────────────────────────────
+$bp-tablet: 768px;
+$bp-mobile: 480px;
+
 // Project Grid container global
 .projectGrid {
   display: flex;
@@ -6,7 +13,7 @@
   justify-content: center;
   padding: 0;
   width: 100%;
-  height: 100%;
+  max-width: 1350px;
 }
 
 .containerHomeProject {
@@ -22,7 +29,6 @@
 }
 
 // View list projects
-
 .viewListProjectHome {
   display: flex;
   flex-direction: row;
@@ -37,6 +43,7 @@
   color: $c-fg-secondary;
   padding: 0;
 }
+
 .activeViewProject {
   transition: ease-in 0.3s;
   color: $c-fg-primary !important;
@@ -218,42 +225,60 @@
 // Responsive
 //
 
-@media (max-width: 480px) {
+@media (max-width: $bp-tablet) {
+  .projectGrid {
+    padding: 0 24px;
+  }
+
+  .listProject {
+    gap: 0.4em;
+  }
+
+  .projectCards {
+    height: 360px;
+  }
+}
+
+@media (max-width: $bp-mobile) {
   .projectGrid {
     justify-content: center;
-    padding-top: 20px;
+    padding: 5em 24px 0;
   }
 
   .t_home {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-size: 14px;
   }
 
   .listProject {
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
+    padding: 16px 0;
   }
 
   .projectCards {
-    height: 200px;
+    height: 220px;
     flex: none;
     width: 100%;
-    margin-bottom: 5px;
+    padding: 0;
 
-    // Ajoute un voile sombre automatique car on ne peut pas compter sur le survol (hover) pour assombrir l'image
+    // Voile sombre permanent (pas de hover sur mobile)
     &::after {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
       z-index: 1;
+      opacity: 1;
     }
 
     h2 {
       @include txtCards;
       font-size: 20px;
-      bottom: 15px;
-      left: 15px;
+      top: unset;
+      bottom: 20px;
+      left: 20px;
+      opacity: 1;
       z-index: 2;
     }
 
@@ -263,20 +288,21 @@
     }
   }
 
-  // Supprime les images flottantes décoratives qui masqueraient le contenu sur petit écran
+  // Supprime les images décoratives flottantes
   .mobileImages {
     display: none;
   }
 
-  // Bloque les décalages de position du titre qui sont normalement gérés par GSAP sur ordinateur
+  // Bloque les décalages GSAP sur mobile
   .activeCard h2 {
     transform: none !important;
   }
 
-  // Annule l'effet de transparence sur les autres projets pour que tout reste lisible au scroll
+  // Annule les effets d'inactivité — tout doit rester lisible au scroll
   .inactiveCard {
     opacity: 1 !important;
     pointer-events: auto !important;
+
     img {
       filter: grayscale(0%) !important;
       opacity: 0.8 !important;

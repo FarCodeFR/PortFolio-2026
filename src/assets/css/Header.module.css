@@ -50,11 +50,27 @@
   padding: 20px 0px;
   align-items: start;
 }
-
-.nav {
+.header nav {
   display: flex;
   align-items: flex-start;
-  gap: 35px;
+  gap: 25px;
+}
+.header nav ul {
+  cursor: pointer;
+}
+.header nav ul :hover {
+  color: #faa916;
+  transition: ease-in 0.2s;
+}
+.header .nav > ul,
+.header .hour > p {
+  font-family: var(--font-bricolage), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .name {
@@ -63,7 +79,7 @@
   gap: 6px;
 }
 .name p {
-  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-family: var(--font-bricolage), system-ui, sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1;
@@ -77,37 +93,31 @@
 
 .links {
   display: flex;
-  gap: 35px;
+  gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-.zone {
-  display: flex;
-  gap: 5px;
-}
-.zone p:last-of-type {
-  color: #a8a9ab;
-}
-
-.nav > ul,
-.zone > p {
-  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+.links li > button {
+  border: none;
+  background: none;
+  font-family: var(--font-bricolage), system-ui, sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1;
   letter-spacing: 0;
   text-transform: uppercase;
   text-decoration: none;
-}
-
-.nav > ul {
+  color: #ffffff;
   cursor: pointer;
 }
-.nav > ul :hover {
-  color: #faa916;
-  transition: ease-in 0.2s;
+
+.hour {
+  display: flex;
+  gap: 5px;
+}
+.hour p:last-of-type {
+  color: #a8a9ab;
 }
 
 @media (max-width: 480px) {

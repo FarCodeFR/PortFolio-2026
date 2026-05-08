@@ -3,25 +3,19 @@ import { useRef, useState } from "react";
 import { useGSAP, gsap } from "@/app/lib/gsap";
 import Image from "next/image";
 import dataProjects from "@/app/data/project_info.json";
+import { useRouter } from "next/navigation";
 
-interface ProjectProps {
-  setSelectedProject: (n: number) => void;
-  selectedProject: number | null;
-  introDone: boolean;
-}
-
-function ProjectGrid({
-  setSelectedProject,
-  selectedProject,
-  introDone,
-}: ProjectProps) {
+function ProjectGrid() {
   const [isActive, setIsActive] = useState<number | null>(null);
   const containerProjectRef = useRef<HTMLDivElement>(null);
   const projectsListRef = useRef<HTMLUListElement>(null);
 
+  // Route
+  const router = useRouter();
+
   // Data des projets
-  const projectsCode = dataProjects[0].Code_projects ?? [];
-  const projectsCms = dataProjects[0].Cms_projects ?? [];
+  const projectsCode = dataProjects.filter((p) => p.category === "code") ?? [];
+  const projectsCms = dataProjects.filter((p) => p.category === "cms") ?? [];
 
   // currentView contrôle quelles cartes sont dans le DOM.
   // Il ne change que dans le onComplete de GSAP, jamais directement au clic,
@@ -31,6 +25,9 @@ function ProjectGrid({
 
   // Ref pour stocker la destination du switch sans déclencher de re-render.
   const nextViewRef = useRef<"CODE" | "CMS">("CODE");
+
+  // Switch l'affichage des projets en fonction de la vue
+  const currentProjects = currentView === "CODE" ? projectsCode : projectsCms;
 
   // Bloque les interactions jusqu'à la fin de l'animation d'entrée
   const [isReady, setIsReady] = useState(false);
@@ -60,11 +57,6 @@ function ProjectGrid({
         borderRadius: "999px",
       });
 
-      // Bloque l'animation jusqu'à la fin de l'intro parente
-      if (!introDone) {
-        return;
-      }
-
       // Timeline de transformation
       const tl_projects_ball = gsap.timeline({
         defaults: { ease: "power3.inOut" },
@@ -82,32 +74,9 @@ function ProjectGrid({
     },
     {
       scope: containerProjectRef,
-      dependencies: [introDone],
       revertOnUpdate: true,
     },
   );
-
-  // Fait sortir la grille vers la gauche quand un projet est sélectionné,
-  // et la ramène à sa position initiale quand on revient.
-  useGSAP(() => {
-    if (selectedProject !== null) {
-      gsap.to(containerProjectRef.current, {
-        x: "-100%",
-        scale: 0.5,
-        autoAlpha: 0,
-        duration: 1,
-        ease: "power3.inOut",
-      });
-    } else {
-      gsap.to(containerProjectRef.current, {
-        x: "0%",
-        scale: 1,
-        autoAlpha: 1,
-        duration: 1,
-        ease: "power3.out",
-      });
-    }
-  }, [selectedProject]);
 
   // Déplace le titre h2 vers le bas de la carte au hover via elastic,
   // et le ramène en position initiale au leave.
@@ -151,9 +120,6 @@ function ProjectGrid({
     setAnimatingView(true);
     nextViewRef.current = mode;
   };
-
-  // Switch l'affichage des projets en fonction de la vue
-  const currentProjects = currentView === "CODE" ? projectsCode : projectsCms;
 
   // Anime l'entrée des nouvelles cartes quand l'utilisateur switche entre CODE et CMS dans les deux sens.
   // isReady empêche ce useGSAP de tourner pendant l'animation bulle initiale.
@@ -208,7 +174,7 @@ function ProjectGrid({
   return (
     <section ref={containerProjectRef} className={styles.projectGrid}>
       <div className={styles.containerHomeProject}>
-        <h1 className={styles.t_home}>Projects</h1>
+        <h1 className={styles.t_home}>Projets</h1>
         <div className={styles.viewListProjectHome}>
           <button
             type="button"
@@ -231,19 +197,18 @@ function ProjectGrid({
         {currentProjects.map((el) => (
           <li
             key={el.id}
-            role="button"
+            onFocus={(e) => handleEnter(el.id, e.currentTarget)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                setSelectedProject(el.id);
+                router.push(`/projects/${el.slug}`);
               }
             }}
-            onFocus={(e) => handleEnter(el.id, e.currentTarget)}
             tabIndex={isReady && !isAnimatingView ? 0 : -1} // -1 = exclu du tab quand caché
             aria-label={`Ouvrir le projet ${el.title}`}
             onMouseEnter={(e) => handleEnter(el.id, e.currentTarget)}
             onMouseLeave={(e) => handleLeave(e.currentTarget)}
-            onClick={() => setSelectedProject(el.id)}
+            onClick={() => router.push(`/projects/${el.slug}`)}
             className={[
               styles.projectCards,
               isActive === el.id && styles.activeCard,
@@ -264,9 +229,9 @@ function ProjectGrid({
               priority
               quality={75}
             />
-            {el.imageMobile && el.imageMobile.length > 0 && (
+            {el.caroussel && el.caroussel.length > 0 && (
               <ul className={styles.mobileImages}>
-                {el.imageMobile.map((src, index) => (
+                {el.caroussel.map((src, index) => (
                   <li key={index} className={styles[`mobileImage_${index}`]}>
                     <Image
                       src={src}

@@ -46,6 +46,19 @@
   letter-spacing: $ls-0;
 }
 
+@mixin h1 {
+  font-family: $ff-title;
+  font-weight: 600;
+  font-size: $fs-h1;
+  line-height: $lh-100;
+  letter-spacing: $ls-h2;
+  text-transform: uppercase;
+
+  @media (max-width: 480px) {
+    font-size: $fs-h1-mobile;
+    letter-spacing: 2px;
+  }
+}
 @mixin h2 {
   font-family: $ff-title;
   font-weight: 600;
@@ -68,7 +81,7 @@
   letter-spacing: $ls-0;
   text-transform: uppercase;
   @media (max-width: 480px) {
-    font-size: $fs-h1-mobile;
+    font-size: $fs-h2-mobile;
     line-height: 1.1;
   }
 }

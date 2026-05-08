@@ -1,179 +1,168 @@
 "use client";
-
-import { useGSAP, gsap } from "@/app/lib/gsap";
-import { useRef } from "react";
-import styles from "./ProjectDetail.module.scss";
-import Mazinger from "./Mazinger/Mazinger";
-import Cassecroute from "./Casse_croute/CasseCroute";
-import { HomeProjectProps } from "@/app/types/types/global.t";
-import WeatherApp from "./WeatherApp/WeatherApp";
 import Image from "next/image";
-import Three from "./Three/Three";
-import BreakinGood from "./Breakin_good/BreakinGood";
-import Inventeur from "./Inventeur/Inventeur";
-import Enjeux from "./Enjeux/Enjeux";
+import styles from "./ProjectDetail.module.scss";
+import { ProjectDetailProps } from "@/app/types/types/global.t";
+import { WeatherAppSwitcher } from "./WeatherApp/WeatherAppSwitcher";
+import { useRouter } from "next/navigation";
 
-interface DetailPorps {
-  selectedProject: number | null;
-  setSelectedProject: (n: number) => void;
-}
-
-function ProjectDetail({ selectedProject, setSelectedProject }: DetailPorps) {
-  const projectDetailRef = useRef<HTMLDivElement>(null);
-  const projectDetailContentRef = useRef<HTMLDivElement>(null);
-  const projectContentTransitionRef = useRef<HTMLDivElement>(null);
-  const isFirstOpenRef = useRef(true);
-  const projectInfoRef = useRef<HTMLDivElement>(null);
-
-  // Components
-  const projectComponents: Record<number, React.FC<HomeProjectProps>> = {
-    1: WeatherApp,
-    2: Mazinger,
-    3: Cassecroute,
-    4: Three,
-    5: BreakinGood,
-    6: Inventeur,
-    7: Enjeux,
-  };
-  const Component = selectedProject ? projectComponents[selectedProject] : null;
-
-  // Nombre de slide
-  const projectSlideCounts: Record<number, number> = {
-    1: 4,
-    2: 5,
-    3: 1,
-    4: 1,
-    5: 1,
-    6: 1,
-    7: 1,
-  };
-
-  useGSAP(
-    () => {
-      // Slide droite
-      if (selectedProject !== null && isFirstOpenRef.current) {
-        // Premiere ouverture > slide à droite
-        isFirstOpenRef.current = false;
-
-        // Information des projects slide 1
-        // sélectionne tous les éléments enfant de projectInfoRef, sous forme de tableau exploitable par GSAP
-        const infoItems = gsap.utils.toArray<HTMLElement>(
-          ".project-info-item",
-          projectInfoRef.current,
-        );
-        // Timeline des information des projects
-        const tl_info_project = gsap.timeline({
-          defaults: { ease: "power3.inOut" },
-        });
-
-        tl_info_project
-          .fromTo(
-            projectDetailRef.current,
-            {
-              x: "100%",
-            },
-            {
-              x: "0%",
-              duration: 1,
-              ease: "power3.inOut",
-            },
-          )
-          .fromTo(
-            infoItems,
-            {
-              y: 60,
-              autoAlpha: 0,
-            },
-            {
-              y: 0,
-              autoAlpha: 1,
-              duration: 0.6,
-              stagger: 0.08,
-            },
-            "-=0.35",
-          );
-      } else // Slide Gauche
-      {
-        if (selectedProject === null) {
-          // Fermeture > slide out vers la droite
-          isFirstOpenRef.current = true;
-          gsap.to(projectDetailRef.current, {
-            x: "100%",
-            duration: 1,
-            ease: "power3.out",
-          });
-        }
-      }
-    },
-    { dependencies: [selectedProject], scope: projectDetailRef },
-  );
-
-  const handleChangeProject = () => {
-    if (selectedProject === null) return;
-    const nextProject = selectedProject + 1 > 7 ? 1 : selectedProject + 1;
-    gsap.to(projectContentTransitionRef.current, {
-      x: "-100%",
-      duration: 0.5,
-      ease: "power3.in",
-      onComplete: () => {
-        setSelectedProject(nextProject);
-        if (projectDetailContentRef.current) {
-          projectDetailContentRef.current.scrollTo(0, 0);
-        }
-        gsap.fromTo(
-          projectContentTransitionRef.current,
-          {
-            x: "100%",
-          },
-          {
-            x: "0%",
-            duration: 0.5,
-            ease: "sine.inOut",
-          },
-        );
-      },
-    });
-  };
+export default function ProjectDetail({
+  project,
+  nextSlug,
+  nextTitle,
+}: {
+  project: ProjectDetailProps;
+  nextSlug: string;
+  nextTitle: string;
+}) {
+  const router = useRouter();
 
   return (
-    <div
-      ref={projectDetailRef}
-      className={styles.container_modal_project_detail}
-    >
-      <div
-        ref={projectDetailContentRef}
-        className={styles.container_project_detail}
-      >
-        <div ref={projectContentTransitionRef}>
-          {Component && (
-            <Component
-              projectDetailContentRef={projectDetailContentRef}
-              projectInfoRef={projectInfoRef}
-              isOpen={selectedProject !== null}
-              slideCount={
-                selectedProject ? projectSlideCounts[selectedProject] : 4
-              }
-            />
+    <main className={styles.project_detail_container}>
+      <section className={styles.project_hero}>
+        <div className={styles.hero_bg}>
+          <Image src={project.background} alt={project.title} fill />
+        </div>
+        <div className={styles.hero_gradient}></div>
+        <div className={styles.hero_content}>
+          <p className={styles.hero_tag}>{project.tag}</p>
+          <h1>{project.title}</h1>
+          <p className={styles.hero_description}>{project.about}</p>
+          <div className={styles.hero_scroll}>
+            <p>Scroll pour explorer</p>
+            <svg
+              width="50"
+              height="70"
+              viewBox="0 0 20 70"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className={styles.scroll_icon}
+            >
+              <path
+                d="M10 0V70"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+      {/* CONTENT INFO */}
+      <article className={styles.project_detail_info}>
+        {/* About */}
+        <div className={styles.project_detail_section}>
+          <div className={styles.project_detail_section_col_one}>
+            {project.about && (
+              <section className={styles.infoBlock}>
+                <p>01</p>
+                <h2>À propos</h2>
+                <p>{project.about}</p>
+              </section>
+            )}
+          </div>
+          <div className={styles.project_detail_section_col_two}>
+            {/* Year */}
+            {project.year && (
+              <section className={styles.infoBlock}>
+                <h3>Année</h3>
+                <p>{project.year}</p>
+              </section>
+            )}
+
+            {/* Role */}
+            {project.role && (
+              <section className={styles.infoBlock}>
+                <h3>Rôle</h3>
+                <p>{project.role}</p>
+              </section>
+            )}
+
+            {/* Stack */}
+            <section className={styles.infoBlock}>
+              <h3>Stack</h3>
+              <ul>
+                {project.stack.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        {/* Mission */}
+        {project.mission && (
+          <div className={styles.project_mission}>
+            <Image src={project.image_mission} alt={project.title} fill />
+            <div className={styles.project_detail_section}>
+              <div className={styles.project_detail_section_col_one}>
+                <section className={styles.infoBlock}>
+                  <p>02</p>
+                  <h2>Mission</h2>
+                  <p>{project.mission}</p>
+                </section>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Challenge */}
+        {project.challenge && (
+          <div className={styles.project_detail_section}>
+            <div className={styles.project_detail_section_col_one}>
+              <section className={styles.infoBlock}>
+                <p>03</p>
+                <h2>Difficulté</h2>
+                <p>{project.challenge}</p>
+              </section>
+            </div>
+          </div>
+        )}
+        {/* Result */}
+        {project.result && (
+          <div className={styles.project_detail_section}>
+            <div className={styles.project_detail_section_col_one}>
+              <section className={styles.infoBlock}>
+                <p>04</p>
+                <h2>Résultat</h2>
+                <p>{project.result}</p>
+              </section>
+            </div>
+            {project.slug === "weather-app" && <WeatherAppSwitcher />}
+          </div>
+        )}
+
+        {/* Learning */}
+        {project.learning && (
+          <div className={styles.project_detail_section}>
+            <div className={styles.project_detail_section_col_one}>
+              <section className={styles.infoBlock}>
+                <p>05</p>
+                <h2>Apprentissage</h2>
+                <p>{project.learning}</p>
+              </section>
+            </div>
+          </div>
+        )}
+        {/* Links */}
+        <section className={styles.linkSite}>
+          {project.github && (
+            <a target="_blank" rel="noopener noreferrer" href={project.github}>
+              GitHub
+            </a>
           )}
-        </div>
-        <div className={styles.container_next_project}>
-          <button
-            className={styles.btn_next_project}
-            type="button"
-            onClick={handleChangeProject}
-          >
-            Next{" "}
-            <Image
-              src="/images/decos/next_project.svg"
-              alt="icon next project"
-              width={70}
-              height={70}
-            />
-            <br /> Project
+          {project.live && (
+            <a target="_blank" rel="noopener noreferrer" href={project.live}>
+              Voir le site
+            </a>
+          )}
+        </section>
+        <section className={styles.project_next}>
+          <button onClick={() => router.push(`/projects/${nextSlug}`)}>
+            <span>PROJET SUIVANT</span>
+            <h2>{nextTitle}</h2>
           </button>
-        </div>
-      </div>
-    </div>
+        </section>
+      </article>
+    </main>
   );
 }
-export default ProjectDetail;

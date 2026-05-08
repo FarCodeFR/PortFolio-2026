@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import styles from "./WeatherApp.module.scss";
 import Image from "next/image";
@@ -35,42 +36,39 @@ const weatherData = [
   },
 ];
 
-export function WeatherSwitcher() {
+export function WeatherAppSwitcher() {
   const [activeId, setActiveId] = useState("neige");
 
   const current =
     weatherData.find((item) => item.id === activeId) || weatherData[4];
 
   return (
-    <div className={styles.weather_switcher_inner}>
-      <div className={styles.first_slide_col_one}>
-        <picture>
-          <Image
-            src={current.img}
-            alt={current.label}
-            width={400}
-            height={800}
-            priority
-          />
-        </picture>
+    <div className={styles.switch_weather_app}>
+      <div className={styles.weather_app_selector}>
+        {weatherData.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => setActiveId(item.id)}
+            className={[
+              styles.weather_btn,
+              activeId === item.id ? styles.active_weather : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
+            <Image src={item.icon} alt={item.label} width={50} height={50} />
+          </button>
+        ))}
       </div>
-      <div className={styles.first_slide_col_two}>
-        <p>Exemple d'adaptation de l'interface selon</p>
-        <h1>
-          Les conditions <br /> météo
-        </h1>
-        <div className={styles.weather_selector}>
-          {weatherData.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveId(item.id)}
-              className={activeId === item.id ? styles.active_weather : ""}
-            >
-              <Image src={item.icon} alt={item.id} width={60} height={60} />
-            </button>
-          ))}
-        </div>
-      </div>
+      <picture className={styles.mobile_preview}>
+        <Image
+          src={current.img}
+          alt={current.label}
+          width={300}
+          height={600}
+          priority
+        />
+      </picture>
     </div>
   );
 }

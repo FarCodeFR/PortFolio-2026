@@ -55,21 +55,16 @@ body {
   margin: 0;
   background: #26282c;
   color: #ffffff;
-  overflow: hidden;
 }
 
 .page {
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 90px 1fr 110px;
-  max-width: 1440px;
-  margin: 0 auto;
-  overflow: hidden;
+  padding: 0em 1em;
 }
 
 .main {
+  align-content: center;
+  margin: 7% auto;
   padding: 0 22px;
-  width: 100%;
 }
 
 h2 {
@@ -122,6 +117,12 @@ p {
 ::selection {
   background: #000;
   color: #faa916;
+}
+
+:focus-visible {
+  outline: 2px solid crimson;
+  border-radius: 3px;
+  width: auto;
 }
 
 @media (max-width: 480px) {
