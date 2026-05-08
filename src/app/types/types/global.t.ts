@@ -1,20 +1,33 @@
 export type PropsShell = {
   children: React.ReactNode;
-  selectedProject: number | null;
-  onCloseDetail: () => void;
-  setSelectedProject: (n: number) => void;
-  setIntroDone: (value: boolean) => void;
-};
-
-export type ProjectDetailProps = {
-  onCloseDetail: () => void;
-  selectedProject: number | null;
-  setSelectedProject: (n: number) => void;
 };
 
 export type HomeProjectProps = {
   projectDetailContentRef: React.RefObject<HTMLDivElement | null>;
-  isOpen: boolean;
-  slideCount: number;
   projectInfoRef: React.RefObject<HTMLDivElement | null>;
 };
+
+export interface ProjectDetailProps {
+  id: number;
+  slug: string;
+  title: string;
+  tag: string;
+  category: string;
+  year: string;
+  image: string;
+  about: string | null;
+  role: string | null;
+  stack: string[];
+  mission: string | null;
+  challenge: string | null;
+  result: string | null;
+  learning: string | null;
+  github: string | null;
+  live: string | null;
+  background: string;
+  image_mission: string;
+  caroussel: string[];
+  alt: string;
+  detailImages?: string[];
+  project?: string;
+}

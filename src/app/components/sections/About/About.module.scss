@@ -54,7 +54,7 @@
   justify-content: space-between;
   gap: 10px;
   padding: 10px 0px;
-  color: white;
+  color: $c-fg-primary;
   & h1 {
     @include h3;
     width: 45%;

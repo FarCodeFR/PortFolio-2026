@@ -1,11 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import { OpenType } from "@/app/types/types/header.t";
-import { useHeaderIntroAnimation } from "@/app/hooks/animations/useHeaderAnimation";
+import { useRouter } from "next/navigation";
 
-function Header({ setOpen, setOpenContact, setIntroDone }: OpenType) {
+function Header({ setOpen, setOpenContact }: OpenType) {
   const [time, setTime] = useState(new Date());
   const [mounted, setMounted] = useState(false);
+
+  // Route
+  const router = useRouter();
 
   // Fix désynchronisation d'hydratation
   useEffect(() => {
@@ -29,33 +32,22 @@ function Header({ setOpen, setOpenContact, setIntroDone }: OpenType) {
     setOpenContact((active) => !active);
   };
 
-  // Animations arriver nav
-  const nameRef = useRef<HTMLParagraphElement>(null);
-  const statusRef = useRef<HTMLParagraphElement>(null);
-  const headerRef = useRef<HTMLElement>(null);
-  const linkRef = useRef<HTMLUListElement>(null);
-  const timeRef = useRef<HTMLDivElement>(null);
-
-  useHeaderIntroAnimation({
-    nameRef,
-    statusRef,
-    headerRef,
-    linkRef,
-    timeRef,
-    setIntroDone,
-  });
-
   return (
-    <header ref={headerRef} className={styles.header}>
-      <nav className={styles.nav} aria-label="Navigation principale">
-        <div className={styles.name}>
-          <p ref={nameRef}>Timothe Renard</p>
-          <p ref={statusRef}>Disponible</p>
-        </div>
-        <ul ref={linkRef} className={styles.links}>
+    <header className={styles.header}>
+      <div className={styles.name}>
+        <p>Timothe Renard</p>
+        <p>Disponible</p>
+      </div>
+      <nav aria-label="Navigation principale">
+        <ul className={styles.links}>
           <li>
             <button type="button" onClick={handleOpenContact}>
               Contact
+            </button>
+          </li>
+          <li>
+            <button type="button" onClick={() => router.push(`/`)}>
+              Projets
             </button>
           </li>
           <li>
@@ -65,7 +57,7 @@ function Header({ setOpen, setOpenContact, setIntroDone }: OpenType) {
           </li>
         </ul>
       </nav>
-      <div ref={timeRef} className={styles.zone}>
+      <div className={styles.hour}>
         <p>
           {mounted
             ? time.toLocaleTimeString([], {
