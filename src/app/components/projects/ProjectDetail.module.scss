@@ -277,6 +277,7 @@ $bp-mobile: 480px;
     & h1 {
       @include h1;
       padding-bottom: 0.2em;
+      text-shadow: none;
     }
 
     .hero_tag {
@@ -330,6 +331,7 @@ $bp-mobile: 480px;
   .project_detail_container {
     h1 {
       margin-bottom: 24px;
+      text-shadow: none;
     }
 
     .linkSite {
@@ -341,11 +343,12 @@ $bp-mobile: 480px;
   .project_hero .hero_content {
     width: 90%;
     padding: 0 24px;
+    text-shadow: none;
 
     .hero_tag {
       width: 100%;
       margin-bottom: 0.8em;
-    } // + espace sous le tag
+    }
     .hero_description {
       width: 100%;
       padding-bottom: 3rem;
@@ -367,7 +370,7 @@ $bp-mobile: 480px;
       }
       p:last-child {
         line-height: 1.8em;
-      } // + lisibilité
+      }
     }
   }
 
@@ -390,5 +393,14 @@ $bp-mobile: 480px;
   .project_next {
     height: auto;
     padding: 3em 24px;
+
+    h2 {
+      color: $c-bg-primary;
+    }
+
+    span {
+      color: $c-bg-primary;
+      @include bodyM;
+    }
   }
 }

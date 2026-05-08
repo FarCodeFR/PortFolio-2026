@@ -98,7 +98,10 @@
   .container_about {
     width: 100%;
     padding: 20px 24px;
-    gap: 50px;
+    gap: 20px;
+    & button {
+      padding: 1em 0;
+    }
   }
 
   .heros_about {
@@ -110,6 +113,11 @@
     }
 
     & article {
+      width: 100%;
+    }
+
+    .bio_description {
+      @include bodyM;
       width: 100%;
     }
   }

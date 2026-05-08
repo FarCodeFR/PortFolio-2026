@@ -104,7 +104,7 @@
 
 @media (max-width: 480px) {
   .header {
-    padding: 1em 0;
+    padding: 0.5em 1em;
     justify-content: space-around;
     align-items: start;
   }
@@ -119,12 +119,16 @@
     & li > button {
       padding: 0;
       height: 100%;
+      @include bodyM;
     }
   }
 
   .name {
     padding-top: 1px;
     gap: 2px;
+    & p {
+      @include bodyM;
+    }
   }
 
   .hour {
