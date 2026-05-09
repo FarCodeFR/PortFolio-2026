@@ -17,4 +17,5 @@
   transform: scaleY(0);
   transform-origin: bottom;
   will-change: transform;
+  width: calc(100% / 6 + 2px);
 }

@@ -29,7 +29,7 @@ export function usePageTransition() {
       })
       .set(panels, {
         scaleY: 0,
-        transformOrigin: "left",
+        transformOrigin: "bottom",
         autoAlpha: 1,
       })
       .to(panels, {

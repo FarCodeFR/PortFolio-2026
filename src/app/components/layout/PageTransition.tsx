@@ -19,7 +19,7 @@ export default function PageTransition() {
 
       gsap.to(panels, {
         scaleY: 0,
-        transformOrigin: "right",
+        transformOrigin: "top",
         duration: 0.6,
         ease: "power4.inOut",
         stagger: {
