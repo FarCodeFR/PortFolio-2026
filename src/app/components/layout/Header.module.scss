@@ -95,6 +95,9 @@
 
   .links {
     gap: 15px;
+    & li > a {
+      @include bodyM;
+    }
     & li > button {
       padding: 0;
       height: 100%;
