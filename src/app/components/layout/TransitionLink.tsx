@@ -13,7 +13,6 @@ export default function TransitionLink({
 }: {
   href: string;
   children: React.ReactNode;
-  className?: string;
 }) {
   const { navigateWithTransition } = usePageTransition();
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

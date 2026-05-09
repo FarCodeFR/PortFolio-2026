@@ -1,6 +1,5 @@
 "use client";
 
-// Fonction de transition des pages
 import { usePathname, useRouter } from "next/navigation";
 import { gsap } from "@/app/lib/gsap";
 
@@ -8,37 +7,37 @@ export function usePageTransition() {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Lance une navigation avec animation.
-  // Si l'utilisateur est déjà sur la page demandée, on ne fait rien.
   const navigateWithTransition = (href: string) => {
     if (pathname === href) return;
 
-    const overlay = document.querySelector("[data-page-transition]");
+    const panels = document.querySelectorAll("[data-page-transition-panel]");
 
-    if (!overlay) {
+    if (!panels.length) {
       router.push(href);
       return;
     }
 
-    // Étape 1 : l'overlay grandit depuis le bas pour couvrir la page actuelle.
-    // Étape 2 : quand l'écran est couvert, on change de route.
     gsap
       .timeline({
         defaults: {
-          duration: 0.7,
+          duration: 0.6,
           ease: "power4.inOut",
         },
         onComplete: () => {
           router.push(href);
         },
       })
-      .set(overlay, {
+      .set(panels, {
         scaleY: 0,
-        transformOrigin: "bottom",
+        transformOrigin: "left",
         autoAlpha: 1,
       })
-      .to(overlay, {
+      .to(panels, {
         scaleY: 1,
+        stagger: {
+          amount: 0.25,
+          from: "center",
+        },
       });
   };
 

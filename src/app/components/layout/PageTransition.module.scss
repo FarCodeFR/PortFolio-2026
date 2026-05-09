@@ -6,6 +6,13 @@
   inset: 0;
   z-index: 999999;
   pointer-events: none;
+  display: flex;
+  overflow: hidden;
+}
+
+.page_transition_panel {
+  flex: 1;
+  height: 100%;
   background: $c-bg-primary;
   transform: scaleY(0);
   transform-origin: bottom;
