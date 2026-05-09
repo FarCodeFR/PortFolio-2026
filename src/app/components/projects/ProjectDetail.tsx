@@ -3,8 +3,10 @@ import Image from "next/image";
 import styles from "./ProjectDetail.module.scss";
 import { ProjectDetailProps } from "@/app/types/types/global.t";
 import { WeatherAppSwitcher } from "./WeatherApp/WeatherAppSwitcher";
-import { useRouter } from "next/navigation";
 import MazingerShowcase from "./Mazinger/MazingerShowcase";
+import { useGSAP, gsap } from "@/app/lib/gsap";
+import { useRef } from "react";
+import { useTransition } from "@/app/context/TransitionContext";
 
 export default function ProjectDetail({
   project,
@@ -15,12 +17,57 @@ export default function ProjectDetail({
   nextSlug: string;
   nextTitle: string;
 }) {
-  const router = useRouter();
+  const { navigateTo } = useTransition();
+
+  // HERO
+  const bgRef = useRef(null);
+  const heroRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.to(bgRef.current, {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    },
+    { scope: containerRef },
+  );
+
+  useGSAP(
+    () => {
+      gsap.utils
+        .toArray(`.${styles.infoBlock}`, containerRef.current)
+        .forEach((block) => {
+          const el = block as Element;
+          const children = el.querySelectorAll("p, h2, h3, ul");
+          gsap.from(children, {
+            autoAlpha: 0,
+            y: 40,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          });
+        });
+    },
+    { scope: containerRef },
+  );
 
   return (
-    <main className={styles.project_detail_container}>
-      <section className={styles.project_hero}>
-        <div className={styles.hero_bg}>
+    <main ref={containerRef} className={styles.project_detail_container}>
+      <section ref={heroRef} className={styles.project_hero}>
+        <div ref={bgRef} className={styles.hero_bg}>
           <Image src={project.background} alt={project.title} fill />
         </div>
         <div className={styles.hero_gradient}></div>
@@ -162,7 +209,7 @@ export default function ProjectDetail({
           )}
         </section>
         <section className={styles.project_next}>
-          <button onClick={() => router.push(`/projects/${nextSlug}`)}>
+          <button onClick={() => navigateTo(`/projects/${nextSlug}`)}>
             <span>PROJET SUIVANT</span>
             <h2>{nextTitle}</h2>
           </button>

@@ -3,10 +3,59 @@
 import Image from "next/image";
 import styles from "./MazingerShowcase.module.scss";
 import mazingerData from "@/app/data/mazingerData.json";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useGSAP, gsap } from "@/app/lib/gsap";
 
 export default function MazingerShowcase() {
   const [currentMap, setCurrentMap] = useState(0);
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const sections = gsap.utils.toArray("section", containerRef.current);
+
+      sections.forEach((sections) => {
+        const el = sections as Element;
+        const header = el.querySelector("p, h2");
+        const content = el.querySelector("ul, div");
+
+        const tl_block = gsap.timeline({
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+        tl_block
+          .from(header, {
+            autoAlpha: 0,
+            y: 30,
+            duration: 0.5,
+            ease: "power3.out",
+          })
+          .from(
+            content,
+            { autoAlpha: 0, y: 40, duration: 0.6, ease: "power3.out" },
+            "-=0.3",
+          );
+      });
+
+      // ENEMY
+      gsap.from(`.${styles.enemy_card}`, {
+        autoAlpha: 0,
+        y: 20,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: `.${styles.enemies_grid}`,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+    },
+    { scope: containerRef },
+  );
 
   const prevMap = () => {
     setCurrentMap((el) => (el === 0 ? mazingerData.maps.length - 1 : el - 1));
@@ -17,7 +66,7 @@ export default function MazingerShowcase() {
   };
 
   return (
-    <div className={styles.mazinger_showcase}>
+    <div ref={containerRef} className={styles.mazinger_showcase}>
       <section className={styles.showcase_section}>
         <div className={styles.section_header}>
           <p>Personnages</p>
