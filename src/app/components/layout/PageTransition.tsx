@@ -5,30 +5,67 @@ import { usePathname } from "next/navigation";
 import { useGSAP, gsap } from "@/app/lib/gsap";
 import styles from "./PageTransition.module.scss";
 
-// Fonction animation lorsqu'on change de page
 export default function PageTransition() {
   const pathname = usePathname();
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      if (!overlayRef.current) return;
+      const panels = containerRef.current?.querySelectorAll(
+        "[data-page-transition-panel]",
+      );
 
-      gsap.to(overlayRef.current, {
+      if (!panels?.length) return;
+
+      gsap.to(panels, {
         scaleY: 0,
-        transformOrigin: "top",
-        duration: 0.7,
+        transformOrigin: "right",
+        duration: 0.6,
         ease: "power4.inOut",
+        stagger: {
+          amount: 0.25,
+          axis: "x",
+          from: "center",
+        },
       });
     },
-    { dependencies: [pathname], scope: overlayRef },
+    {
+      dependencies: [pathname],
+      scope: containerRef,
+    },
   );
 
   return (
     <div
-      ref={overlayRef}
+      ref={containerRef}
       data-page-transition
       className={styles.page_transition}
-    />
+      aria-hidden="true"
+    >
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+    </div>
   );
 }
