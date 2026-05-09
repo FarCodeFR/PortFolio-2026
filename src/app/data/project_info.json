@@ -56,7 +56,7 @@
     "github": "https://github.com/FarCodeFR/Mazinger-Type",
     "live": null,
     "background": "/images/projects/mazinger/hero_bg_mazinger.jpg",
-    "image_mission": "/images/projects/mazinger/maps/mapThree.png"
+    "image_mission": ""
   },
   {
     "id": 3,
@@ -86,7 +86,7 @@
     "id": 4,
     "slug": "three-js",
     "title": "Three.js",
-    "headline": "Un projet d’apprentissage personnel pour explorer la 3D sur le web avec Three.js, WebGL et React Three Fiber.",
+    "headline": "Un projet d’apprentissage personnel pour explorer la 3D sur le web avec Three.js, Blender, WebGL et React Three Fiber.",
     "tag": "- Apprentissage",
     "category": "code",
     "year": "2026",
@@ -96,14 +96,21 @@
     "imageMobile": [],
     "about": "Projet en cours de développement. J'apprends Three.js en suivant les cours de Bruno Simon sur threejs-journey.com. Le projet arrivera prochainement...",
     "role": "Apprentissage seul",
-    "stack": ["Three.js", "WebGL", "GLSL", "JavaScript", "React Three Fiber"],
+    "stack": [
+      "Three.js",
+      "WebGL",
+      "GLSL",
+      "JavaScript",
+      "React Three Fiber",
+      "Blender"
+    ],
     "mission": null,
     "challenge": null,
     "result": null,
     "learning": null,
     "github": null,
     "live": "https://threejs-journey.com",
-    "background": "/images/projects/three/threeProject.png",
+    "background": "/images/projects/three/hero_bg_three.jpg",
     "image_mission": "/images/projects/three/threeProject.png"
   },
   {

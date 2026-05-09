@@ -1,0 +1,319 @@
+@use "@/app/styles/mixins" as *;
+@use "@/app/styles/tokens" as *;
+
+$bp-tablet: 768px;
+$bp-mobile: 480px;
+
+.mazinger_showcase {
+  width: 100%;
+  color: $c-fg-primary;
+  background: $c-bg-primary;
+}
+
+.showcase_section {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 70vh;
+  padding: 5em 0;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.section_header {
+  position: relative;
+  z-index: 4;
+
+  p {
+    @include bodyM;
+    color: $c-fg-secondary;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+  }
+
+  h2 {
+    @include h3;
+    color: $c-fg-primary;
+  }
+}
+
+/* SECTION ENNEMIS */
+
+.enemies_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.enemy_card {
+  min-height: 220px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+
+  img {
+    object-fit: contain;
+  }
+
+  span {
+    @include bodyS;
+    color: $c-fg-secondary;
+  }
+}
+
+/* SECTION MAPS */
+
+.maps_carousel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.map_img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 24px;
+
+  img {
+    object-fit: cover;
+  }
+
+  figcaption {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    z-index: 2;
+    color: $c-brand-rest;
+    @include bodyS;
+  }
+}
+
+.carousel_button {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: $c-brand-rest;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+
+  span {
+    position: relative;
+    z-index: 2;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+
+    circle {
+      fill: none;
+      stroke: $c-brand-rest;
+      stroke-width: 1.5;
+      stroke-dasharray: 138;
+      stroke-dashoffset: 138;
+      transition: stroke-dashoffset 0.4s ease-in-out;
+    }
+  }
+
+  &:hover svg circle {
+    stroke-dashoffset: 0;
+  }
+
+  &:first-of-type {
+    left: 2rem;
+  }
+
+  &:last-of-type {
+    right: 2rem;
+  }
+}
+
+/* SECTION AUDIO */
+
+.audio_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8%;
+  width: 100%;
+  min-height: 500px;
+}
+
+.audio_col_left {
+  width: 42%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.audio_label {
+  @include bodyM;
+  color: $c-fg-secondary;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.audio_col_left h3 {
+  @include h3;
+  color: $c-fg-primary;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+.audio_description {
+  @include bodyM;
+  color: $c-fg-primary;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  width: 90%;
+}
+
+.audio_button {
+  position: relative;
+  border: none;
+  background: transparent;
+  color: $c-brand-rest;
+  cursor: pointer;
+  padding: 0;
+  @include bodyL;
+  transition: 0.2s ease;
+
+  &:hover {
+    color: $c-fg-primary-hover;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 1px;
+    background: $c-brand-rest;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: $bp-tablet) {
+  .showcase_section {
+    min-height: auto;
+    padding: 3em 24px;
+  }
+
+  .enemies_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .maps_carousel {
+    height: 420px;
+  }
+
+  .audio_section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    min-height: auto;
+  }
+
+  .audio_col_left {
+    width: 100%;
+  }
+
+  .audio_description {
+    width: 100%;
+  }
+
+  .audio_visual {
+    height: 420px;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .showcase_section {
+    padding: 3em 24px;
+  }
+
+  .enemies_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .enemy_card {
+    min-height: 180px;
+    padding: 1.5rem;
+  }
+
+  .maps_carousel {
+    height: 320px;
+  }
+
+  .carousel_button {
+    width: 42px;
+    height: 42px;
+
+    &:first-of-type {
+      left: 1rem;
+    }
+
+    &:last-of-type {
+      right: 1rem;
+    }
+  }
+
+  .map_img {
+    border-radius: 16px;
+
+    figcaption {
+      left: 1.5rem;
+      bottom: 1.5rem;
+    }
+  }
+
+  .audio_col_left h3 {
+    line-height: 1.1;
+  }
+
+  .audio_description {
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .audio_visual {
+    height: 300px;
+    border-radius: 16px;
+  }
+}
