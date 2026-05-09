@@ -55,7 +55,7 @@
     "learning": "Ce projet m'a permis d'apprendre l'utilisation des blueprints pour organiser les niveaux, les patterns des ennemis, leurs tirs et la structure globale du gameplay, tout en découvrant la logique du développement de jeu avec p5.js.",
     "github": "https://github.com/FarCodeFR/Mazinger-Type",
     "live": null,
-    "background": "/images/projects/mazinger/hover_mazinger.webp",
+    "background": "/images/projects/mazinger/hero_bg_mazinger.jpg",
     "image_mission": "/images/projects/mazinger/maps/mapThree.png"
   },
   {
@@ -136,8 +136,8 @@
     "learning": null,
     "github": null,
     "live": "https://breakin-good.com",
-    "background": "/images/projects/breakin_good/hero_pres_breakin.jpg",
-    "image_mission": "/images/projects/breakin_good/breakin_good.png"
+    "background": "/images/projects/breakin_good/hero_bg_breakin.jpg",
+    "image_mission": ""
   },
   {
     "id": 6,
@@ -160,8 +160,8 @@
     "learning": null,
     "github": null,
     "live": "https://lesinventeurs.fr",
-    "background": "/images/projects/weather/hero_pres_weather.jpg",
-    "image_mission": "/images/projects/les_inventeurs/les_inventeurs.webp"
+    "background": "/images/projects/les_inventeurs/hero_bg_inventeur.jpg",
+    "image_mission": ""
   },
   {
     "id": 7,
@@ -190,7 +190,7 @@
     "learning": null,
     "github": null,
     "live": "https://les-enjeux.com",
-    "background": "/images/projects/weather/hero_pres_weather.jpg",
-    "image_mission": "/images/projects/les_enjeux/les_enjeux.png"
+    "background": "/images/projects/les_enjeux/hero_bg_enjeux.jpg",
+    "image_mission": ""
   }
 ]
