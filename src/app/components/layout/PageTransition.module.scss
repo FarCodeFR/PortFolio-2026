@@ -1,0 +1,13 @@
+@use "@/app/styles/mixins" as *;
+@use "@/app/styles/tokens" as *;
+
+.page_transition {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  pointer-events: none;
+  background: $c-bg-primary;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  will-change: transform;
+}

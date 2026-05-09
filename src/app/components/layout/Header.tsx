@@ -1,26 +1,18 @@
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import { OpenType } from "@/app/types/types/header.t";
-import { useRouter } from "next/navigation";
-import { useTransition } from "@/app/context/TransitionContext";
+import TransitionLink from "./TransitionLink";
 
 function Header({ setOpen, setOpenContact }: OpenType) {
-  const [time, setTime] = useState(new Date());
-  const [mounted, setMounted] = useState(false);
+  const [time, setTime] = useState<Date | null>(null);
 
-  // Route
-  const { navigateTo } = useTransition();
-
-  // Fix désynchronisation d'hydratation
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setTime(new Date());
 
-  // Heure actuel
-  useEffect(() => {
     const interval = setInterval(() => {
       setTime(new Date());
     }, 1000);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -47,9 +39,7 @@ function Header({ setOpen, setOpenContact }: OpenType) {
             </button>
           </li>
           <li>
-            <button type="button" onClick={() => navigateTo(`/`)}>
-              Projets
-            </button>
+            <TransitionLink href="/">Projets</TransitionLink>
           </li>
           <li>
             <button type="button" onClick={handleOpenAbout}>
@@ -60,7 +50,7 @@ function Header({ setOpen, setOpenContact }: OpenType) {
       </nav>
       <div className={styles.hour}>
         <p>
-          {mounted
+          {time
             ? time.toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",

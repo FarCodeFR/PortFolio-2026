@@ -6,7 +6,7 @@ import { WeatherAppSwitcher } from "./WeatherApp/WeatherAppSwitcher";
 import MazingerShowcase from "./Mazinger/MazingerShowcase";
 import { useGSAP, gsap } from "@/app/lib/gsap";
 import { useRef } from "react";
-import { useTransition } from "@/app/context/TransitionContext";
+import { usePageTransition } from "@/app/hooks/animations/usePageTransition";
 
 export default function ProjectDetail({
   project,
@@ -17,7 +17,7 @@ export default function ProjectDetail({
   nextSlug: string;
   nextTitle: string;
 }) {
-  const { navigateTo } = useTransition();
+  const { navigateWithTransition } = usePageTransition();
 
   // HERO
   const bgRef = useRef(null);
@@ -209,7 +209,9 @@ export default function ProjectDetail({
           )}
         </section>
         <section className={styles.project_next}>
-          <button onClick={() => navigateTo(`/projects/${nextSlug}`)}>
+          <button
+            onClick={() => navigateWithTransition(`/projects/${nextSlug}`)}
+          >
             <span>PROJET SUIVANT</span>
             <h2>{nextTitle}</h2>
           </button>
