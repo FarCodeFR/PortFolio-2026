@@ -5,19 +5,17 @@ import { usePathname } from "next/navigation";
 import { useGSAP, gsap } from "@/app/lib/gsap";
 import styles from "./PageTransition.module.scss";
 
-const WAVE_COUNT = 8;
-
 export default function PageTransition() {
   const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      const panels = gsap.utils.toArray<HTMLDivElement>(
-        `.${styles.page_transition_panel}`,
+      const panels = containerRef.current?.querySelectorAll(
+        "[data-page-transition-panel]",
       );
 
-      if (!panels.length) return;
+      if (!panels?.length) return;
 
       gsap.to(panels, {
         scaleY: 0,
@@ -44,13 +42,30 @@ export default function PageTransition() {
       className={styles.page_transition}
       aria-hidden="true"
     >
-      {Array.from({ length: WAVE_COUNT }).map((_, index) => (
-        <span
-          key={index}
-          data-page-transition-panel
-          className={styles.page_transition_panel}
-        />
-      ))}
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
+      <span
+        data-page-transition-panel
+        className={styles.page_transition_panel}
+      />
     </div>
   );
 }
