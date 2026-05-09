@@ -4,6 +4,7 @@ import { useGSAP, gsap } from "@/app/lib/gsap";
 import Image from "next/image";
 import dataProjects from "@/app/data/project_info.json";
 import { useRouter } from "next/navigation";
+import { useTransition } from "@/app/context/TransitionContext";
 
 function ProjectGrid() {
   const [isActive, setIsActive] = useState<number | null>(null);
@@ -11,7 +12,7 @@ function ProjectGrid() {
   const projectsListRef = useRef<HTMLUListElement>(null);
 
   // Route
-  const router = useRouter();
+  const { navigateTo } = useTransition();
 
   // Data des projets
   const projectsCode = dataProjects.filter((p) => p.category === "code") ?? [];
@@ -201,14 +202,14 @@ function ProjectGrid() {
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                router.push(`/projects/${el.slug}`);
+                navigateTo(`/projects/${el.slug}`);
               }
             }}
             tabIndex={isReady && !isAnimatingView ? 0 : -1} // -1 = exclu du tab quand caché
             aria-label={`Ouvrir le projet ${el.title}`}
             onMouseEnter={(e) => handleEnter(el.id, e.currentTarget)}
             onMouseLeave={(e) => handleLeave(e.currentTarget)}
-            onClick={() => router.push(`/projects/${el.slug}`)}
+            onClick={() => navigateTo(`/projects/${el.slug}`)}
             className={[
               styles.projectCards,
               isActive === el.id && styles.activeCard,

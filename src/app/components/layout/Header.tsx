@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import { OpenType } from "@/app/types/types/header.t";
 import { useRouter } from "next/navigation";
+import { useTransition } from "@/app/context/TransitionContext";
 
 function Header({ setOpen, setOpenContact }: OpenType) {
   const [time, setTime] = useState(new Date());
   const [mounted, setMounted] = useState(false);
 
   // Route
-  const router = useRouter();
+  const { navigateTo } = useTransition();
 
   // Fix désynchronisation d'hydratation
   useEffect(() => {
@@ -46,7 +47,7 @@ function Header({ setOpen, setOpenContact }: OpenType) {
             </button>
           </li>
           <li>
-            <button type="button" onClick={() => router.push(`/`)}>
+            <button type="button" onClick={() => navigateTo(`/`)}>
               Projets
             </button>
           </li>

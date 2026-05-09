@@ -22,6 +22,10 @@ body {
   height: 100vh;
 }
 
+.page {
+  isolation: isolate;
+}
+
 // Titre
 h2 {
   @include h2;

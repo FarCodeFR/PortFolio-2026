@@ -68,6 +68,7 @@ export async function generateMetadata({
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default async function ProjectPage({ params }: PageProps) {
+  // Params = [slug] = nom du projet
   const { slug } = await params;
 
   // Switch project
