@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import "./styles/globals.scss";
 import { Anton, Bricolage_Grotesque } from "next/font/google";
+import PageTransition from "./components/layout/PageTransition";
 
 export const metadata: Metadata = {
   title: "Timothé Renard – Développeur Front-end React / TypeScript",
@@ -56,7 +57,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${anton.variable} ${bricolage.variable}`}>
-      <body>{children}</body>
+      <body>
+        <PageTransition />
+        {children}
+      </body>
     </html>
   );
 }

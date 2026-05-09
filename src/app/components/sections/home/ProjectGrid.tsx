@@ -3,16 +3,15 @@ import { useRef, useState } from "react";
 import { useGSAP, gsap } from "@/app/lib/gsap";
 import Image from "next/image";
 import dataProjects from "@/app/data/project_info.json";
-import { useRouter } from "next/navigation";
-import { useTransition } from "@/app/context/TransitionContext";
+import { usePageTransition } from "@/app/hooks/animations/usePageTransition";
 
 function ProjectGrid() {
   const [isActive, setIsActive] = useState<number | null>(null);
   const containerProjectRef = useRef<HTMLDivElement>(null);
   const projectsListRef = useRef<HTMLUListElement>(null);
 
-  // Route
-  const { navigateTo } = useTransition();
+  // Animation changement de page
+  const { navigateWithTransition } = usePageTransition();
 
   // Data des projets
   const projectsCode = dataProjects.filter((p) => p.category === "code") ?? [];
@@ -202,14 +201,14 @@ function ProjectGrid() {
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
-                navigateTo(`/projects/${el.slug}`);
+                navigateWithTransition(`/projects/${el.slug}`);
               }
             }}
             tabIndex={isReady && !isAnimatingView ? 0 : -1} // -1 = exclu du tab quand caché
             aria-label={`Ouvrir le projet ${el.title}`}
             onMouseEnter={(e) => handleEnter(el.id, e.currentTarget)}
             onMouseLeave={(e) => handleLeave(e.currentTarget)}
-            onClick={() => navigateTo(`/projects/${el.slug}`)}
+            onClick={() => navigateWithTransition(`/projects/${el.slug}`)}
             className={[
               styles.projectCards,
               isActive === el.id && styles.activeCard,

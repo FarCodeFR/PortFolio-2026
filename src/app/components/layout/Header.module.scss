@@ -53,6 +53,12 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  & li > a {
+    @include navMaj;
+    cursor: pointer;
+    color: $c-fg-primary;
+    padding: 0 1em;
+  }
   & li > button {
     border: none;
     background: none;
