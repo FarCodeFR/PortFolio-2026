@@ -57,14 +57,9 @@ body {
   color: #ffffff;
 }
 
-.page {
-  padding: 0em 1em;
-}
-
 .main {
   align-content: center;
-  margin: 7% auto;
-  padding: 0 22px;
+  height: 100vh;
 }
 
 h2 {
@@ -92,7 +87,7 @@ h3 {
 }
 @media (max-width: 480px) {
   h3 {
-    font-size: 48px;
+    font-size: 40px;
     line-height: 1.1;
   }
 }
@@ -128,7 +123,7 @@ p {
 @media (max-width: 480px) {
   .page {
     grid-template-rows: 70px 1fr 80px;
-    padding: 0 16px;
+    padding: 0;
   }
   .main {
     padding: 0;

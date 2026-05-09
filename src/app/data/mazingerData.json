@@ -1,37 +1,83 @@
-[
-  {
-    "id": 1,
-    "name": "enemyOne",
-    "image": "/images/projects/mazinger/mobs/enemyOne.png"
-  },
-  {
-    "id": 2,
-    "name": "enemyTwo",
-    "image": "/images/projects/mazinger/mobs/enemyTwo.png"
-  },
-  {
-    "id": 3,
-    "name": "enemyThree",
-    "image": "/images/projects/mazinger/mobs/enemyThree.png"
-  },
-  {
-    "id": 4,
-    "name": "enemyFour",
-    "image": "/images/projects/mazinger/mobs/enemyFour.png"
-  },
-  {
-    "id": 5,
-    "name": "enemyFive",
-    "image": "/images/projects/mazinger/mobs/enemyFive.png"
-  },
-  {
-    "id": 6,
-    "name": "enemySix",
-    "image": "/images/projects/mazinger/mobs/enemySix.png"
-  },
-  {
-    "id": 7,
-    "name": "enemySeven",
-    "image": "/images/projects/mazinger/mobs/enemySeven.png"
-  }
-]
+{
+  "enemies": [
+    {
+      "id": 1,
+      "name": "ALIEN",
+      "src": "/images/projects/mazinger/mobs/enemyOne.png"
+    },
+    {
+      "id": 2,
+      "name": "BASIC DRONE",
+      "src": "/images/projects/mazinger/mobs/enemyTwo.png"
+    },
+    {
+      "id": 3,
+      "name": "BOSS",
+      "src": "/images/projects/mazinger/mobs/enemyThree.png"
+    },
+    {
+      "id": 4,
+      "name": "EMPIRE",
+      "src": "/images/projects/mazinger/mobs/enemyFour.png"
+    },
+    {
+      "id": 5,
+      "name": "EYE",
+      "src": "/images/projects/mazinger/mobs/enemyFive.png"
+    },
+    {
+      "id": 6,
+      "name": "NASABOSS",
+      "src": "/images/projects/mazinger/mobs/enemySix.png"
+    },
+    {
+      "id": 7,
+      "name": "PURPLE",
+      "src": "/images/projects/mazinger/mobs/enemySeven.png"
+    },
+    {
+      "id": 8,
+      "name": "PLAYER",
+      "src": "/images/projects/mazinger/mobs/player.png"
+    }
+  ],
+  "maps": [
+    {
+      "id": 1,
+      "name": "MAP 01",
+      "src": "/images/projects/mazinger/maps/mapOne.png"
+    },
+    {
+      "id": 2,
+      "name": "MAP 02",
+      "src": "/images/projects/mazinger/maps/mapTwo.png"
+    },
+    {
+      "id": 3,
+      "name": "MAP 03",
+      "src": "/images/projects/mazinger/maps/mapThree.png"
+    },
+    {
+      "id": 4,
+      "name": "MAP 04",
+      "src": "/images/projects/mazinger/maps/mapFour.png"
+    }
+  ],
+  "sounds": [
+    {
+      "id": 1,
+      "name": "MAP ONE — Thème principal",
+      "src": "/audio/mapOne.mp3"
+    },
+    {
+      "id": 2,
+      "name": "MAP TWO — Thème niveau 2",
+      "src": "/audio/mapTwo.mp3"
+    },
+    {
+      "id": 3,
+      "name": "BOSS ONE — Combat boss",
+      "src": "/audio/bossOne.mp3"
+    }
+  ]
+}

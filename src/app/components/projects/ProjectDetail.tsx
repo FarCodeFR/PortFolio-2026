@@ -4,6 +4,7 @@ import styles from "./ProjectDetail.module.scss";
 import { ProjectDetailProps } from "@/app/types/types/global.t";
 import { WeatherAppSwitcher } from "./WeatherApp/WeatherAppSwitcher";
 import { useRouter } from "next/navigation";
+import MazingerShowcase from "./Mazinger/MazingerShowcase";
 
 export default function ProjectDetail({
   project,
@@ -106,6 +107,8 @@ export default function ProjectDetail({
             </div>
           </div>
         )}
+
+        {project.slug === "mazinger" && <MazingerShowcase />}
 
         {/* Challenge */}
         {project.challenge && (
