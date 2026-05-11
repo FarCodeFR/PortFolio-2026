@@ -358,24 +358,18 @@ $bp-mobile: 480px;
 }
 
 @media (max-width: $bp-mobile) {
-  .project_hero {
-    &::before {
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.78) 0%,
-        rgba(0, 0, 0, 0.42) 45%,
-        rgba(0, 0, 0, 0.78) 100%
-      );
-    }
-  }
   .project_detail_container {
-    h1 {
-      margin-bottom: 24px;
-    }
-
     .linkSite {
       flex-wrap: wrap;
       padding: 0 24px 32px;
+    }
+  }
+
+  .hero_content {
+    & h1 {
+      @include h2;
+      color: #fff;
+      text-shadow: none;
     }
   }
 
