@@ -3,6 +3,10 @@
 import { usePathname, useRouter } from "next/navigation";
 import { gsap } from "@/app/lib/gsap";
 
+//  Phase de "Sortie" de la page :
+//  Intercepte la navigation pour animer les panneaux vers le haut fermeture du rideau.
+//  Une fois que l'écran est totalement recouvert par les panneaux, déclenche
+//  physiquement le changement de route via le routeur de Next.js.
 export function usePageTransition() {
   const router = useRouter();
   const pathname = usePathname();

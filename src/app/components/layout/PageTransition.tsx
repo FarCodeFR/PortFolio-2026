@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import { useGSAP, gsap } from "@/app/lib/gsap";
 import styles from "./PageTransition.module.scss";
 
+// Phase d'Entrée de la page :
+// Cette fonction réagit à chaque changement d'URL.
+// ouverture du rideau pour révéler le nouveau contenu.
 export default function PageTransition() {
   const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement>(null);

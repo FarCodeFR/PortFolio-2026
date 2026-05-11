@@ -68,7 +68,12 @@ export default function ProjectDetail({
     <main ref={containerRef} className={styles.project_detail_container}>
       <section ref={heroRef} className={styles.project_hero}>
         <div ref={bgRef} className={styles.hero_bg}>
-          <Image src={project.background} alt={project.title} fill />
+          <Image
+            src={project.background}
+            alt={project.title}
+            loading="eager"
+            fill
+          />
         </div>
         <div className={styles.hero_gradient}></div>
         <div className={styles.hero_content}>
