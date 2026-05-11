@@ -308,6 +308,7 @@ $bp-mobile: 480px;
     & h1 {
       @include h1;
       padding-bottom: 0.2em;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
 
     .hero_tag {
@@ -369,7 +370,6 @@ $bp-mobile: 480px;
     & h1 {
       @include h2;
       color: #fff;
-      text-shadow: none;
     }
   }
 
