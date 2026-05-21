@@ -6,7 +6,7 @@ function Hobby() {
   return (
     <Fragment>
       <div className={styles.hobby_about}>
-        <h2>Hobby</h2>
+        <h2>Hobbys</h2>
         <ul>
           <li>Voyager</li>
           <li>Randonnée</li>
