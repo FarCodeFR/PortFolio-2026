@@ -8,7 +8,7 @@ function Experience() {
   return (
     <section className={styles.experience_about}>
       <div>
-        <p className={styles.label_experience}>SCHOOL</p>
+        <p className={styles.label_experience}>FORMATIONS</p>
         <ul>
           {school?.map((el) => (
             <li key={`school-${el.id}`}>
