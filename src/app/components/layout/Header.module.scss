@@ -39,11 +39,40 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+
   & p {
     @include navMaj;
   }
   & p:last-child {
     color: $c-fg-secondary;
+  }
+  & div {
+    display: flex;
+    align-items: center;
+  }
+
+  & .available p {
+    background: linear-gradient(90deg, #2fe08a, #17b56ba2, #2fe08a);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  & .available svg {
+    color: #2fe08a;
+  }
+
+  & .busy p {
+    background: linear-gradient(90deg, #ff5f6d, #d23a46a2, #ff5f6d);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  & .busy svg {
+    color: #ff5f6d;
   }
 }
 
