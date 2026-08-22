@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "./Header.module.scss";
 import { OpenType } from "@/app/types/types/header.t";
 import TransitionLink from "./TransitionLink";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 function Header({ setOpen, setOpenContact }: OpenType) {
   const [time, setTime] = useState<Date | null>(null);
+  const [disponible] = useState(false);
 
   useEffect(() => {
     setTime(new Date());
@@ -14,6 +18,15 @@ function Header({ setOpen, setOpenContact }: OpenType) {
     }, 1000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useGSAP(() => {
+    gsap.to(".statut-texte", {
+      backgroundPosition: "-200% center",
+      duration: 3,
+      repeat: -1,
+      ease: "none",
+    });
   }, []);
 
   // About
@@ -29,7 +42,20 @@ function Header({ setOpen, setOpenContact }: OpenType) {
     <header className={styles.header}>
       <div className={styles.name}>
         <p>Timothe Renard</p>
-        <p>Disponible</p>
+        <div className={disponible ? styles.available : styles.busy}>
+          <svg
+            className="statut-svg"
+            width={15}
+            height={15}
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+          >
+            <circle cx="8" cy="8" r="4" fill="currentColor" />
+          </svg>
+          <p className="statut-texte">
+            {disponible ? "Disponible" : "Indisponible"}
+          </p>
+        </div>
       </div>
       <nav aria-label="Navigation principale">
         <ul className={styles.links}>
