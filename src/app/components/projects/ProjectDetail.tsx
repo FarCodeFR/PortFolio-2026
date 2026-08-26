@@ -7,6 +7,7 @@ import MazingerShowcase from "./Mazinger/MazingerShowcase";
 import { useGSAP, gsap } from "@/app/lib/gsap";
 import { useRef } from "react";
 import { usePageTransition } from "@/app/hooks/animations/usePageTransition";
+import ThreeShowcase from "./Three/ThreeShowcase";
 
 export default function ProjectDetail({
   project,
@@ -159,7 +160,7 @@ export default function ProjectDetail({
             </div>
           </div>
         )}
-
+        {project.slug === "three-js" && <ThreeShowcase />}
         {project.slug === "mazinger" && <MazingerShowcase />}
 
         {/* Challenge */}

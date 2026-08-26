@@ -104,12 +104,12 @@
       "React Three Fiber",
       "Blender"
     ],
-    "mission": null,
-    "challenge": null,
+    "mission": "Réalisation des exercices du cours Three.js Journey de Bruno Simon, des bases (transformations, animations, caméras) jusqu'aux textures, matériaux, texte 3D, lumières et ombres, avec la scène de la maison hantée (chapitre 16) revisitée en version western. Prochaine étape : les particules.",
+    "challenge": "Le principal défi est d'apprendre la 3D temps réel sur le web, un domaine totalement nouveau : comprendre le fonctionnement de WebGL et de Three.js, la gestion de la scène, des matériaux, des lumières, des ombres et des performances, tout en assimilant les notions de géométrie et de rendu.",
     "result": null,
     "learning": null,
-    "github": null,
-    "live": "https://threejs-journey.com",
+    "github": "https://github.com/FarCodeFR/threejs-journey",
+    "live": "https://threejs-journey-sable.vercel.app",
     "background": "/images/projects/three/hero_donut_three.jpg",
     "image_mission": "/images/projects/three/threeProject.png"
   },
